@@ -16,9 +16,15 @@ ai-knowledge-ragbot/
 └── compile-config.yaml
 ```
 
-## Inheritance
+## Framework
 
-This workspace inherits from `ai-knowledge-personal` (personal context).
+This repository uses the AI Knowledge framework, part of [synthesis coding](https://synthesiscoding.com/) practices within the broader synthesis engineering methodology. The framework organizes knowledge into:
+
+- **instructions/** - WHO: Identity and persona
+- **runbooks/** - HOW: Procedures and workflows
+- **datasets/** - WHAT: Facts and reference information
+
+This structure is also used in the open source [Ragbot](https://github.com/personalpant/ragbot) and [RaGenie](https://github.com/personalpant/ragenie) projects, and works with Claude, ChatGPT, Cursor, and other AI platforms.
 
 ## Related Repositories
 
