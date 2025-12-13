@@ -1,0 +1,38 @@
+# ai-knowledge repo gitignore
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Compiled output (generated, not source)
+# Note: compiled/ folder IS tracked, but intermediate build files are not
+compiled/**/*.tmp
+compiled/**/*.log
+
+# Dependencies (if any build tools are added)
+node_modules/
+.venv/
+__pycache__/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Environment files (secrets)
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/

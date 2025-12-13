@@ -1,0 +1,52 @@
+# ai-knowledge-ragbot compile configuration
+# Inherits from personal (personal context)
+
+project:
+  name: ragbot
+  description: Ragbot open source project knowledge base
+  inherits_from: [personal]
+  output_dir: ./compiled
+
+sources:
+  # Personal context (parent)
+  personal:
+    repo: personalpant/ai-knowledge-personal
+    path: ${DEPS_DIR}/ai-knowledge-personal/source
+    include_private: false
+    include:
+      - instructions/**
+      - runbooks/coding/**
+      - runbooks/techniques/**
+      - datasets/professional-public/**
+    exclude:
+      - datasets/personal-private/**
+      - datasets/clients/**
+      - runbooks/communication/**
+      - runbooks/content-creation/**
+
+  # Local repo content
+  local:
+    path: ./source
+    include:
+      - "**/*"
+    exclude:
+      - "**/.DS_Store"
+      - "**/README.md"
+
+compilation:
+  default_token_budget: 100000
+  targets:
+    - name: claude-projects
+      platform: anthropic
+      model: claude-sonnet-4-20250514
+      output: compiled/claude-projects/
+    - name: chatgpt-projects
+      platform: openai
+      model: gpt-4o
+      output: compiled/chatgpt-projects/
+
+vector_store:
+  enabled: true
+  chunk_size: 1000
+  chunk_overlap: 200
+  output: compiled/vectors/
