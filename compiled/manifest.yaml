@@ -1,0 +1,39 @@
+version: 1
+generated_at: '2025-12-13T19:06:37.351412'
+compilation_time_seconds: 4.36
+project:
+  name: ragbot
+  description: Ragbot open source project knowledge base
+source:
+  total_files: 1
+  total_tokens: 124
+  by_category:
+    instructions:
+      files:
+      - instructions/default.md
+      tokens: 124
+compiled:
+  files:
+  - /Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/claude-projects/instructions/ragbot.md
+  - /Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/chatgpt-projects/instructions/ragbot.md
+  - /Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/vectors/chunks.jsonl
+  - /Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/claude-projects/instructions/ragbot.md
+  - /Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/chatgpt-projects/instructions/ragbot.md
+  targets:
+  - name: claude-projects
+    platform: anthropic
+    output_files:
+    - /Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/claude-projects/instructions/ragbot.md
+    token_count: 124
+    llm_compiled: true
+  - name: chatgpt-projects
+    platform: openai
+    output_files:
+    - /Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/chatgpt-projects/instructions/ragbot.md
+    token_count: 124
+    llm_compiled: true
+configuration:
+  token_budget: 100000
+  targets:
+  - claude-projects
+  - chatgpt-projects

@@ -35,14 +35,21 @@ sources:
 
 compilation:
   default_token_budget: 100000
+
+  # Default compiler model for non-LLM-specific content
+  default_compiler:
+    engine: anthropic
+    model_category: flagship
+
+  # LLM targets - each platform's instructions compiled by that platform's flagship
   targets:
     - name: claude-projects
       platform: anthropic
-      model: claude-sonnet-4-20250514
+      model_category: flagship
       output: compiled/claude-projects/
     - name: chatgpt-projects
       platform: openai
-      model: gpt-4o
+      model_category: flagship
       output: compiled/chatgpt-projects/
 
 vector_store:
