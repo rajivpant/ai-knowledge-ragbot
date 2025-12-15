@@ -1,11 +1,10 @@
 # Enterprise-Grade Codebase Review Runbook
 
-> **Version**: 2.0  
-> **Author**: Personal Pant  
-> **Purpose**: Comprehensive, practical codebase audit for projects of any size  
-> **Usage**: Use with Claude Code, Cursor, or any AI-assisted development environment  
-> **License**: Open source under MIT License  
-> **Repository**: Part of the [Ragbot.AI](https://ragbot.ai) project  
+> **Version**: 2.0
+> **Purpose**: Comprehensive, practical codebase audit for projects of any size
+> **Usage**: Use with Claude Code, Cursor, or any AI-assisted development environment
+> **License**: Open source under MIT License
+> **Repository**: Part of the [Ragbot.AI](https://ragbot.ai) project
 > **Methodology**: Based on [Synthesis Coding](https://synthesiscoding.com) principles
 
 ---
