@@ -36,3 +36,6 @@ logs/
 *.tmp
 *.temp
 .cache/
+
+# Compiler cache (generated, contains local paths)
+.compile-cache.json
