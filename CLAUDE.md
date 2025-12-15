@@ -29,6 +29,16 @@ Content here is inherited by ALL downstream repos, so it must be:
 - Reusable (templates, not implementations)
 - Public-safe (nothing confidential)
 
+## Compilation Model
+
+**Key concept:** The output repo determines what content is included—not who runs the compiler.
+
+- Anyone with write access to a repo can compile into it
+- Content included depends solely on the output repo's position in the inheritance tree
+- Same output regardless of who runs the compiler
+
+See [ragbot/docs/compilation-guide.md](https://github.com/rajivpant/ragbot/blob/main/docs/compilation-guide.md) for full documentation.
+
 ## Structure
 
 ```
