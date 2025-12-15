@@ -88,14 +88,23 @@ Copy any file to use directly in your AI workflows:
 
 ### Inheritance
 
-Personal ai-knowledge repos can inherit from this repo. Add to your `compile-config.yaml`:
+Personal ai-knowledge repos can inherit from this repo by adding it to their inheritance chain in `my-projects.yaml`:
 
 ```yaml
-inherits_from:
-  - ai-knowledge-ragbot
+projects:
+  personal:
+    inherits_from: [ragbot]  # Inherits all public templates
 ```
 
 This gives you access to all public runbooks and templates, which you can extend with your own voice profiles and personal content.
+
+### Compilation
+
+**Key concept:** The output repo determines what content is included—not who runs the compiler.
+
+Anyone with write access to a repo can compile into it. The content included depends solely on the output repo's position in the inheritance tree.
+
+See [ragbot/docs/compilation-guide.md](https://github.com/rajivpant/ragbot/blob/main/docs/compilation-guide.md) for full documentation.
 
 ### Customization
 
