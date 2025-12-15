@@ -38,6 +38,9 @@ Step-by-step procedures for specific tasks.
 - [blog-revitalization-framework.md](source/runbooks/content-enhancement/blog-revitalization-framework.md) - Update historical posts
 - [blog-revitalization-prompt.md](source/runbooks/content-enhancement/blog-revitalization-prompt.md) - Quick revitalization prompt
 
+**Engineering:**
+- [codebase-review.md](source/runbooks/engineering/codebase-review.md) - Enterprise-grade codebase review checklist
+
 ### Datasets (`source/datasets/`)
 
 Reference information and templates.
@@ -61,7 +64,8 @@ ai-knowledge-ragbot/
 │   │   ├── system-config/
 │   │   ├── communication/
 │   │   ├── content-creation/
-│   │   └── content-enhancement/
+│   │   ├── content-enhancement/
+│   │   └── engineering/
 │   ├── datasets/           # WHAT - Reference information
 │   │   ├── templates/
 │   │   └── guides/
