@@ -41,6 +41,9 @@ Step-by-step procedures for specific tasks.
 **Engineering:**
 - [codebase-review.md](source/runbooks/engineering/codebase-review.md) - Enterprise-grade codebase review checklist
 
+**LLM Project Setup:**
+- [llm-project-setup.md](source/runbooks/system-config/llm-project-setup.md) - Configure Claude Projects, ChatGPT GPTs, and Gemini Gems
+
 ### Datasets (`source/datasets/`)
 
 Reference information and templates.
