@@ -998,5 +998,5 @@ This runbook is open source. Contributions are welcome!
 
 *Enterprise-Grade Codebase Review Runbook v2.0*
 *Part of the [Ragbot.AI](https://ragbot.ai) project*
-*Based on [Synthesis Coding](https://synthesiscoding.com) methodology by Personal Pant*
+*Based on [Synthesis Coding](https://synthesiscoding.com) methodology*
 *Licensed under MIT License*
