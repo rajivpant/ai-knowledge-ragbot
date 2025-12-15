@@ -1,0 +1,81 @@
+version: 1
+generated_at: '2025-12-15T00:32:47.330223'
+compilation_time_seconds: 0.05
+project:
+  name: ragbot
+  description: Ragbot open source project knowledge base
+source:
+  total_files: 20
+  total_tokens: 31494
+  by_category:
+    datasets:
+      files:
+      - datasets/guides/ai-content-quality-guide.md
+      - datasets/templates/about-me.md
+      - datasets/templates/preferences.md
+      - datasets/templates/professional.md
+      tokens: 8451
+    instructions:
+      files:
+      - instructions/default.md
+      - instructions/templates/creative-writer.md
+      - instructions/templates/default.md
+      - instructions/templates/technical-advisor.md
+      tokens: 1631
+    runbooks:
+      files:
+      - runbooks/communication/message-condensation.md
+      - runbooks/content-creation/blog-promotion.md
+      - runbooks/content-creation/content-promotion-framework.md
+      - runbooks/content-creation/hyperlink-research.md
+      - runbooks/content-creation/social-media-post.md
+      - runbooks/content-enhancement/blog-revitalization-framework.md
+      - runbooks/content-enhancement/blog-revitalization-prompt.md
+      - runbooks/engineering/codebase-review.md
+      - runbooks/system-config/anti-watermarking.md
+      - runbooks/system-config/code-generation.md
+      - runbooks/system-config/llm-project-setup.md
+      - runbooks/system-config/response-synthesis.md
+      tokens: 21412
+compiled:
+  files:
+  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/instructions/claude.md
+  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/instructions/chatgpt.md
+  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-message-condensation.md
+  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-blog-promotion.md
+  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-content-promotion-framework.md
+  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-hyperlink-research.md
+  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-social-media-post.md
+  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-blog-revitalization-framework.md
+  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-blog-revitalization-prompt.md
+  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-codebase-review.md
+  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-anti-watermarking.md
+  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-code-generation.md
+  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-llm-project-setup.md
+  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-response-synthesis.md
+  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/datasets-ai-content-quality-guide.md
+  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/datasets-about-me.md
+  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/datasets-preferences.md
+  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/datasets-professional.md
+  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/all-knowledge.md
+  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/vectors/chunks.jsonl
+  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/instructions/claude.md
+  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/instructions/chatgpt.md
+  targets:
+  - name: anthropic
+    platform: anthropic
+    output_files:
+    - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/instructions/claude.md
+    token_count: 31494
+    llm_compiled: false
+  - name: openai
+    platform: openai
+    output_files:
+    - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/instructions/chatgpt.md
+    token_count: 31494
+    llm_compiled: false
+configuration:
+  token_budget: 100000
+  targets:
+  - claude-projects
+  - chatgpt-projects

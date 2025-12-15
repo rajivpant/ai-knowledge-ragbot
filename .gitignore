@@ -7,9 +7,10 @@
 ._*
 
 # Compiled output (generated, not source)
-# The ragbot repo is the root of inheritance - no need to track compiled output here
-# Other ai-knowledge repos DO track their compiled/ folders
-compiled/
+# Note: compiled/ folder IS tracked - it contains the compiled knowledge for this repo
+# Intermediate build files are ignored
+compiled/**/*.tmp
+compiled/**/*.log
 
 # Dependencies (if any build tools are added)
 node_modules/
