@@ -1,36 +1,83 @@
 version: 1
-generated_at: '2025-12-13T19:06:37.351412'
-compilation_time_seconds: 4.36
+generated_at: '2025-12-14T21:51:26.980551'
+compilation_time_seconds: 17.13
 project:
   name: ragbot
   description: Ragbot open source project knowledge base
 source:
-  total_files: 1
-  total_tokens: 124
+  total_files: 20
+  total_tokens: 31241
   by_category:
+    datasets:
+      files:
+      - datasets/guides/ai-content-quality-guide.md
+      - datasets/templates/about-me.md
+      - datasets/templates/preferences.md
+      - datasets/templates/professional.md
+      tokens: 8451
     instructions:
       files:
       - instructions/default.md
-      tokens: 124
+      - instructions/templates/creative-writer.md
+      - instructions/templates/default.md
+      - instructions/templates/technical-advisor.md
+      tokens: 1631
+    runbooks:
+      files:
+      - runbooks/communication/message-condensation.md
+      - runbooks/content-creation/blog-promotion.md
+      - runbooks/content-creation/content-promotion-framework.md
+      - runbooks/content-creation/hyperlink-research.md
+      - runbooks/content-creation/social-media-post.md
+      - runbooks/content-enhancement/blog-revitalization-framework.md
+      - runbooks/content-enhancement/blog-revitalization-prompt.md
+      - runbooks/engineering/codebase-review.md
+      - runbooks/system-config/anti-watermarking.md
+      - runbooks/system-config/code-generation.md
+      - runbooks/system-config/llm-project-setup.md
+      - runbooks/system-config/response-synthesis.md
+      tokens: 21159
 compiled:
   files:
   - /Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/claude-projects/instructions/ragbot.md
+  - /Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/claude-projects/knowledge/knowledge.md
   - /Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/chatgpt-projects/instructions/ragbot.md
+  - /Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/chatgpt-projects/knowledge/knowledge.md
+  - /Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/knowledge/full/runbooks/communication/message-condensation.md
+  - /Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/knowledge/full/runbooks/content-creation/blog-promotion.md
+  - /Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/knowledge/full/runbooks/content-creation/content-promotion-framework.md
+  - /Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/knowledge/full/runbooks/content-creation/hyperlink-research.md
+  - /Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/knowledge/full/runbooks/content-creation/social-media-post.md
+  - /Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/knowledge/full/runbooks/content-enhancement/blog-revitalization-framework.md
+  - /Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/knowledge/full/runbooks/content-enhancement/blog-revitalization-prompt.md
+  - /Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/knowledge/full/runbooks/engineering/codebase-review.md
+  - /Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/knowledge/full/runbooks/system-config/anti-watermarking.md
+  - /Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/knowledge/full/runbooks/system-config/code-generation.md
+  - /Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/knowledge/full/runbooks/system-config/llm-project-setup.md
+  - /Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/knowledge/full/runbooks/system-config/response-synthesis.md
+  - /Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/knowledge/full/datasets/guides/ai-content-quality-guide.md
+  - /Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/knowledge/full/datasets/templates/about-me.md
+  - /Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/knowledge/full/datasets/templates/preferences.md
+  - /Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/knowledge/full/datasets/templates/professional.md
   - /Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/vectors/chunks.jsonl
   - /Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/claude-projects/instructions/ragbot.md
+  - /Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/claude-projects/knowledge/knowledge.md
   - /Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/chatgpt-projects/instructions/ragbot.md
+  - /Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/chatgpt-projects/knowledge/knowledge.md
   targets:
   - name: claude-projects
     platform: anthropic
     output_files:
     - /Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/claude-projects/instructions/ragbot.md
-    token_count: 124
+    - /Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/claude-projects/knowledge/knowledge.md
+    token_count: 31241
     llm_compiled: true
   - name: chatgpt-projects
     platform: openai
     output_files:
     - /Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/chatgpt-projects/instructions/ragbot.md
-    token_count: 124
+    - /Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/chatgpt-projects/knowledge/knowledge.md
+    token_count: 31241
     llm_compiled: true
 configuration:
   token_budget: 100000

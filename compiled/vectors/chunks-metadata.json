@@ -1,1 +1,472 @@
-[]
+[
+  {
+    "id": "0dd85a712bc8",
+    "tokens": 1000,
+    "source_file": "datasets/guides/ai-content-quality-guide.md",
+    "category": "datasets",
+    "chunk_index": 0,
+    "total_chunks": 11,
+    "start_char": 0,
+    "end_char": 4000
+  },
+  {
+    "id": "69bb801a111c",
+    "tokens": 1000,
+    "source_file": "datasets/guides/ai-content-quality-guide.md",
+    "category": "datasets",
+    "chunk_index": 1,
+    "total_chunks": 11,
+    "start_char": 3200,
+    "end_char": 7200
+  },
+  {
+    "id": "ea6420e320ac",
+    "tokens": 1000,
+    "source_file": "datasets/guides/ai-content-quality-guide.md",
+    "category": "datasets",
+    "chunk_index": 2,
+    "total_chunks": 11,
+    "start_char": 6400,
+    "end_char": 10400
+  },
+  {
+    "id": "f2028be9e9fd",
+    "tokens": 1000,
+    "source_file": "datasets/guides/ai-content-quality-guide.md",
+    "category": "datasets",
+    "chunk_index": 3,
+    "total_chunks": 11,
+    "start_char": 9600,
+    "end_char": 13600
+  },
+  {
+    "id": "86dcb33a7258",
+    "tokens": 1000,
+    "source_file": "datasets/guides/ai-content-quality-guide.md",
+    "category": "datasets",
+    "chunk_index": 4,
+    "total_chunks": 11,
+    "start_char": 12800,
+    "end_char": 16800
+  },
+  {
+    "id": "bb73b037f780",
+    "tokens": 1000,
+    "source_file": "datasets/guides/ai-content-quality-guide.md",
+    "category": "datasets",
+    "chunk_index": 5,
+    "total_chunks": 11,
+    "start_char": 16000,
+    "end_char": 20000
+  },
+  {
+    "id": "78a4d6c7e322",
+    "tokens": 1000,
+    "source_file": "datasets/guides/ai-content-quality-guide.md",
+    "category": "datasets",
+    "chunk_index": 6,
+    "total_chunks": 11,
+    "start_char": 19200,
+    "end_char": 23200
+  },
+  {
+    "id": "a01309a0989a",
+    "tokens": 1000,
+    "source_file": "datasets/guides/ai-content-quality-guide.md",
+    "category": "datasets",
+    "chunk_index": 7,
+    "total_chunks": 11,
+    "start_char": 22400,
+    "end_char": 26400
+  },
+  {
+    "id": "b7c4956009ec",
+    "tokens": 1000,
+    "source_file": "datasets/guides/ai-content-quality-guide.md",
+    "category": "datasets",
+    "chunk_index": 8,
+    "total_chunks": 11,
+    "start_char": 25600,
+    "end_char": 29600
+  },
+  {
+    "id": "807c7aadd6d3",
+    "tokens": 1000,
+    "source_file": "datasets/guides/ai-content-quality-guide.md",
+    "category": "datasets",
+    "chunk_index": 9,
+    "total_chunks": 11,
+    "start_char": 28800,
+    "end_char": 32800
+  },
+  {
+    "id": "d95a60ddcdc1",
+    "tokens": 513,
+    "source_file": "datasets/guides/ai-content-quality-guide.md",
+    "category": "datasets",
+    "chunk_index": 10,
+    "total_chunks": 11,
+    "start_char": 32000,
+    "end_char": 34054
+  },
+  {
+    "id": "b3113febe13d",
+    "tokens": 313,
+    "source_file": "datasets/templates/about-me.md",
+    "category": "datasets",
+    "chunk_index": 0,
+    "total_chunks": 1,
+    "start_char": 0,
+    "end_char": 1255
+  },
+  {
+    "id": "30c2d8abf76e",
+    "tokens": 676,
+    "source_file": "datasets/templates/preferences.md",
+    "category": "datasets",
+    "chunk_index": 0,
+    "total_chunks": 1,
+    "start_char": 0,
+    "end_char": 2706
+  },
+  {
+    "id": "5e32b4fc0f10",
+    "tokens": 408,
+    "source_file": "datasets/templates/professional.md",
+    "category": "datasets",
+    "chunk_index": 0,
+    "total_chunks": 1,
+    "start_char": 0,
+    "end_char": 1632
+  },
+  {
+    "id": "889343396b1d",
+    "tokens": 1000,
+    "source_file": "runbooks/communication/message-condensation.md",
+    "category": "runbooks",
+    "chunk_index": 0,
+    "total_chunks": 2,
+    "start_char": 0,
+    "end_char": 4000
+  },
+  {
+    "id": "0455b66cc3a5",
+    "tokens": 419,
+    "source_file": "runbooks/communication/message-condensation.md",
+    "category": "runbooks",
+    "chunk_index": 1,
+    "total_chunks": 2,
+    "start_char": 3200,
+    "end_char": 4879
+  },
+  {
+    "id": "4369eec0a670",
+    "tokens": 703,
+    "source_file": "runbooks/content-creation/blog-promotion.md",
+    "category": "runbooks",
+    "chunk_index": 0,
+    "total_chunks": 1,
+    "start_char": 0,
+    "end_char": 2815
+  },
+  {
+    "id": "be539d0ac66f",
+    "tokens": 1000,
+    "source_file": "runbooks/content-creation/content-promotion-framework.md",
+    "category": "runbooks",
+    "chunk_index": 0,
+    "total_chunks": 5,
+    "start_char": 0,
+    "end_char": 4000
+  },
+  {
+    "id": "ffd180b11fc3",
+    "tokens": 1000,
+    "source_file": "runbooks/content-creation/content-promotion-framework.md",
+    "category": "runbooks",
+    "chunk_index": 1,
+    "total_chunks": 5,
+    "start_char": 3200,
+    "end_char": 7200
+  },
+  {
+    "id": "02768c981b3c",
+    "tokens": 1000,
+    "source_file": "runbooks/content-creation/content-promotion-framework.md",
+    "category": "runbooks",
+    "chunk_index": 2,
+    "total_chunks": 5,
+    "start_char": 6400,
+    "end_char": 10400
+  },
+  {
+    "id": "ce9ce9d9fc88",
+    "tokens": 1000,
+    "source_file": "runbooks/content-creation/content-promotion-framework.md",
+    "category": "runbooks",
+    "chunk_index": 3,
+    "total_chunks": 5,
+    "start_char": 9600,
+    "end_char": 13600
+  },
+  {
+    "id": "ffb0ab65c02a",
+    "tokens": 693,
+    "source_file": "runbooks/content-creation/content-promotion-framework.md",
+    "category": "runbooks",
+    "chunk_index": 4,
+    "total_chunks": 5,
+    "start_char": 12800,
+    "end_char": 15573
+  },
+  {
+    "id": "c1ba31880f32",
+    "tokens": 1000,
+    "source_file": "runbooks/content-creation/hyperlink-research.md",
+    "category": "runbooks",
+    "chunk_index": 0,
+    "total_chunks": 2,
+    "start_char": 0,
+    "end_char": 4000
+  },
+  {
+    "id": "eb7a5732607c",
+    "tokens": 278,
+    "source_file": "runbooks/content-creation/hyperlink-research.md",
+    "category": "runbooks",
+    "chunk_index": 1,
+    "total_chunks": 2,
+    "start_char": 3200,
+    "end_char": 4314
+  },
+  {
+    "id": "192df35856d2",
+    "tokens": 795,
+    "source_file": "runbooks/content-creation/social-media-post.md",
+    "category": "runbooks",
+    "chunk_index": 0,
+    "total_chunks": 1,
+    "start_char": 0,
+    "end_char": 3182
+  },
+  {
+    "id": "df3038d460a8",
+    "tokens": 1000,
+    "source_file": "runbooks/content-enhancement/blog-revitalization-framework.md",
+    "category": "runbooks",
+    "chunk_index": 0,
+    "total_chunks": 4,
+    "start_char": 0,
+    "end_char": 4000
+  },
+  {
+    "id": "d66d2843446c",
+    "tokens": 1000,
+    "source_file": "runbooks/content-enhancement/blog-revitalization-framework.md",
+    "category": "runbooks",
+    "chunk_index": 1,
+    "total_chunks": 4,
+    "start_char": 3200,
+    "end_char": 7200
+  },
+  {
+    "id": "d737c3fb801b",
+    "tokens": 1000,
+    "source_file": "runbooks/content-enhancement/blog-revitalization-framework.md",
+    "category": "runbooks",
+    "chunk_index": 2,
+    "total_chunks": 4,
+    "start_char": 6400,
+    "end_char": 10400
+  },
+  {
+    "id": "a72fa0a44888",
+    "tokens": 409,
+    "source_file": "runbooks/content-enhancement/blog-revitalization-framework.md",
+    "category": "runbooks",
+    "chunk_index": 3,
+    "total_chunks": 4,
+    "start_char": 9600,
+    "end_char": 11238
+  },
+  {
+    "id": "dd2857b1724d",
+    "tokens": 171,
+    "source_file": "runbooks/content-enhancement/blog-revitalization-prompt.md",
+    "category": "runbooks",
+    "chunk_index": 0,
+    "total_chunks": 1,
+    "start_char": 0,
+    "end_char": 685
+  },
+  {
+    "id": "f9e6042b958f",
+    "tokens": 1000,
+    "source_file": "runbooks/engineering/codebase-review.md",
+    "category": "runbooks",
+    "chunk_index": 0,
+    "total_chunks": 12,
+    "start_char": 0,
+    "end_char": 4000
+  },
+  {
+    "id": "442fa1b29a48",
+    "tokens": 1000,
+    "source_file": "runbooks/engineering/codebase-review.md",
+    "category": "runbooks",
+    "chunk_index": 1,
+    "total_chunks": 12,
+    "start_char": 3200,
+    "end_char": 7200
+  },
+  {
+    "id": "40681e684292",
+    "tokens": 1000,
+    "source_file": "runbooks/engineering/codebase-review.md",
+    "category": "runbooks",
+    "chunk_index": 2,
+    "total_chunks": 12,
+    "start_char": 6400,
+    "end_char": 10400
+  },
+  {
+    "id": "85e43ebb77ac",
+    "tokens": 1000,
+    "source_file": "runbooks/engineering/codebase-review.md",
+    "category": "runbooks",
+    "chunk_index": 3,
+    "total_chunks": 12,
+    "start_char": 9600,
+    "end_char": 13600
+  },
+  {
+    "id": "fd6521d6d7d9",
+    "tokens": 1000,
+    "source_file": "runbooks/engineering/codebase-review.md",
+    "category": "runbooks",
+    "chunk_index": 4,
+    "total_chunks": 12,
+    "start_char": 12800,
+    "end_char": 16800
+  },
+  {
+    "id": "58a6134cc844",
+    "tokens": 1000,
+    "source_file": "runbooks/engineering/codebase-review.md",
+    "category": "runbooks",
+    "chunk_index": 5,
+    "total_chunks": 12,
+    "start_char": 16000,
+    "end_char": 20000
+  },
+  {
+    "id": "80511306f7ac",
+    "tokens": 1000,
+    "source_file": "runbooks/engineering/codebase-review.md",
+    "category": "runbooks",
+    "chunk_index": 6,
+    "total_chunks": 12,
+    "start_char": 19200,
+    "end_char": 23200
+  },
+  {
+    "id": "b179198f6cac",
+    "tokens": 1000,
+    "source_file": "runbooks/engineering/codebase-review.md",
+    "category": "runbooks",
+    "chunk_index": 7,
+    "total_chunks": 12,
+    "start_char": 22400,
+    "end_char": 26400
+  },
+  {
+    "id": "c72f59ddcaf5",
+    "tokens": 1000,
+    "source_file": "runbooks/engineering/codebase-review.md",
+    "category": "runbooks",
+    "chunk_index": 8,
+    "total_chunks": 12,
+    "start_char": 25600,
+    "end_char": 29600
+  },
+  {
+    "id": "cc178090dffc",
+    "tokens": 1000,
+    "source_file": "runbooks/engineering/codebase-review.md",
+    "category": "runbooks",
+    "chunk_index": 9,
+    "total_chunks": 12,
+    "start_char": 28800,
+    "end_char": 32800
+  },
+  {
+    "id": "6ad7ff0964af",
+    "tokens": 1000,
+    "source_file": "runbooks/engineering/codebase-review.md",
+    "category": "runbooks",
+    "chunk_index": 10,
+    "total_chunks": 12,
+    "start_char": 32000,
+    "end_char": 36000
+  },
+  {
+    "id": "8b4311b17e8f",
+    "tokens": 555,
+    "source_file": "runbooks/engineering/codebase-review.md",
+    "category": "runbooks",
+    "chunk_index": 11,
+    "total_chunks": 12,
+    "start_char": 35200,
+    "end_char": 37420
+  },
+  {
+    "id": "3b491400acb3",
+    "tokens": 481,
+    "source_file": "runbooks/system-config/anti-watermarking.md",
+    "category": "runbooks",
+    "chunk_index": 0,
+    "total_chunks": 1,
+    "start_char": 0,
+    "end_char": 1924
+  },
+  {
+    "id": "df4714fdabb7",
+    "tokens": 378,
+    "source_file": "runbooks/system-config/code-generation.md",
+    "category": "runbooks",
+    "chunk_index": 0,
+    "total_chunks": 1,
+    "start_char": 0,
+    "end_char": 1513
+  },
+  {
+    "id": "b8ba82d412cd",
+    "tokens": 1000,
+    "source_file": "runbooks/system-config/llm-project-setup.md",
+    "category": "runbooks",
+    "chunk_index": 0,
+    "total_chunks": 2,
+    "start_char": 0,
+    "end_char": 4000
+  },
+  {
+    "id": "865be2d29a00",
+    "tokens": 780,
+    "source_file": "runbooks/system-config/llm-project-setup.md",
+    "category": "runbooks",
+    "chunk_index": 1,
+    "total_chunks": 2,
+    "start_char": 3200,
+    "end_char": 6322
+  },
+  {
+    "id": "209c248c8b6a",
+    "tokens": 439,
+    "source_file": "runbooks/system-config/response-synthesis.md",
+    "category": "runbooks",
+    "chunk_index": 0,
+    "total_chunks": 1,
+    "start_char": 0,
+    "end_char": 1757
+  }
+]

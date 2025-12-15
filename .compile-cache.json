@@ -4,9 +4,85 @@
   "files": {
     "/Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/source/instructions/default.md": {
       "hash": "4bb00d6bb363d520fffc7304e4ac1ece90e3c83c6b18b4a0df56bdd9141477b6",
-      "cached_at": "2025-12-13T19:06:37.352410"
+      "cached_at": "2025-12-14T21:51:26.985266"
+    },
+    "/Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/source/datasets/guides/ai-content-quality-guide.md": {
+      "hash": "412ae4aca5b088e1ac741b8e5eb01e5ee7060b058bab858925c610fb09d1d897",
+      "cached_at": "2025-12-14T21:51:26.984815"
+    },
+    "/Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/source/datasets/templates/about-me.md": {
+      "hash": "84ee63956bbc8d40a53cb7d2e7c1ccce0aab052037a476196d85866f41f03753",
+      "cached_at": "2025-12-14T21:51:26.985070"
+    },
+    "/Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/source/datasets/templates/preferences.md": {
+      "hash": "ce2becf1744a7412051216ffb652949e564aa8b78376c5c7f5ac8c4eef8fa215",
+      "cached_at": "2025-12-14T21:51:26.985149"
+    },
+    "/Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/source/datasets/templates/professional.md": {
+      "hash": "00d3553f266b45ba20f659989d94708ad87a9bd22b90b3f7c524ea5f40042781",
+      "cached_at": "2025-12-14T21:51:26.985208"
+    },
+    "/Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/source/instructions/templates/creative-writer.md": {
+      "hash": "aaa029efcc1015428a8652199eae29298d624e3ac6fe75946d5a7b7660ce344b",
+      "cached_at": "2025-12-14T21:51:26.985322"
+    },
+    "/Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/source/instructions/templates/default.md": {
+      "hash": "9f8e5af6a7a865dde6091d6c4c0f6cbacca81a6c7ffd9f8f8d1b60838d56801e",
+      "cached_at": "2025-12-14T21:51:26.985374"
+    },
+    "/Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/source/instructions/templates/technical-advisor.md": {
+      "hash": "9827624c2d3820c0ff1607f896dfd48d4f91af5b624b717e2df12351ca9e17f4",
+      "cached_at": "2025-12-14T21:51:26.985427"
+    },
+    "/Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/source/runbooks/communication/message-condensation.md": {
+      "hash": "08ee0c84a84f057ad8f24891ce68c2a50d6294fccdf70c8eb75636425e1473ef",
+      "cached_at": "2025-12-14T21:51:26.985490"
+    },
+    "/Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/source/runbooks/content-creation/blog-promotion.md": {
+      "hash": "528a34c745a336e3d45d8a683a188e241baa7de9e70dab51431ad36407d136b6",
+      "cached_at": "2025-12-14T21:51:26.985550"
+    },
+    "/Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/source/runbooks/content-creation/content-promotion-framework.md": {
+      "hash": "f7442d858e7c79eab932947647afa8f5df1b5df7af2b21d286557c76832a7fb5",
+      "cached_at": "2025-12-14T21:51:26.985616"
+    },
+    "/Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/source/runbooks/content-creation/hyperlink-research.md": {
+      "hash": "156add67c6ae7a9dd4218fabd604a1f6e862620fd1b6a4eb95fa5ad4900f49f4",
+      "cached_at": "2025-12-14T21:51:26.985670"
+    },
+    "/Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/source/runbooks/content-creation/social-media-post.md": {
+      "hash": "a62e8dda2f4a5bc818675a1346237476bcfb3753ff399c6f84718fa5b9d8ab7e",
+      "cached_at": "2025-12-14T21:51:26.985720"
+    },
+    "/Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/source/runbooks/content-enhancement/blog-revitalization-framework.md": {
+      "hash": "7f55d963a3ada4f5569106f819ba107566bf96b973efc954b1545dd8b0fed6d0",
+      "cached_at": "2025-12-14T21:51:26.985778"
+    },
+    "/Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/source/runbooks/content-enhancement/blog-revitalization-prompt.md": {
+      "hash": "451556b63adf8d462debe7c96fff9a1b82593d63dbd69e8ef2e855fb8e780496",
+      "cached_at": "2025-12-14T21:51:26.985831"
+    },
+    "/Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/source/runbooks/engineering/codebase-review.md": {
+      "hash": "7ef5d3b636cff1510456c68aa12298f6f6890e09b31091f117bb375bb5b67e51",
+      "cached_at": "2025-12-14T21:51:26.985929"
+    },
+    "/Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/source/runbooks/system-config/anti-watermarking.md": {
+      "hash": "1eb247efd68f4eb9d4e911f0b2c075aff80252f601f096e4234df9208073bbc0",
+      "cached_at": "2025-12-14T21:51:26.985986"
+    },
+    "/Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/source/runbooks/system-config/code-generation.md": {
+      "hash": "0a1c3150bd7b06c0da4a5f3657ba3862d7896b15fb8584d707011de0a0123eee",
+      "cached_at": "2025-12-14T21:51:26.986037"
+    },
+    "/Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/source/runbooks/system-config/llm-project-setup.md": {
+      "hash": "7f64147e25a7d30a8fcf2318408b866e993b183a8c9a4cec78d403dc79420d22",
+      "cached_at": "2025-12-14T21:51:26.986097"
+    },
+    "/Users/personalpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/source/runbooks/system-config/response-synthesis.md": {
+      "hash": "500021b05c0cfb2239f7b4300729f6f6a175ec2c08ff0e1962ed9e176b76358e",
+      "cached_at": "2025-12-14T21:51:26.986151"
     }
   },
   "compilations": {},
-  "last_updated": "2025-12-13T19:06:37.352414"
+  "last_updated": "2025-12-14T21:51:26.986154"
 }
