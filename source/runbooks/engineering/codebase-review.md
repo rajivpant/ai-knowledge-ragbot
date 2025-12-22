@@ -5,7 +5,7 @@
 > **Usage**: Use with Claude Code, Cursor, or any AI-assisted development environment
 > **License**: Open source under MIT License
 > **Repository**: Part of the [Ragbot.AI](https://ragbot.ai) project
-> **Methodology**: Based on [Synthesis Coding](https://synthesiscoding.com) principles
+> **Methodology**: Based on [Synthesis Coding](https://synthesiscoding.org) principles
 
 ---
 
@@ -998,5 +998,5 @@ This runbook is open source. Contributions are welcome!
 
 *Enterprise-Grade Codebase Review Runbook v2.0*
 *Part of the [Ragbot.AI](https://ragbot.ai) project*
-*Based on [Synthesis Coding](https://synthesiscoding.com) methodology*
+*Based on [Synthesis Coding](https://synthesiscoding.org) methodology*
 *Licensed under MIT License*
