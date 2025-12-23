@@ -2,6 +2,8 @@
 
 A lightweight project management system designed for AI-assisted development workflows. Optimized for context preservation across conversation sessions and context compaction events.
 
+**Related article:** [Synthesis Project Management](https://synthesisengineering.org/articles/ai-native-project-management/) - conceptual overview and rationale.
+
 ## Problem This Solves
 
 When working with AI assistants on multi-session projects:
