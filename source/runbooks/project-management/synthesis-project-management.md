@@ -45,6 +45,59 @@ ai-knowledge-{workspace}/
     └── templates/                 # Reusable templates
 ```
 
+## Project Resources Structure
+
+Each project folder can contain a `resources/` directory for organizing project data and artifacts:
+
+```
+{project-name}/
+├── CONTEXT.md              # Project state, decisions, next steps
+├── *.md                    # Decision docs, design notes (optional)
+└── resources/
+    ├── in/                 # Inputs - data/files coming INTO the project
+    ├── artifacts/          # Working data - intermediate products
+    ├── out/                # Outputs - final deliverables going OUT
+    ├── reference/          # External docs, specs, examples (read-only)
+    ├── scripts/            # One-off scripts created for this project
+    └── logs/               # Execution logs, API responses, debug output
+```
+
+### Resource Folder Purposes
+
+| Folder | Purpose | Examples |
+|--------|---------|----------|
+| `in/` | Raw data inputs to be processed | CSV dumps, API exports, database snapshots |
+| `artifacts/` | Intermediate work products | Analysis results, taxonomy files, batch outputs |
+| `out/` | Final deliverables | Generated reports, files ready to deploy |
+| `reference/` | External docs we're consulting (not processing) | API docs, spec PDFs, example code |
+| `scripts/` | One-off scripts that may be reusable | Python analysis scripts, shell utilities |
+| `logs/` | Execution records | API responses, build logs, debug output |
+
+### Guidelines
+
+- **Start simple:** Only create folders you need. Most projects only need `artifacts/`.
+- **Document complex resources:** Add a `README.md` if the folder contents aren't self-explanatory.
+- **Keep scripts portable:** Scripts in `scripts/` should be self-contained and documented.
+- **in/ vs reference/:** Use `in/` for data to transform, `reference/` for docs to read.
+
+### Example: SEO Optimization Project
+
+```
+rajiv-com-seo-optimization/
+├── CONTEXT.md
+├── synthesis-site-categories.md    # Decision doc
+└── resources/
+    ├── in/                         # (empty - no external data inputs)
+    ├── artifacts/
+    │   ├── README.md
+    │   ├── batch-*.json            # Phase 1 raw analysis
+    │   ├── taxonomy.json           # Phase 2 consolidated tags
+    │   └── final-tag-assignments.json
+    ├── out/                        # (pending - apply/push logs)
+    └── scripts/
+        └── apply-tags.py           # Script to update markdown files
+```
+
 ## Components
 
 ### 1. Project Index (`active/index.yaml`)
