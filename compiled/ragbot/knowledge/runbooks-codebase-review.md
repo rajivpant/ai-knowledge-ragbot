@@ -1,11 +1,12 @@
 # Enterprise-Grade Codebase Review Runbook
 
-> **Version**: 2.0
+> **Version**: 2.1
 > **Purpose**: Comprehensive, practical codebase audit for projects of any size
 > **Usage**: Use with Claude Code, Cursor, or any AI-assisted development environment
 > **License**: Open source under MIT License
 > **Repository**: Part of the [Ragbot.AI](https://ragbot.ai) project
-> **Methodology**: Based on [Synthesis Coding](https://synthesiscoding.com) principles
+> **Methodology**: Based on [Synthesis Coding](https://synthesiscoding.org) principles
+> **Guide & Prompts**: [Code Review That Scales](https://synthesiscoding.org/articles/code-review-that-scales/) — introduction, usage guide, and example prompts for agentic workflows
 
 ---
 
@@ -35,6 +36,24 @@ Each section and many individual items are marked with tier indicators:
 ### Step 4: Use the Quick Start (Optional)
 
 If you want a rapid assessment, use the **Minimum Viable Review** section for a 15-minute health check.
+
+---
+
+## PRE-FLIGHT CHECKLIST
+
+> Complete these checks before starting any review. Skipping pre-flight has caused real wasted effort on real engagements.
+
+### Branch Selection 🟢
+
+- [ ] 🟢 **Correct Branch Identified**: Confirm which branch represents the current working state — do NOT assume `main` is current
+- [ ] 🟢 **Branch Freshness Verified**: Check the most recent commit date on the target branch. If `main` hasn't been updated in weeks and there's an active branch with many commits ahead, you're likely reviewing a stale snapshot
+- [ ] 🔵 **Git Flow Awareness**: Ask whether the team uses git-flow, trunk-based, or another model. In git-flow, `develop` is often the correct review target, not `main`
+
+### Review Scope 🟢
+
+- [ ] 🟢 **Excluded Paths Identified**: Confirm which directories to exclude (vendor/, node_modules/, generated/, etc.)
+- [ ] 🔵 **Prior Review Exists?**: Ask if a previous review has been conducted. If yes, obtain the prior findings to enable delta review mode (see Output Format section)
+- [ ] 🔵 **Deliverable Format Confirmed**: Confirm the expected output format (markdown, PDF, etc.) and audience (engineering team, leadership, both)
 
 ---
 
@@ -268,6 +287,22 @@ For each finding, document:
 - [ ] 🟣 Webhook secrets
 - [ ] 🟣 Service account credentials
 
+### 2.2a AI Tool Configuration Files 🟢
+
+> AI coding tool context files often contain rich infrastructure details to help the AI work effectively. That same rich context makes them an attacker's reconnaissance dossier if committed to git.
+
+- [ ] 🟢 **AI Tool Files Checked**: Search for `.cursorrules`, `.cursor/`, `.aider*`, `.github/copilot-instructions.md`, and similar AI tool configuration files
+- [ ] 🟢 **No Infrastructure in AI Config**: AI tool files do not contain server IPs, instance IDs, security group IDs, SSH key paths, deployment directories, or environment-specific paths
+- [ ] 🔵 **AI Config in .gitignore**: AI tool configuration files are listed in `.gitignore` (or their sensitive content has been removed)
+
+### 2.2b Comment-Aware Credential Scanning 🔵
+
+> Developers treat comments as "not real code" and relax their caution about what goes there. Git tracks comments the same as executable code.
+
+- [ ] 🔵 **Comments Scanned for Secrets**: Code comments, TODOs, and commented-out blocks are included in credential scanning — not just executable code
+- [ ] 🔵 **No Secrets in Commented-Out Code**: Commented-out sections (e.g., old deploy configs, migration plans) do not contain real API keys, passwords, or infrastructure details
+- [ ] 🟣 **CI/CD Comments Clean**: Workflow file comments do not contain credentials (even "example" values that are actually real)
+
 ### 2.3 Secret Management 🔵
 
 - [ ] 🔵 **Environment Variables**: Secrets loaded from environment variables
@@ -279,9 +314,12 @@ For each finding, document:
 
 ### 2.4 Preventive Controls 🔵
 
+> Fixing existing secrets is necessary but insufficient. Without prevention, every new feature is an opportunity for a developer to commit a credential. Check for prevention mechanisms, not just absence of current secrets.
+
 - [ ] 🔵 **`.gitignore` Coverage**: Sensitive file patterns in `.gitignore`
-- [ ] 🟣 **Pre-Commit Hooks**: Hooks to prevent secret commits
-- [ ] 🟣 **CI/CD Scanning**: Secret scanning in the pipeline
+- [ ] 🔵 **Pre-Commit Secret Scanning**: Pre-commit hooks using tools like `gitleaks`, `truffleHog`, or `detect-secrets` to block secret commits before they enter git history
+- [ ] 🟣 **CI/CD Scanning**: Secret scanning in the pipeline (GitHub secret scanning, or tools like gitleaks in CI)
+- [ ] 🟣 **GitHub Secret Scanning Enabled**: If using GitHub, built-in secret scanning is enabled for the repository
 - [ ] ⚫ **PR Checks**: Automated PR checks for secrets
 
 ---
@@ -462,11 +500,15 @@ For each finding, document:
 - [ ] ⚫ **Performance Tests**: Load testing performed
 - [ ] ⚫ **Security Tests**: Security scanning integrated
 
-### 7.4 Test Quality 🟣
+### 7.4 Test Quality 🔵
 
+> "Tests exist" and "tests pass" are insufficient checks. Read 3-5 actual test files and verify they test real behavior — not just imports, not just mock infrastructure.
+
+- [ ] 🔵 **Tests Verify Behavior**: Read 3-5 test files. Tests assert on actual behavior and outputs, not just that modules are importable or that mocks return expected values
+- [ ] 🔵 **Tests Would Catch Regressions**: For each test read, ask: would this test fail if the underlying logic broke? If the answer is no, the test is not providing value
 - [ ] 🟣 **Tests Are Readable**: Tests serve as documentation
 - [ ] 🟣 **Tests Are Maintainable**: Tests don't break on refactors
-- [ ] 🟣 **Test Data Managed**: Test fixtures are managed properly
+- [ ] 🟣 **Test Data Managed**: Test fixtures are managed properly — no silent skips when test data is missing
 - [ ] ⚫ **Contract Tests**: For microservices, contracts tested
 
 ---
@@ -870,7 +912,7 @@ The following items from the main runbook typically don't apply to open source p
 
 ## OUTPUT FORMAT
 
-Generate a report appropriate to the project tier:
+Generate a report appropriate to the project tier. **All reports should lead with strengths before findings.** Demonstrating that you understand what the team built well makes critical findings land as constructive guidance rather than an attack.
 
 ### Tier 1-2: Simplified Report
 
@@ -882,6 +924,10 @@ Generate a report appropriate to the project tier:
 **Date**: YYYY-MM-DD
 
 ### Quick Health Check: ✅ Pass / ⚠️ Issues / ❌ Fail
+
+### Strengths
+1. [What the codebase does well]
+2. [Notable good practices]
 
 ### Key Findings
 
@@ -913,11 +959,11 @@ Generate a report appropriate to the project tier:
 |----------|-------|--------|
 | [Category] | X/10 | 🟢/🟡/🔴 |
 
+### Top Strengths
+1. [Strength — demonstrate deep understanding of what the team built well]
+
 ### Top Critical Findings
 1. [Finding with location and fix]
-
-### Top Strengths
-1. [Strength]
 
 ### Detailed Findings
 
@@ -939,6 +985,64 @@ Generate a report appropriate to the project tier:
 
 **Medium-Term (Quarter)**:
 - [ ] [Action]
+```
+
+### Delta Review Mode
+
+> When a prior review exists, use delta mode instead of a standalone report. A standalone review says "here are your problems." A delta review says "here's your trajectory." The second is far more useful for engineering leadership.
+
+For each finding from the prior review, classify its current status:
+
+| Status | Meaning |
+|--------|---------|
+| ✅ **Fixed** | Finding fully resolved |
+| 🔄 **Partially Fixed** | Improvement made but not complete |
+| ⏸️ **Still Present** | No change — deferred or not yet addressed |
+| 📈 **Worse** | Finding has regressed or expanded in scope |
+| 🆕 **New** | Finding not present in prior review |
+
+```markdown
+## Delta Review: [Project Name]
+
+**Current Review Date**: YYYY-MM-DD
+**Prior Review Date**: YYYY-MM-DD
+**Tier**: [Tier]
+
+### Trajectory Summary
+
+| Status | Count |
+|--------|-------|
+| ✅ Fixed | X |
+| 🔄 Partially Fixed | X |
+| ⏸️ Still Present | X |
+| 📈 Worse | X |
+| 🆕 New | X |
+
+**Overall Direction**: Improving / Stable / Declining
+
+### Findings Detail
+
+| # | Finding | Prior Status | Current Status | Notes |
+|---|---------|-------------|----------------|-------|
+| 1 | [Description] | 🔴 Critical | ✅ Fixed | [How it was resolved] |
+| 2 | [Description] | 🟠 High | ⏸️ Still Present | [Context] |
+| 3 | [Description] | — | 🆕 New | [New finding detail] |
+```
+
+### Deliverable Organization
+
+> Date-stamp review deliverables in folders. When the next review happens, you'll thank yourself for having the prior review organized and accessible.
+
+```
+reviews/
+├── 2025-01-15/
+│   ├── review-summary.md
+│   ├── detailed-findings.md
+│   └── executive-report.pdf
+├── 2025-04-15/
+│   ├── delta-review.md         ← compares against 2025-01-15
+│   ├── detailed-findings.md
+│   └── executive-report.pdf
 ```
 
 ---
@@ -964,6 +1068,17 @@ This runbook is open source. Contributions are welcome!
 ---
 
 ## CHANGELOG
+
+### Version 2.1
+- Added Pre-Flight Checklist with branch selection verification
+- Added AI Tool Configuration File checks (Section 2.2a) — .cursorrules, .cursor/, .aider*, etc.
+- Added Comment-Aware Credential Scanning (Section 2.2b) — comments, TODOs, and commented-out blocks in scope
+- Strengthened Preventive Controls (Section 2.4) — specific tools (gitleaks, truffleHog), GitHub secret scanning
+- Enhanced Test Quality (Section 7.4) — lowered to Tier 2, added behavioral verification: read actual tests, not just check they exist
+- Added Delta Review Mode to Output Format — five-point status tracking (fixed, partially fixed, still present, worse, new)
+- Added Strengths-First output format for all tiers — strengths before findings in both simplified and full reports
+- Added Deliverable Organization guidance — longitudinal folder structure for date-stamped review artifacts
+- Added link to usage guide and example prompts: [Code Review That Scales](https://synthesiscoding.org/articles/code-review-that-scales/)
 
 ### Version 2.0
 - Added tiered system (Essential, Standard, Enterprise, Mission-Critical)
@@ -996,7 +1111,8 @@ This runbook is open source. Contributions are welcome!
 
 ---
 
-*Enterprise-Grade Codebase Review Runbook v2.0*
+*Enterprise-Grade Codebase Review Runbook v2.1*
 *Part of the [Ragbot.AI](https://ragbot.ai) project*
-*Based on [Synthesis Coding](https://synthesiscoding.com) methodology*
+*Based on [Synthesis Coding](https://synthesiscoding.org) methodology*
+*Guide & prompts: [Code Review That Scales](https://synthesiscoding.org/articles/code-review-that-scales/)*
 *Licensed under MIT License*

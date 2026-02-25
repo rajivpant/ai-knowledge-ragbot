@@ -1,96 +1,115 @@
-quirements satisfied
+s**: Control over concurrent sessions
+- [ ] ⚫ **Session Revocation**: Can revoke all sessions
+- [ ] ⚫ **Session Visibility**: Users can see active sessions
+
+---
+
+## 11. SCALABILITY & PERFORMANCE (Tier 2+)
+
+### 11.1 Scalability 🔵
+
+- [ ] 🔵 **Stateless Design**: Application state externalized
+- [ ] 🔵 **Database Not Bottleneck**: Database can handle expected load
+- [ ] 🟣 **Horizontal Scaling**: Can scale horizontally
+- [ ] 🟣 **Auto-Scaling**: Auto-scaling configured
+- [ ] ⚫ **No Single Points of Failure**: Redundancy in place
+
+### 11.2 Performance 🔵
+
+- [ ] 🔵 **Acceptable Response Time**: API responses <500ms typical
+- [ ] 🔵 **Caching Used**: Caching where beneficial
+- [ ] 🟣 **Background Jobs**: Expensive operations offloaded
+- [ ] 🟣 **CDN for Static Assets**: Static assets served via CDN
+- [ ] ⚫ **Performance Baselines**: SLOs defined and monitored
+
+---
+
+## 12. RELIABILITY (Tier 2+)
+
+### 12.1 Fault Tolerance 🔵
+
+- [ ] 🔵 **Errors Handled Gracefully**: App doesn't crash on errors
+- [ ] 🔵 **External Calls Have Timeouts**: All network calls timeout
+- [ ] 🟣 **Retries with Backoff**: Retries use exponential backoff
+- [ ] 🟣 **Circuit Breakers**: Circuit breakers for external deps
+- [ ] ⚫ **Graceful Degradation**: Fallbacks when dependencies fail
+
+### 12.2 Data Durability 🔵
+
+- [ ] 🔵 **Backups Exist**: Database is backed up
+- [ ] 🟣 **Backups Tested**: Backups verified for recoverability
+- [ ] 🟣 **Transactions Used**: Database transactions used correctly
+- [ ] ⚫ **Point-in-Time Recovery**: PITR available
+- [ ] ⚫ **DR Plan**: Disaster recovery plan documented and tested
+
+---
+
+## 13. OBSERVABILITY (Tier 2+)
+
+### 13.1 Logging 🔵
+
+- [ ] 🔵 **Logs Exist**: Application produces logs
+- [ ] 🔵 **Log Levels Used**: Appropriate use of DEBUG, INFO, WARN, ERROR
+- [ ] 🟣 **Structured Logging**: Logs are structured (JSON)
+- [ ] 🟣 **Correlation IDs**: Request tracing across components
+- [ ] 🟣 **Centralized Logs**: Logs aggregated centrally
+- [ ] ⚫ **Sensitive Data Excluded**: No secrets/PII in logs
+
+### 13.2 Monitoring 🟣
+
+- [ ] 🟣 **Health Checks**: Health check endpoints exist
+- [ ] 🟣 **Metrics Collected**: Key metrics instrumented
+- [ ] 🟣 **Dashboards Exist**: Operational dashboards available
+- [ ] ⚫ **SLI/SLO Defined**: Service levels defined and tracked
+- [ ] ⚫ **Distributed Tracing**: Traces across service boundaries
+
+### 13.3 Alerting 🟣
+
+- [ ] 🟣 **Alerts Configured**: Alerts for critical failures
+- [ ] 🟣 **Alerts Actionable**: Alerts are not noisy
+- [ ] ⚫ **Runbooks Linked**: Alerts link to runbooks
+- [ ] ⚫ **On-Call Rotation**: Proper on-call process
+
+---
+
+## 14. DEPLOYMENT & OPERATIONS
+
+### 14.1 Build & Deploy 🟢
+
+- [ ] 🟢 **Build Documented**: How to build is documented
+- [ ] 🟢 **Deploy Documented**: How to deploy is documented
+- [ ] 🔵 **Automated Build**: CI builds on every commit
+- [ ] 🔵 **Automated Deploy**: Deployment is automated
+- [ ] 🟣 **Infrastructure as Code**: IaC for infrastructure
+- [ ] 🟣 **Environment Parity**: Environments are similar
+
+### 14.2 Deployment Strategy 🟣
+
+- [ ] 🟣 **Zero-Downtime**: Deployments don't cause downtime
+- [ ] 🟣 **Rollback Capability**: Can rollback quickly
+- [ ] ⚫ **Canary/Blue-Green**: Gradual rollout supported
+- [ ] ⚫ **Feature Flags**: Feature flags for releases
+
+### 14.3 Configuration 🔵
+
+- [ ] 🔵 **Config Externalized**: Config not hardcoded
+- [ ] 🔵 **Env-Specific Config**: Different config per environment
+- [ ] 🟣 **Config Validated**: Config validated at startup
+- [ ] 🟣 **Config Documented**: All config options documented
+
+---
+
+## 15. LICENSING & LEGAL
+
+### 15.1 Dependencies 🔵
+
+- [ ] 🔵 **Licenses Known**: Dependencies' licenses are known
+- [ ] 🔵 **No Problematic Licenses**: No GPL/AGPL if incompatible with use
+- [ ] 🟣 **License Inventory**: Complete license inventory exists
+- [ ] 🟣 **Attribution Met**: Attribution requirements satisfied
 
 ### 15.2 Intellectual Property 🟣
 
 - [ ] 🟣 **Copyright Notices**: Appropriate copyright notices
 - [ ] 🟣 **Code Provenance Clear**: Origin of all code is clear
-- [ ] ⚫ **CLA if Needed**: Contributor agreement if accepting contributions
-
----
-
-## 16. DEVELOPER EXPERIENCE
-
-### 16.1 Getting Started 🟢
-
-- [ ] 🟢 **Setup Documented**: README has setup instructions
-- [ ] 🟢 **Setup Works**: Following docs actually works
-- [ ] 🔵 **Setup Time <30min**: New dev productive in 30 minutes
-- [ ] 🔵 **Local Dev Easy**: Can run locally without cloud access
-
-### 16.2 Development Workflow 🔵
-
-- [ ] 🔵 **PR Process Clear**: How to contribute is documented
-- [ ] 🔵 **CI Fast**: CI feedback in <10 minutes
-- [ ] 🟣 **Hot Reload**: Fast iteration with hot reload
-- [ ] 🟣 **Debugging Easy**: Debug configurations available
-
----
-
-## OPEN SOURCE SOFTWARE ADDENDUM
-
-> **Include this section if the project is open source.** Skip for proprietary software.
-
-### OSS-1. License & Legal 🟢
-
-- [ ] 🟢 **License File Exists**: LICENSE file in repository root
-- [ ] 🟢 **License Choice Appropriate**: License matches project goals (MIT, Apache 2.0, GPL, etc.)
-- [ ] 🔵 **License Headers**: Source files have license headers (if required by license)
-- [ ] 🔵 **SPDX Identifier**: License identified with SPDX identifier
-- [ ] 🟣 **Patent Grant**: License includes patent grant if needed (Apache 2.0 has this)
-- [ ] 🟣 **DCO/CLA**: Developer Certificate of Origin or CLA for contributions
-- [ ] 🟣 **Third-Party Licenses**: All third-party licenses documented and compatible
-- [ ] ⚫ **REUSE Compliant**: Follows REUSE specification for license clarity
-
-### OSS-2. Community Documentation 🟢
-
-- [ ] 🟢 **README Quality**: Comprehensive README with:
-  - [ ] Project description and purpose
-  - [ ] Installation instructions
-  - [ ] Quick start / basic usage
-  - [ ] Link to documentation
-- [ ] 🔵 **CONTRIBUTING.md**: Guide for contributors including:
-  - [ ] How to submit issues
-  - [ ] How to submit pull requests
-  - [ ] Code style requirements
-  - [ ] Testing requirements
-- [ ] 🔵 **CODE_OF_CONDUCT.md**: Community code of conduct
-- [ ] 🔵 **Issue Templates**: Templates for bugs and feature requests
-- [ ] 🔵 **PR Template**: Template for pull requests
-- [ ] 🟣 **GOVERNANCE.md**: Project governance documentation
-- [ ] 🟣 **ROADMAP.md**: Public roadmap or link to project board
-- [ ] 🟣 **CHANGELOG.md**: Maintained changelog (Keep a Changelog format)
-
-### OSS-3. Security for Open Source 🔵
-
-- [ ] 🔵 **SECURITY.md**: Security policy with:
-  - [ ] How to report vulnerabilities
-  - [ ] Security contact (email or form)
-  - [ ] Disclosure timeline expectations
-- [ ] 🔵 **No Secrets in History**: Git history has never contained secrets
-- [ ] 🟣 **Security Advisories**: Process for publishing security advisories
-- [ ] 🟣 **CVE Process**: Process for requesting CVEs for vulnerabilities
-- [ ] 🟣 **Dependency Scanning Public**: Security scanning results visible
-- [ ] ⚫ **Bug Bounty**: Bug bounty program (for larger projects)
-
-### OSS-4. Versioning & Releases 🔵
-
-- [ ] 🔵 **Semantic Versioning**: Following SemVer (MAJOR.MINOR.PATCH)
-- [ ] 🔵 **Git Tags**: Releases have git tags
-- [ ] 🔵 **Release Notes**: Releases have notes describing changes
-- [ ] 🟣 **Stable API**: Public API stability commitments documented
-- [ ] 🟣 **Deprecation Policy**: How deprecations are communicated
-- [ ] 🟣 **LTS Policy**: Long-term support policy (if applicable)
-- [ ] ⚫ **Release Signing**: Releases are cryptographically signed
-
-### OSS-5. Distribution & Packaging 🔵
-
-- [ ] 🔵 **Package Registry**: Published to appropriate registry (npm, PyPI, etc.)
-- [ ] 🔵 **Install Works**: `npm install` / `pip install` works
-- [ ] 🟣 **Multiple Formats**: Available in formats users expect
-- [ ] 🟣 **Minimal Dependencies**: Runtime dependencies minimized
-- [ ] ⚫ **Reproducible Builds**: Builds are reproducible
-
-### OSS-6. Contribution Workflow 🔵
-
-- [ ] 🔵 **Easy to Contribute**: First contribution is straightforward
-- [ ] 🔵 **CI on PRs**: CI runs on pull re
+- [ ] ⚫ **CLA if Need

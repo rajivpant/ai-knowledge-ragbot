@@ -305,7 +305,7 @@
     "source_file": "runbooks/engineering/codebase-review.md",
     "category": "runbooks",
     "chunk_index": 0,
-    "total_chunks": 12,
+    "total_chunks": 14,
     "start_char": 0,
     "end_char": 4000
   },
@@ -315,7 +315,7 @@
     "source_file": "runbooks/engineering/codebase-review.md",
     "category": "runbooks",
     "chunk_index": 1,
-    "total_chunks": 12,
+    "total_chunks": 14,
     "start_char": 3200,
     "end_char": 7200
   },
@@ -325,7 +325,7 @@
     "source_file": "runbooks/engineering/codebase-review.md",
     "category": "runbooks",
     "chunk_index": 2,
-    "total_chunks": 12,
+    "total_chunks": 14,
     "start_char": 6400,
     "end_char": 10400
   },
@@ -335,7 +335,7 @@
     "source_file": "runbooks/engineering/codebase-review.md",
     "category": "runbooks",
     "chunk_index": 3,
-    "total_chunks": 12,
+    "total_chunks": 14,
     "start_char": 9600,
     "end_char": 13600
   },
@@ -345,7 +345,7 @@
     "source_file": "runbooks/engineering/codebase-review.md",
     "category": "runbooks",
     "chunk_index": 4,
-    "total_chunks": 12,
+    "total_chunks": 14,
     "start_char": 12800,
     "end_char": 16800
   },
@@ -355,7 +355,7 @@
     "source_file": "runbooks/engineering/codebase-review.md",
     "category": "runbooks",
     "chunk_index": 5,
-    "total_chunks": 12,
+    "total_chunks": 14,
     "start_char": 16000,
     "end_char": 20000
   },
@@ -365,7 +365,7 @@
     "source_file": "runbooks/engineering/codebase-review.md",
     "category": "runbooks",
     "chunk_index": 6,
-    "total_chunks": 12,
+    "total_chunks": 14,
     "start_char": 19200,
     "end_char": 23200
   },
@@ -375,7 +375,7 @@
     "source_file": "runbooks/engineering/codebase-review.md",
     "category": "runbooks",
     "chunk_index": 7,
-    "total_chunks": 12,
+    "total_chunks": 14,
     "start_char": 22400,
     "end_char": 26400
   },
@@ -385,7 +385,7 @@
     "source_file": "runbooks/engineering/codebase-review.md",
     "category": "runbooks",
     "chunk_index": 8,
-    "total_chunks": 12,
+    "total_chunks": 14,
     "start_char": 25600,
     "end_char": 29600
   },
@@ -395,7 +395,7 @@
     "source_file": "runbooks/engineering/codebase-review.md",
     "category": "runbooks",
     "chunk_index": 9,
-    "total_chunks": 12,
+    "total_chunks": 14,
     "start_char": 28800,
     "end_char": 32800
   },
@@ -405,19 +405,79 @@
     "source_file": "runbooks/engineering/codebase-review.md",
     "category": "runbooks",
     "chunk_index": 10,
-    "total_chunks": 12,
+    "total_chunks": 14,
     "start_char": 32000,
     "end_char": 36000
   },
   {
     "id": "8b4311b17e8f",
-    "tokens": 542,
+    "tokens": 1000,
     "source_file": "runbooks/engineering/codebase-review.md",
     "category": "runbooks",
     "chunk_index": 11,
-    "total_chunks": 12,
+    "total_chunks": 14,
     "start_char": 35200,
-    "end_char": 37369
+    "end_char": 39200
+  },
+  {
+    "id": "5ff194da177b",
+    "tokens": 1000,
+    "source_file": "runbooks/engineering/codebase-review.md",
+    "category": "runbooks",
+    "chunk_index": 12,
+    "total_chunks": 14,
+    "start_char": 38400,
+    "end_char": 42400
+  },
+  {
+    "id": "cf965f167224",
+    "tokens": 698,
+    "source_file": "runbooks/engineering/codebase-review.md",
+    "category": "runbooks",
+    "chunk_index": 13,
+    "total_chunks": 14,
+    "start_char": 41600,
+    "end_char": 44394
+  },
+  {
+    "id": "cf6bfb5a5285",
+    "tokens": 1000,
+    "source_file": "runbooks/project-management/synthesis-project-management.md",
+    "category": "runbooks",
+    "chunk_index": 0,
+    "total_chunks": 4,
+    "start_char": 0,
+    "end_char": 4000
+  },
+  {
+    "id": "79e166c22b36",
+    "tokens": 1000,
+    "source_file": "runbooks/project-management/synthesis-project-management.md",
+    "category": "runbooks",
+    "chunk_index": 1,
+    "total_chunks": 4,
+    "start_char": 3200,
+    "end_char": 7200
+  },
+  {
+    "id": "c3b084f7b50a",
+    "tokens": 1000,
+    "source_file": "runbooks/project-management/synthesis-project-management.md",
+    "category": "runbooks",
+    "chunk_index": 2,
+    "total_chunks": 4,
+    "start_char": 6400,
+    "end_char": 10400
+  },
+  {
+    "id": "a9f862cd66b5",
+    "tokens": 487,
+    "source_file": "runbooks/project-management/synthesis-project-management.md",
+    "category": "runbooks",
+    "chunk_index": 3,
+    "total_chunks": 4,
+    "start_char": 9600,
+    "end_char": 11551
   },
   {
     "id": "3b491400acb3",

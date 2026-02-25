@@ -1089,12 +1089,13 @@ Please create a document artifact containing the revitalized blog post.
 
 # Enterprise-Grade Codebase Review Runbook
 
-> **Version**: 2.0
+> **Version**: 2.1
 > **Purpose**: Comprehensive, practical codebase audit for projects of any size
 > **Usage**: Use with Claude Code, Cursor, or any AI-assisted development environment
 > **License**: Open source under MIT License
 > **Repository**: Part of the [Ragbot.AI](https://ragbot.ai) project
-> **Methodology**: Based on [Synthesis Coding](https://synthesiscoding.com) principles
+> **Methodology**: Based on [Synthesis Coding](https://synthesiscoding.org) principles
+> **Guide & Prompts**: [Code Review That Scales](https://synthesiscoding.org/articles/code-review-that-scales/) — introduction, usage guide, and example prompts for agentic workflows
 
 ---
 
@@ -1124,6 +1125,24 @@ Each section and many individual items are marked with tier indicators:
 ### Step 4: Use the Quick Start (Optional)
 
 If you want a rapid assessment, use the **Minimum Viable Review** section for a 15-minute health check.
+
+---
+
+## PRE-FLIGHT CHECKLIST
+
+> Complete these checks before starting any review. Skipping pre-flight has caused real wasted effort on real engagements.
+
+### Branch Selection 🟢
+
+- [ ] 🟢 **Correct Branch Identified**: Confirm which branch represents the current working state — do NOT assume `main` is current
+- [ ] 🟢 **Branch Freshness Verified**: Check the most recent commit date on the target branch. If `main` hasn't been updated in weeks and there's an active branch with many commits ahead, you're likely reviewing a stale snapshot
+- [ ] 🔵 **Git Flow Awareness**: Ask whether the team uses git-flow, trunk-based, or another model. In git-flow, `develop` is often the correct review target, not `main`
+
+### Review Scope 🟢
+
+- [ ] 🟢 **Excluded Paths Identified**: Confirm which directories to exclude (vendor/, node_modules/, generated/, etc.)
+- [ ] 🔵 **Prior Review Exists?**: Ask if a previous review has been conducted. If yes, obtain the prior findings to enable delta review mode (see Output Format section)
+- [ ] 🔵 **Deliverable Format Confirmed**: Confirm the expected output format (markdown, PDF, etc.) and audience (engineering team, leadership, both)
 
 ---
 
@@ -1357,6 +1376,22 @@ For each finding, document:
 - [ ] 🟣 Webhook secrets
 - [ ] 🟣 Service account credentials
 
+### 2.2a AI Tool Configuration Files 🟢
+
+> AI coding tool context files often contain rich infrastructure details to help the AI work effectively. That same rich context makes them an attacker's reconnaissance dossier if committed to git.
+
+- [ ] 🟢 **AI Tool Files Checked**: Search for `.cursorrules`, `.cursor/`, `.aider*`, `.github/copilot-instructions.md`, and similar AI tool configuration files
+- [ ] 🟢 **No Infrastructure in AI Config**: AI tool files do not contain server IPs, instance IDs, security group IDs, SSH key paths, deployment directories, or environment-specific paths
+- [ ] 🔵 **AI Config in .gitignore**: AI tool configuration files are listed in `.gitignore` (or their sensitive content has been removed)
+
+### 2.2b Comment-Aware Credential Scanning 🔵
+
+> Developers treat comments as "not real code" and relax their caution about what goes there. Git tracks comments the same as executable code.
+
+- [ ] 🔵 **Comments Scanned for Secrets**: Code comments, TODOs, and commented-out blocks are included in credential scanning — not just executable code
+- [ ] 🔵 **No Secrets in Commented-Out Code**: Commented-out sections (e.g., old deploy configs, migration plans) do not contain real API keys, passwords, or infrastructure details
+- [ ] 🟣 **CI/CD Comments Clean**: Workflow file comments do not contain credentials (even "example" values that are actually real)
+
 ### 2.3 Secret Management 🔵
 
 - [ ] 🔵 **Environment Variables**: Secrets loaded from environment variables
@@ -1368,9 +1403,12 @@ For each finding, document:
 
 ### 2.4 Preventive Controls 🔵
 
+> Fixing existing secrets is necessary but insufficient. Without prevention, every new feature is an opportunity for a developer to commit a credential. Check for prevention mechanisms, not just absence of current secrets.
+
 - [ ] 🔵 **`.gitignore` Coverage**: Sensitive file patterns in `.gitignore`
-- [ ] 🟣 **Pre-Commit Hooks**: Hooks to prevent secret commits
-- [ ] 🟣 **CI/CD Scanning**: Secret scanning in the pipeline
+- [ ] 🔵 **Pre-Commit Secret Scanning**: Pre-commit hooks using tools like `gitleaks`, `truffleHog`, or `detect-secrets` to block secret commits before they enter git history
+- [ ] 🟣 **CI/CD Scanning**: Secret scanning in the pipeline (GitHub secret scanning, or tools like gitleaks in CI)
+- [ ] 🟣 **GitHub Secret Scanning Enabled**: If using GitHub, built-in secret scanning is enabled for the repository
 - [ ] ⚫ **PR Checks**: Automated PR checks for secrets
 
 ---
@@ -1551,11 +1589,15 @@ For each finding, document:
 - [ ] ⚫ **Performance Tests**: Load testing performed
 - [ ] ⚫ **Security Tests**: Security scanning integrated
 
-### 7.4 Test Quality 🟣
+### 7.4 Test Quality 🔵
 
+> "Tests exist" and "tests pass" are insufficient checks. Read 3-5 actual test files and verify they test real behavior — not just imports, not just mock infrastructure.
+
+- [ ] 🔵 **Tests Verify Behavior**: Read 3-5 test files. Tests assert on actual behavior and outputs, not just that modules are importable or that mocks return expected values
+- [ ] 🔵 **Tests Would Catch Regressions**: For each test read, ask: would this test fail if the underlying logic broke? If the answer is no, the test is not providing value
 - [ ] 🟣 **Tests Are Readable**: Tests serve as documentation
 - [ ] 🟣 **Tests Are Maintainable**: Tests don't break on refactors
-- [ ] 🟣 **Test Data Managed**: Test fixtures are managed properly
+- [ ] 🟣 **Test Data Managed**: Test fixtures are managed properly — no silent skips when test data is missing
 - [ ] ⚫ **Contract Tests**: For microservices, contracts tested
 
 ---
@@ -1959,7 +2001,7 @@ The following items from the main runbook typically don't apply to open source p
 
 ## OUTPUT FORMAT
 
-Generate a report appropriate to the project tier:
+Generate a report appropriate to the project tier. **All reports should lead with strengths before findings.** Demonstrating that you understand what the team built well makes critical findings land as constructive guidance rather than an attack.
 
 ### Tier 1-2: Simplified Report
 
@@ -1971,6 +2013,10 @@ Generate a report appropriate to the project tier:
 **Date**: YYYY-MM-DD
 
 ### Quick Health Check: ✅ Pass / ⚠️ Issues / ❌ Fail
+
+### Strengths
+1. [What the codebase does well]
+2. [Notable good practices]
 
 ### Key Findings
 
@@ -2002,11 +2048,11 @@ Generate a report appropriate to the project tier:
 |----------|-------|--------|
 | [Category] | X/10 | 🟢/🟡/🔴 |
 
+### Top Strengths
+1. [Strength — demonstrate deep understanding of what the team built well]
+
 ### Top Critical Findings
 1. [Finding with location and fix]
-
-### Top Strengths
-1. [Strength]
 
 ### Detailed Findings
 
@@ -2028,6 +2074,64 @@ Generate a report appropriate to the project tier:
 
 **Medium-Term (Quarter)**:
 - [ ] [Action]
+```
+
+### Delta Review Mode
+
+> When a prior review exists, use delta mode instead of a standalone report. A standalone review says "here are your problems." A delta review says "here's your trajectory." The second is far more useful for engineering leadership.
+
+For each finding from the prior review, classify its current status:
+
+| Status | Meaning |
+|--------|---------|
+| ✅ **Fixed** | Finding fully resolved |
+| 🔄 **Partially Fixed** | Improvement made but not complete |
+| ⏸️ **Still Present** | No change — deferred or not yet addressed |
+| 📈 **Worse** | Finding has regressed or expanded in scope |
+| 🆕 **New** | Finding not present in prior review |
+
+```markdown
+## Delta Review: [Project Name]
+
+**Current Review Date**: YYYY-MM-DD
+**Prior Review Date**: YYYY-MM-DD
+**Tier**: [Tier]
+
+### Trajectory Summary
+
+| Status | Count |
+|--------|-------|
+| ✅ Fixed | X |
+| 🔄 Partially Fixed | X |
+| ⏸️ Still Present | X |
+| 📈 Worse | X |
+| 🆕 New | X |
+
+**Overall Direction**: Improving / Stable / Declining
+
+### Findings Detail
+
+| # | Finding | Prior Status | Current Status | Notes |
+|---|---------|-------------|----------------|-------|
+| 1 | [Description] | 🔴 Critical | ✅ Fixed | [How it was resolved] |
+| 2 | [Description] | 🟠 High | ⏸️ Still Present | [Context] |
+| 3 | [Description] | — | 🆕 New | [New finding detail] |
+```
+
+### Deliverable Organization
+
+> Date-stamp review deliverables in folders. When the next review happens, you'll thank yourself for having the prior review organized and accessible.
+
+```
+reviews/
+├── 2025-01-15/
+│   ├── review-summary.md
+│   ├── detailed-findings.md
+│   └── executive-report.pdf
+├── 2025-04-15/
+│   ├── delta-review.md         ← compares against 2025-01-15
+│   ├── detailed-findings.md
+│   └── executive-report.pdf
 ```
 
 ---
@@ -2053,6 +2157,17 @@ This runbook is open source. Contributions are welcome!
 ---
 
 ## CHANGELOG
+
+### Version 2.1
+- Added Pre-Flight Checklist with branch selection verification
+- Added AI Tool Configuration File checks (Section 2.2a) — .cursorrules, .cursor/, .aider*, etc.
+- Added Comment-Aware Credential Scanning (Section 2.2b) — comments, TODOs, and commented-out blocks in scope
+- Strengthened Preventive Controls (Section 2.4) — specific tools (gitleaks, truffleHog), GitHub secret scanning
+- Enhanced Test Quality (Section 7.4) — lowered to Tier 2, added behavioral verification: read actual tests, not just check they exist
+- Added Delta Review Mode to Output Format — five-point status tracking (fixed, partially fixed, still present, worse, new)
+- Added Strengths-First output format for all tiers — strengths before findings in both simplified and full reports
+- Added Deliverable Organization guidance — longitudinal folder structure for date-stamped review artifacts
+- Added link to usage guide and example prompts: [Code Review That Scales](https://synthesiscoding.org/articles/code-review-that-scales/)
 
 ### Version 2.0
 - Added tiered system (Essential, Standard, Enterprise, Mission-Critical)
@@ -2085,10 +2200,387 @@ This runbook is open source. Contributions are welcome!
 
 ---
 
-*Enterprise-Grade Codebase Review Runbook v2.0*
+*Enterprise-Grade Codebase Review Runbook v2.1*
 *Part of the [Ragbot.AI](https://ragbot.ai) project*
-*Based on [Synthesis Coding](https://synthesiscoding.com) methodology*
+*Based on [Synthesis Coding](https://synthesiscoding.org) methodology*
+*Guide & prompts: [Code Review That Scales](https://synthesiscoding.org/articles/code-review-that-scales/)*
 *Licensed under MIT License*
+
+
+---
+
+## Runbooks: Synthesis Project Management
+
+# Synthesis Project Management System
+
+A lightweight project management system designed for human-agent collaboration. Optimized for context preservation across conversation sessions and context compaction events.
+
+## Design Principles
+
+These principles guide all system decisions:
+
+1. **Discoverability over documentation** — Agents can search/grep; humans need quick orientation. Prefer consistent naming conventions over maintained indexes.
+
+2. **Convention over configuration** — Consistent structure means less cognitive load. When everything follows the same pattern, both humans and agents know where to look.
+
+3. **Single source of truth** — No duplicate indexes to maintain. Files should be self-describing through front matter and naming conventions.
+
+4. **Self-describing files** — Date prefixes, status in index.yaml, front matter metadata. No separate documentation that can get stale.
+
+5. **Agents do the work** — Templates are obsolete. To create something new, examine an existing example and adapt it. Agents excel at this.
+
+## Problem This Solves
+
+When working with AI assistants on multi-session projects:
+- **Context compaction** (conversation summarization) loses detailed progress
+- **Session boundaries** create information gaps
+- **Multiple projects** create confusion about current state
+- **Lessons learned** get lost instead of compounding
+
+This system provides persistent state that survives context loss.
+
+## System Architecture
+
+All project management lives in one location within your ai-knowledge workspace:
+
+```
+ai-knowledge-{workspace}/
+└── projects/
+    ├── index.yaml               # Single index for ALL projects (status field, not folders)
+    │
+    ├── {project-id}/            # Project folders (flat structure)
+    │   ├── CONTEXT.md           # Living state for active projects
+    │   ├── README.md            # Static documentation (sufficient for completed)
+    │   ├── work-logs/           # Session logs for this project
+    │   │   └── YYYY-MM-DD-*.md
+    │   └── resources/           # Project data and artifacts (optional)
+    │       ├── in/              # Inputs
+    │       ├── artifacts/       # Working data
+    │       ├── out/             # Outputs
+    │       └── scripts/         # One-off scripts
+    │
+    └── _lessons/                # Cross-project lessons and patterns
+        └── YYYY-MM-DD-*.md      # Date-prefixed for discoverability
+```
+
+### Key Structural Decisions
+
+| Decision | Rationale |
+|----------|-----------|
+| **Flat project folders** | Status is in `index.yaml`, not folder names. No moving folders when status changes. |
+| **`_lessons/` underscore prefix** | Distinguishes from project folders. Sorts to top. Visible, not hidden. |
+| **Work-logs inside projects** | Session logs belong with their project. No centralized work-logs folder. |
+| **Date-prefixed lesson files** | Enables time-based discovery. `ls -t` shows recent. No index needed. |
+| **No templates folder** | Agents examine existing examples and adapt. Templates are a pre-AI pattern. |
+| **No patterns.md** | Patterns are lessons with `type: pattern` in front matter. One folder to search. |
+
+## Components
+
+### 1. Project Index (`index.yaml`)
+
+Single source of truth for all projects. Status is a field, not a folder.
+
+```yaml
+# Projects Index
+# Last updated: YYYY-MM-DD
+
+# Status values:
+#   active    - Currently being worked on
+#   paused    - Started but on hold
+#   ongoing   - Continuous/maintenance work, no defined end state
+#   completed - Has defined deliverables that are done
+#   archived  - Old/obsolete, kept for reference only
+
+projects:
+  # ============================================================================
+  # ACTIVE PROJECTS
+  # ============================================================================
+
+  - id: my-project
+    name: My Project Name
+    status: active
+    description: Brief description of what this project accomplishes
+    tags:
+      - tag1
+      - tag2
+    last_session: YYYY-MM-DD
+
+  # ============================================================================
+  # COMPLETED PROJECTS
+  # ============================================================================
+
+  - id: finished-project
+    name: Finished Project
+    status: completed
+    completed_date: YYYY-MM-DD
+    description: What was accomplished
+    tags:
+      - tag1
+    outcome: success
+    key_result: Brief summary of what was delivered
+
+  # ============================================================================
+  # ARCHIVED PROJECTS
+  # ============================================================================
+
+  - id: old-project
+    name: Old Project
+    status: archived
+    archived_date: YYYY-MM-DD
+    description: Why it was archived
+    superseded_by: newer-project  # If applicable
+```
+
+**Update when:** Session end (update `last_session`), project status changes, new project added.
+
+### 2. CONTEXT.md (Living Project State)
+
+**Required for:** Active, paused, and ongoing projects.
+**Optional for:** Completed and archived projects (README.md is sufficient).
+
+The most critical file. Contains everything needed to resume work.
+
+```markdown
+# Project: {Project Name}
+
+## Overview
+
+{1-2 sentence description of the project goal}
+
+**Started:** YYYY-MM-DD
+**Status:** {In Progress | Blocked | Complete}
+
+## Current State
+
+{What has been accomplished. Be specific about artifacts created.}
+
+**Key artifacts:**
+- `path/to/file1` - Description
+- `path/to/file2` - Description
+
+## Next Steps
+
+1. [ ] First thing to do
+2. [ ] Second thing to do
+3. [ ] Third thing to do
+
+## Blockers
+
+{Any blockers preventing progress. Remove section if none.}
+
+- Blocker 1: Description and what's needed to unblock
+
+## Key Decisions
+
+| Decision | Rationale | Date |
+|----------|-----------|------|
+| Chose approach A over B | Reason for choice | YYYY-MM-DD |
+
+## Session History
+
+| Date | Summary |
+|------|---------|
+| YYYY-MM-DD | What was accomplished in this session |
+```
+
+**Update when:** After EVERY significant task or phase completion. This is the most important update.
+
+### 3. Work Logs (`{project-id}/work-logs/`)
+
+Detailed session records for significant work sessions. Live inside project folders.
+
+**File naming:** `YYYY-MM-DD-brief-summary.md`
+
+```markdown
+# Work Log: YYYY-MM-DD — {Brief Summary}
+
+**Project:** {Project Name}
+**Duration:** ~{X} hours
+**Outcome:** {success | partial | blocked}
+
+## Accomplished
+
+- Completed {task 1}
+- Fixed {issue}
+- Created {artifact}
+
+## Challenges
+
+- {Challenge faced and how it was resolved}
+
+## Next Session
+
+- Continue with {next task}
+
+## Artifacts Created
+
+- `path/to/new/file` - Description
+```
+
+**Update when:** End of significant sessions (not every small task).
+
+### 4. Lessons (`_lessons/`)
+
+Cross-project mistakes, insights, and patterns. All in one folder with date prefixes.
+
+**File naming:** `YYYY-MM-DD-topic-slug.md`
+
+**For incidents/mistakes:**
+```markdown
+---
+type: incident
+title: Brief Title
+severity: minor | moderate | serious | critical
+---
+
+# {Topic}: {Brief Title}
+
+## What Happened
+## Root Cause
+## Impact
+## Lesson
+## Prevention
+```
+
+**For patterns (generalized insights):**
+```markdown
+---
+type: pattern
+title: Pattern Name
+---
+
+# {Pattern Name}
+
+## Context
+{When this pattern applies}
+
+## Problem
+{What problem it solves}
+
+## Solution
+{The pattern itself}
+
+## Examples
+{Where it's been applied}
+```
+
+**Update when:** Immediately when you learn something reusable.
+
+## The Protocol
+
+### During Work
+
+```
+Complete task → Update CONTEXT.md → Commit → Next task
+```
+
+**NOT:**
+```
+Complete task → Complete task → Complete task → (context compaction) → Lost details
+```
+
+### Session Start
+
+1. **Read CONTEXT.md** — Understand current state before touching code
+2. **Search _lessons/** — `grep` for relevant past experiences
+3. **Check related projects** — Look at `related:` tags in index.yaml
+
+### Session End
+
+1. **Final CONTEXT.md update** — Ensure all sections current
+2. **Update index.yaml** — Set `last_session` date
+3. **Create work log** — If significant session, add to `{project-id}/work-logs/`
+4. **Commit all changes** — Don't leave uncommitted work
+
+## File Requirements by Project Status
+
+| Status | CONTEXT.md | README.md | work-logs/ |
+|--------|------------|-----------|------------|
+| active | Required | Optional | As needed |
+| paused | Required | Optional | As needed |
+| ongoing | Required | Optional | As needed |
+| completed | Optional | Sufficient | Historical |
+| archived | Optional | Sufficient | Historical |
+
+**Rationale:** Active projects need living state tracking. Completed projects are static documentation.
+
+## AI Assistant Integration
+
+### For Claude Code / CLAUDE.md
+
+Add to your `~/.claude/CLAUDE.md`:
+
+```markdown
+## Synthesis Project Management
+
+After completing ANY significant task:
+
+1. **Update CONTEXT.md immediately** — Don't wait until session end
+2. **Update index.yaml** — Set last_session date at session end
+3. **Add to _lessons/** — If you made a mistake or learned something
+4. **Create work-logs/ entry** — For significant sessions (in project folder)
+5. **Commit to git** — At logical checkpoints
+
+**Location:** `ai-knowledge-{workspace}/projects/`
+
+**Where to find things:**
+| What | Location |
+|------|----------|
+| All projects | `projects/{project-id}/` |
+| Project index | `projects/index.yaml` |
+| Work logs | `projects/{project-id}/work-logs/` |
+| Lessons | `projects/_lessons/` |
+
+The user should NEVER have to remind you to do this.
+```
+
+### Project Discovery
+
+When a user mentions a project:
+
+1. Read `projects/index.yaml`
+2. Match user's phrase against project `name`, `description`, `id`, `tags`
+3. If match found, read the project's `CONTEXT.md`
+4. Summarize current state and next steps
+5. Begin work from where it left off
+
+## Why This Works
+
+1. **Filesystem is persistent** — Survives context compaction
+2. **Convention-based** — Same structure everywhere, easy to navigate
+3. **Single source of truth** — CONTEXT.md has everything needed
+4. **Self-describing** — Date prefixes, front matter, naming conventions
+5. **Searchable** — Agents grep, humans `ls -t`
+6. **No maintenance overhead** — No indexes to update (except index.yaml for status)
+
+## Common Mistakes
+
+| Mistake | Consequence | Prevention |
+|---------|-------------|------------|
+| Not updating CONTEXT.md | Lost progress after compaction | Update after EVERY task |
+| Deferring updates to "session end" | Forget to update | Update immediately |
+| Putting management files in project repos | Exposes internal process | Keep in ai-knowledge-{workspace} |
+| Not checking _lessons/ | Repeat mistakes | Grep at session start |
+| Creating separate patterns.md | Duplicate, gets stale | Use `type: pattern` in _lessons/ |
+| Maintaining index files for lessons | Gets stale | Use date prefixes, `ls -t` |
+
+## Evolution Notes
+
+This system evolved from a more complex structure:
+- **Removed:** `active/` and `completed/` folders → status is in index.yaml
+- **Removed:** `templates/` → agents examine existing and adapt
+- **Removed:** `meta/patterns.md` → patterns are lessons with `type: pattern`
+- **Removed:** `lessons-learned/index.md` → date prefixes enable discovery
+- **Moved:** `work-logs/` → inside each project folder
+- **Renamed:** `lessons-learned/` → `_lessons/` (underscore distinguishes from projects)
+
+## See Also
+
+- [Synthesis Project Management](https://synthesisengineering.org/articles/ai-native-project-management/) — conceptual article explaining the rationale
+
+## License
+
+This runbook is part of the ragbot project and is released under the MIT License.
 
 
 ---

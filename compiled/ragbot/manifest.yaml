@@ -1,12 +1,12 @@
 version: 1
-generated_at: '2025-12-15T00:32:47.330223'
-compilation_time_seconds: 0.05
+generated_at: '2026-02-25T01:47:07.612784'
+compilation_time_seconds: 0.04
 project:
   name: ragbot
   description: Ragbot open source project knowledge base
 source:
-  total_files: 20
-  total_tokens: 31494
+  total_files: 21
+  total_tokens: 35759
   by_category:
     datasets:
       files:
@@ -32,11 +32,12 @@ source:
       - runbooks/content-enhancement/blog-revitalization-framework.md
       - runbooks/content-enhancement/blog-revitalization-prompt.md
       - runbooks/engineering/codebase-review.md
+      - runbooks/project-management/synthesis-project-management.md
       - runbooks/system-config/anti-watermarking.md
       - runbooks/system-config/code-generation.md
       - runbooks/system-config/llm-project-setup.md
       - runbooks/system-config/response-synthesis.md
-      tokens: 21412
+      tokens: 25677
 compiled:
   files:
   - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/instructions/claude.md
@@ -49,6 +50,7 @@ compiled:
   - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-blog-revitalization-framework.md
   - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-blog-revitalization-prompt.md
   - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-codebase-review.md
+  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-synthesis-project-management.md
   - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-anti-watermarking.md
   - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-code-generation.md
   - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-llm-project-setup.md
@@ -66,13 +68,13 @@ compiled:
     platform: anthropic
     output_files:
     - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/instructions/claude.md
-    token_count: 31494
+    token_count: 35759
     llm_compiled: false
   - name: openai
     platform: openai
     output_files:
     - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/instructions/chatgpt.md
-    token_count: 31494
+    token_count: 35759
     llm_compiled: false
 configuration:
   token_budget: 100000
