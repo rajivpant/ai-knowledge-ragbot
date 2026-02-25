@@ -35,6 +35,7 @@ Step-by-step procedures for specific tasks.
 - [content-promotion-framework.md](source/runbooks/content-creation/content-promotion-framework.md) - Strategic content promotion
 
 **Content Enhancement:**
+- [ai-content-quality-guide.md](source/runbooks/content-enhancement/ai-content-quality-guide.md) - 27-point framework for identifying and improving AI-assisted content
 - [blog-revitalization-framework.md](source/runbooks/content-enhancement/blog-revitalization-framework.md) - Update historical posts
 - [blog-revitalization-prompt.md](source/runbooks/content-enhancement/blog-revitalization-prompt.md) - Quick revitalization prompt
 
@@ -53,9 +54,6 @@ Reference information and templates.
 - [professional.md](source/datasets/templates/professional.md) - Work history template
 - [preferences.md](source/datasets/templates/preferences.md) - Communication preferences template
 
-**Guides:**
-- [ai-content-quality-guide.md](source/datasets/guides/ai-content-quality-guide.md) - Identifying and improving AI-assisted content
-
 ## Structure
 
 ```
@@ -70,8 +68,7 @@ ai-knowledge-ragbot/
 │   │   ├── content-enhancement/
 │   │   └── engineering/
 │   ├── datasets/           # WHAT - Reference information
-│   │   ├── templates/
-│   │   └── guides/
+│   │   └── templates/
 │   └── contexts/           # Context definitions
 ├── compiled/               # AI-optimized output (generated)
 └── compile-config.yaml
