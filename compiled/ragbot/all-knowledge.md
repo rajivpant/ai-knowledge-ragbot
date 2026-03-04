@@ -3110,6 +3110,711 @@ This runbook is open source. Contributions are welcome!
 
 ---
 
+## Runbooks: Multi Contributor Synthesis Coding
+
+---
+title: Multi-contributor synthesis coding
+description: Runbook for integrating external contributions into a synthesis-coded project. Covers the adopt-and-adapt pattern, quality gates, and the lead synthesist role.
+author: Rajiv Pant
+date: 2026-02-13
+categories:
+  - Synthesis Engineering
+  - Synthesis Coding
+  - Project Management
+---
+
+# Multi-contributor synthesis coding
+
+When multiple people contribute to a project built through synthesis coding, integration is fundamentally different from a standard open source merge workflow. This runbook defines how it works.
+
+---
+
+## The core problem
+
+In synthesis coding, the lead developer (the "lead synthesist") builds and evolves the system through continuous, context-rich collaboration with AI. The result is a codebase with:
+
+- Deep architectural consistency — decisions compound across sessions
+- Implicit conventions — not all standards are documented yet because one person held them all in their head
+- Rapid evolution — the codebase may change substantially between the time an external contributor branches off and the time they submit a PR
+
+When an external contributor forks or branches, they get a snapshot. They build against that snapshot. Meanwhile, the lead may have evolved the architecture, introduced new patterns, improved output quality, or refactored entire subsystems. The contributor's code reflects the old state.
+
+A blind merge risks:
+
+- **Regression** — undoing improvements the lead made after the contributor branched
+- **Inconsistency** — introducing patterns that conflict with the codebase's evolved conventions
+- **Security gaps** — missing safeguards the lead added (audit logging, rate limiting, input validation)
+- **Quality drift** — code that works but doesn't meet the project's current bar
+
+The standard open source answer — "submit a PR, we'll merge it" — doesn't account for this. What's needed is a disciplined integration methodology.
+
+---
+
+## Adopt-and-adapt: the integration pattern
+
+The lead synthesist does not merge external contributions directly. Instead:
+
+1. **Adopt** the intent, the design, and the valuable implementation work
+2. **Adapt** the code to meet current standards, architecture, and quality bar
+
+This is neither a merge nor a rewrite. It's selective integration with improvement. The contributor's work is the foundation; the lead brings it up to production standard.
+
+### Why this works
+
+- **Respects the contributor's work.** Their design thinking, feature concept, and implementation effort are preserved.
+- **Maintains quality.** The lead synthesist is the quality gate. Nothing ships that doesn't meet the bar.
+- **Avoids regression.** By starting from current `main` and selectively pulling in changes, the lead never risks overwriting recent improvements.
+- **Educates through feedback.** The review process teaches contributors the project's standards, making future contributions smoother.
+
+### Why direct merge doesn't work
+
+- The contributor didn't have the latest context. Their code is correct for a codebase that no longer exists in that exact form.
+- Standards evolve faster than documentation. The lead synthesist holds conventions that aren't yet written down. Integration is when those conventions get documented.
+- AI-accelerated development means the codebase moves fast. A branch that's a week old may be dozens of commits behind.
+
+---
+
+## Roles
+
+### Lead synthesist
+
+The person who holds the architectural vision, maintains the quality bar, and has the deepest context on the system. In a synthesis-coded project, this is typically the person who built the system through sustained AI collaboration.
+
+**Responsibilities:**
+- Defines and evolves project standards
+- Reviews all external contributions
+- Performs adopt-and-adapt integration
+- Maintains the canonical repository
+- Controls production deployments
+- Documents standards as they emerge through the integration process
+
+**Key principle:** The lead synthesist's standards ARE the project's standards. Integration is the forcing function that makes those standards explicit and documented.
+
+### Contributors
+
+Developers who build features on branches or forks. They may or may not use synthesis coding themselves.
+
+**Responsibilities:**
+- Understand existing standards before building (read the contributor guide)
+- Submit complete features (both frontend and backend, with tests)
+- Maintain clean branch hygiene (one feature per branch, meaningful commits)
+- Respond to review feedback and iterate
+
+**Key principle:** The goal is to make integration easy. The closer the contribution is to the project's standards, the less adaptation is needed.
+
+---
+
+## Contribution workflow
+
+### Before building
+
+1. **Read the project's contributor guide.** Every synthesis-coded project with external contributors should maintain one. It documents the standards that would otherwise live only in the lead's head.
+2. **Sync to latest main.** Don't build on stale code.
+3. **Discuss the approach for significant features.** Especially anything touching auth, security, the data model, or user-facing architecture. A 10-minute discussion prevents days of rework.
+
+### While building
+
+1. **One feature per branch.** Never bundle unrelated work. If you start a second feature while working on the first, create a new branch.
+2. **Complete features only.** A frontend modal that calls an API endpoint that doesn't exist is not a shippable unit. Backend + frontend + tests = complete.
+3. **Follow existing patterns.** Before creating a new component, search the codebase for similar ones. Match the style, structure, naming conventions, and error handling patterns.
+4. **Meaningful commits.** Use conventional commit format (`feat:`, `fix:`, `docs:`, `test:`, `chore:`). The lead should be able to understand the intent of each commit from its message.
+
+### Submitting
+
+1. **Rebase onto latest main.** Minimize divergence.
+2. **Clean diff.** No debugging artifacts, no commented-out experiments, no unrelated changes.
+3. **Share early if uncertain.** A draft PR with a question is better than a finished PR that needs fundamental rework.
+
+---
+
+## The integration process
+
+When the lead synthesist receives a contribution, the process is:
+
+### Step 1: Assess
+
+- Fetch the branch and review the diff
+- Identify what the contribution does, what it changes, and what assumptions it makes
+- Check: how far has `main` moved since the contributor branched off?
+- Check: does the contribution touch sensitive areas (auth, security, data model, user-facing text)?
+
+### Step 2: Review
+
+Evaluate against the project's quality gates (see next section). Produce written feedback covering:
+
+- **What's strong** — acknowledge good work. Contributors who feel respected produce better work.
+- **What must change** — security issues, broken functionality, standards violations. Be specific: name the issue, explain why it matters, and suggest the fix.
+- **What should change** — code quality improvements, performance concerns, architectural suggestions. Distinguish "must fix" from "should fix."
+
+### Step 3: Integrate (adopt-and-adapt)
+
+1. **Create a fresh branch off current `main`.** Never merge the contributor's branch directly.
+2. **Selectively bring in changes.** File by file, function by function. Cherry-pick the implementation, not the entire branch.
+3. **Fix identified issues during integration.** Don't merge first and fix later. The adapted code should be production-ready when it hits `main`.
+4. **Test the integrated result.** Run the full test suite. Test the feature manually. Verify nothing regressed.
+5. **Merge to canonical `main`.** This is the source of truth.
+6. **Sync mirrors/forks.** Push the updated `main` to any mirrors so contributors have the latest code for their next contribution.
+
+### Step 4: Communicate
+
+- Share the integration review with the contributor
+- Explain what was changed and why — this is how standards transfer
+- Acknowledge their contribution's value
+- Note lessons that should go into the contributor guide to prevent recurrence
+
+---
+
+## Quality gates
+
+Every contribution must pass these gates before integration. The lead synthesist evaluates these; they're not automated checks (though some could be).
+
+### Gate 1: Completeness
+
+- Feature is fully implemented (not half-frontend, half-backend)
+- No dead code, no references to methods that don't exist
+- No dependency on unreleased or unmerged work
+- Tests exist for new backend logic
+
+### Gate 2: Security
+
+- Privileged operations produce audit log entries
+- Auth tokens are handled correctly (claims propagated through refresh, appropriate expiry)
+- Rate limiting on sensitive endpoints
+- No credentials or secrets hardcoded in code
+- Input validation at system boundaries
+- User data exposure reviewed (no unnecessary information leakage)
+
+### Gate 3: Architecture
+
+- One feature per branch (no bundled unrelated changes)
+- Follows existing codebase patterns (component structure, API client usage, error handling)
+- Uses framework features properly (not fighting the framework with workarounds)
+- No regression of existing functionality
+- No unnecessary complexity (solves the problem without over-engineering)
+
+### Gate 4: Project-specific standards
+
+These vary by project. For any synthesis-coded project, the lead synthesist defines what matters. Examples:
+
+- Brand/white-labeling compliance
+- UI terminology rules
+- Deployment safety rules
+- Database migration approach
+- Performance expectations
+
+The contributor guide should document these. If a standard isn't documented and a contributor violates it, that's the lead's responsibility to document it — not the contributor's fault.
+
+---
+
+## Communication and feedback
+
+### Principles
+
+- **Be specific, not vague.** "This has security issues" is useless. "The impersonation endpoint needs audit logging because the codebase uses `log_audit_event()` for all privileged operations — see `access_control.py` for the pattern" is actionable.
+- **Explain the why.** Contributors who understand the reasoning behind a standard will follow it naturally in future work. Contributors who receive rules without context will keep violating them.
+- **Acknowledge good work.** Name the things that were well done. People do more of what gets recognized.
+- **Distinguish severity levels.** "Must fix before production" vs. "should fix" vs. "consider for future." Not everything is critical.
+
+### The integration review document
+
+For each set of contributions, the lead should produce a written review that covers:
+
+1. **Project standards the contributor needs to know** — extracted from the lead's implicit knowledge and made explicit
+2. **Specific feedback on each PR** — strengths, issues, recommendations
+3. **The integration plan** — what the lead will do with the code and in what order
+4. **Contribution workflow for next time** — how to submit work that integrates more smoothly
+
+This document serves double duty: it's feedback for the contributor AND it's documentation for the project. Standards that exist only in the lead's head are standards that will be violated.
+
+---
+
+## Lessons and anti-patterns
+
+### Anti-pattern: the blind merge
+
+Merging a contribution without reviewing it against current standards. Even if CI passes, the code may introduce patterns that conflict with the project's architecture, miss security requirements, or regress quality.
+
+**Prevention:** Every external contribution goes through adopt-and-adapt. No exceptions.
+
+### Anti-pattern: bundled features
+
+Multiple unrelated features in a single branch or PR. This makes review harder, creates unnecessary merge conflicts, and means you can't merge feature A without also merging unfinished feature B.
+
+**Prevention:** One feature per branch. Enforce this as a contribution requirement.
+
+### Anti-pattern: orphaned half-features
+
+Frontend code that calls backend endpoints that don't exist (or vice versa). This ships dead code that confuses future readers and creates merge conflicts.
+
+**Prevention:** Require complete features — both sides of the stack, tested together.
+
+### Anti-pattern: auto-deploy without approval
+
+CI/CD pipelines that deploy to production on push to main with no manual approval gate. This removes the lead's control over production and can ship unreviewed changes.
+
+**Prevention:** Production deploys always require explicit human approval. Staging can be automatic.
+
+### Anti-pattern: stale documentation
+
+Integration documents, contributor guides, and design docs that describe the system as it was, not as it is. Stale docs are worse than no docs because they mislead contributors.
+
+**Prevention:** Update the contributor guide as part of every integration cycle. When you adapt a contribution and find a standard that wasn't documented, document it.
+
+### Lesson: integration is when standards get documented
+
+The act of reviewing external contributions forces the lead synthesist to make implicit standards explicit. Embrace this. Every integration review should leave the contributor guide more comprehensive than before.
+
+### Lesson: the contributor guide is a living document
+
+It should grow with every integration. New standards discovered during review get added. Stale standards get updated. The guide is never "done" — it evolves with the project.
+
+### Lesson: review the branches, not just the PRs
+
+Contributors may have branches beyond what's in the PRs. Fetch all remote branches and understand the full scope of work before starting the review. Surprises during integration are costly.
+
+---
+
+## Applying this to new projects
+
+Any synthesis-coded project that expects external contributions should:
+
+1. **Create a contributor guide** in the project's docs. Doesn't need to be comprehensive on day one — it will grow through integration cycles.
+2. **Establish the canonical repository** as the single source of truth. Contributors work on forks or mirrors; integration flows through the lead.
+3. **Define quality gates** appropriate to the project. Security, architecture, and completeness are universal; project-specific standards vary.
+4. **Use adopt-and-adapt from the first contribution.** Don't start with blind merges and try to add quality gates later. The precedent you set with the first contribution defines the culture.
+
+---
+
+*This runbook is part of the synthesis engineering practice. It was developed from real integration experience on a production multi-contributor project.*
+
+
+---
+
+## Runbooks: Context Lifecycle
+
+---
+title: Context lifecycle management
+description: >
+  Managing AI working memory across long-running projects using the tiered
+  context architecture. Covers the three-tier structure (CONTEXT.md /
+  REFERENCE.md / sessions/), archival protocols, budget enforcement,
+  migration strategies, and quality metrics.
+author: Rajiv Pant
+date: 2026-03-04
+categories:
+  - Synthesis Engineering
+  - Project Management
+---
+
+# Context lifecycle management
+
+## The problem
+
+AI collaborators start every session with zero context. Their effectiveness depends entirely on the quality of the context they receive. For short-lived projects (2-3 sessions), a single context file works. For long-running projects spanning weeks or months, that file grows unboundedly — combining four types of information with fundamentally different lifecycles:
+
+| Information type | Access pattern | Growth pattern | Ideal treatment |
+|-----------------|----------------|----------------|-----------------|
+| **Working memory** (current state, active tasks) | Every session | Constant | Keep lean, refresh often |
+| **Episodic memory** (session logs) | Rarely after 1 week | Unbounded append | Archive monthly |
+| **Semantic memory** (stable facts, reference) | Most sessions | Slow, update-in-place | Separate file |
+| **Completed work records** | Almost never | Unbounded append | Delete after archiving |
+
+Combining all four in one file means the file grows linearly with session count, with no mechanism for information to leave. This is the classic **hot/warm/cold data problem** from database engineering, manifesting in AI context management.
+
+## The architecture
+
+### Three tiers
+
+```
+project/
+├── CONTEXT.md      # Working memory (budget: ≤150 lines)
+├── REFERENCE.md    # Semantic memory (stable facts, update in place)
+├── sessions/       # Episodic memory (archived session logs)
+│   └── YYYY-MM.md  # Monthly files
+└── [other files]   # Transcripts, artifacts, etc.
+```
+
+This maps to both cognitive science and systems engineering:
+
+| Human memory | CPU cache | Synthesis equivalent | Properties |
+|-------------|-----------|---------------------|------------|
+| Working memory | L1 cache | CONTEXT.md | Small capacity, constantly refreshed, always loaded |
+| Semantic memory | L2 cache | REFERENCE.md | Facts and relationships, updated in place, loaded on demand |
+| Episodic memory | L3 cache | sessions/ | Chronological events, append-only, searched when needed |
+| Procedural memory | Firmware | CLAUDE.md + _lessons/ | How to do things, rules, patterns |
+
+These aren't metaphors — they're design principles. Each memory type has different storage, retrieval, and maintenance characteristics. Treating them identically is like a database that puts hot transactional data and cold analytics data in the same table with no partitioning.
+
+### CONTEXT.md — working memory
+
+**Purpose:** Everything the AI collaborator needs to be effective in THIS session.
+
+**Budget:** ≤150 lines (hard). For completed projects: ≤80 lines.
+
+**Contains ONLY:**
+- Phase/status header (~5 lines)
+- Current state (~15 lines)
+- Active tasks with priorities (~50 lines)
+- Recent session summaries — last 1-2 only (~30 lines)
+- Links to REFERENCE.md and sessions/ (~5 lines)
+- Budget footer (~2 lines)
+
+**Does NOT contain:**
+- Completed task checklists (already in session log — delete them)
+- Session logs older than 1 week (move to sessions/)
+- Stable reference facts (live in REFERENCE.md)
+- Detailed historical narrative (live in session archive)
+
+**Template — new project (day 1):**
+
+```markdown
+# [Project Name] — Working Context
+
+**Phase:** Initial
+**Status:** [description]
+**Last session:** YYYY-MM-DD
+
+---
+
+## Current State
+
+[What exists, what doesn't, starting conditions]
+
+## What's Next
+
+1. [ ] [First task]
+2. [ ] [Second task]
+
+---
+
+*This file follows the Tiered Context Architecture. Budget: ≤150 lines.*
+```
+
+**Template — mature project (day 100):**
+
+```markdown
+# [Project Name] — Working Context
+
+**Phase:** [Current phase]
+**Status:** [Active/Paused]
+**Last session:** YYYY-MM-DD
+
+For stable reference facts: see [REFERENCE.md](REFERENCE.md)
+For session history: see [sessions/](sessions/)
+
+---
+
+## Current State
+
+- **Production:** [version, deployment status]
+- **Blockers:** [if any]
+
+## What's Next — Prioritized
+
+**High:**
+1. [ ] [Task with context]
+2. [ ] [Task with context]
+
+**Medium:**
+3. [ ] [Task]
+
+**Deferred:**
+4. [ ] [Task — reason for deferral]
+
+## Recent Session: YYYY-MM-DD
+
+[Summary: what was done, decisions made, outcomes]
+
+---
+
+## Completed Milestones
+
+- [Milestone 1]
+- [Milestone 2]
+
+---
+
+*This file follows the Tiered Context Architecture. Budget: ≤150 lines.*
+```
+
+**Template — completed project:**
+
+```markdown
+# [Project Name] — Context
+
+**Status:** Completed
+**Completed:** YYYY-MM-DD
+**Outcome:** [1-2 sentence summary]
+
+---
+
+## Summary
+
+[What was built/accomplished, 5-10 lines]
+
+## Key Decisions
+
+[Notable decisions that might matter if revisited, 5-10 lines]
+
+## Related Projects
+
+[Links to successor or related projects]
+
+---
+
+*Completed project. For historical sessions, see [sessions/](sessions/).*
+```
+
+### REFERENCE.md — semantic memory
+
+**Purpose:** Stable facts that don't change session-to-session.
+
+**Budget:** ≤300 lines (soft). Exceeding 300 lines is a signal that the project scope may be too broad.
+
+**Contains:**
+- Project overview and goals (if not obvious from name)
+- Team roster with roles
+- URLs, repos, remotes, deployment configuration
+- Architecture decisions and conventions
+- File indexes (transcript logs, artifact locations)
+- Setup and cleanup instructions
+
+**Key property:** Updated IN PLACE, not appended to. When a team member leaves, update the roster — don't add a dated note. When a URL changes, change the URL. This is a living reference document, not a log.
+
+**Template:**
+
+```markdown
+# [Project Name] — Reference
+
+Stable facts for this project. Updated in place when facts change.
+
+---
+
+## Quick Reference
+
+| Resource | Location |
+|----------|----------|
+| [Key URL] | [value] |
+| [Key command] | [value] |
+
+## Team
+
+| Name | Role | Notes |
+|------|------|-------|
+| [Name] | [Role] | [Status] |
+
+## Architecture
+
+[Key decisions, conventions, patterns]
+
+## Related Files
+
+[Index of transcripts, artifacts, external documents]
+```
+
+### sessions/ — episodic archive
+
+**Purpose:** Historical record of what happened and when. Rarely read, but searchable when historical context is needed.
+
+**Organization:** Monthly files named `YYYY-MM.md`.
+
+**Template:**
+
+```markdown
+# Session Archive — [Month] [Year]
+
+Archived from CONTEXT.md on YYYY-MM-DD. See REFERENCE.md for stable project facts.
+
+---
+
+### YYYY-MM-DD: [Session title — what was accomplished]
+
+[Summary: 5-15 lines per session. What was done, decisions made, outcomes.]
+
+### YYYY-MM-DD: [Next session]
+
+[...]
+```
+
+## The archival protocol
+
+### When to archive
+
+Archive when ANY of these conditions are true:
+- CONTEXT.md exceeds 120 lines (approaching 150-line budget)
+- Session logs in CONTEXT.md are older than 1 week
+- A project phase transition occurs
+- The user explicitly requests cleanup
+
+### Step by step
+
+1. **Read** CONTEXT.md and count lines
+2. **Identify cold content:**
+   - Completed task items (already in session logs)
+   - Session summaries older than 1 week
+   - Stable facts that belong in REFERENCE.md
+   - Detailed narratives that belong in sessions/
+3. **Create files if needed:**
+   - REFERENCE.md (if stable facts exist and no REFERENCE.md yet)
+   - sessions/ directory
+   - sessions/YYYY-MM.md for the relevant month
+4. **Move content:**
+   - Session logs → sessions/YYYY-MM.md (append chronologically)
+   - Stable facts → REFERENCE.md (organize by category)
+   - Completed tasks → delete (already archived)
+5. **Verify:**
+   - CONTEXT.md ≤150 lines
+   - No information lost (everything moved, not deleted)
+   - Cross-references updated (CONTEXT.md points to REFERENCE.md and sessions/)
+6. **Commit** with message: "Maintain context: archive sessions, extract reference facts"
+
+### Decision tree: where does this content belong?
+
+```
+Is this information needed for TODAY's work?
+├── Yes → CONTEXT.md
+└── No
+    ├── Is it a stable fact (team, URL, architecture)?
+    │   ├── Yes → REFERENCE.md (update in place)
+    │   └── No
+    │       ├── Is it a record of what happened during a session?
+    │       │   ├── Yes → sessions/YYYY-MM.md
+    │       │   └── No
+    │       │       └── Is it a reusable lesson?
+    │       │           ├── Yes → _lessons/
+    │       │           └── No → delete it
+    └── Exception: completed milestones (≤10 lines) stay in CONTEXT.md
+```
+
+## Migration guide
+
+### For projects over 500 lines
+
+Full restructuring. Do NOT mechanically split — each project needs judgment about what's working memory vs reference vs archive.
+
+1. Read the entire CONTEXT.md
+2. Identify the four content types
+3. Create REFERENCE.md with semantic content
+4. Create sessions/ with episodic content (grouped by month)
+5. Rewrite CONTEXT.md as fresh working memory
+6. Verify nothing was lost
+
+### For projects 150-500 lines
+
+Moderate restructuring:
+1. Extract obvious semantic content (team, URLs, architecture) → REFERENCE.md
+2. Move session logs → sessions/
+3. Tighten CONTEXT.md to ≤150 lines
+
+### For projects under 150 lines
+
+Lightweight touch:
+1. Add budget footer
+2. If >20 lines of reference material exist, consider extracting to REFERENCE.md
+3. If completed, simplify to completion summary format
+
+## Project status transitions
+
+| Transition | CONTEXT.md Action | Other Actions |
+|-----------|-------------------|---------------|
+| active → completed | Rewrite as completion summary (≤80 lines) | Simplify REFERENCE.md |
+| active → paused | Add "Paused State" header with reason | Archive session logs |
+| paused → active | Remove "Paused State" header, refresh | Update last_session |
+| completed → archived | Freeze all files | Set status in index.yaml |
+| active → spawned | Remove spawned scope | Create new project |
+
+## Project spawning
+
+When a sub-scope exceeds the parent project's boundaries:
+
+1. Create new project directory
+2. Seed CONTEXT.md with fresh working memory (not a copy)
+3. Add to index.yaml with `related:` linking to parent
+4. Remove spawned scope from parent's CONTEXT.md
+5. Cross-reference both projects
+
+**The test:** Would a new team member reading only the parent's CONTEXT.md be confused by the spawned work? If yes, spawn it.
+
+## Measuring context quality
+
+### Quantitative
+
+| Metric | Target |
+|--------|--------|
+| CONTEXT.md line count | ≤150 (active) / ≤80 (completed) |
+| REFERENCE.md line count | ≤300 |
+| Stale session logs (>1 week old in CONTEXT.md) | 0 |
+| Completed tasks remaining in CONTEXT.md | 0 |
+| Budget footer present | Yes |
+
+### Qualitative
+
+After reading CONTEXT.md, the AI collaborator should be able to answer:
+1. What is the current state of this project?
+2. What should I work on next?
+3. What was done in the last session?
+4. Where do I find stable reference information?
+
+If any question can't be answered from CONTEXT.md alone (with a pointer to REFERENCE.md), the working memory is incomplete.
+
+## Comparison with flat memory files
+
+Many AI tools use a single flat memory file (append-only, no lifecycle). The tiered architecture differs in fundamental ways:
+
+| Dimension | Flat memory file | Tiered context architecture |
+|-----------|-----------------|----------------------------|
+| **Structure** | Single file | Three tiers by information lifecycle |
+| **Growth** | Unbounded append | Budgeted working memory, overflow to archive |
+| **Lifecycle** | None — facts accumulate forever | Garbage collection at session boundaries |
+| **Staleness** | High — no removal mechanism | Low — working memory refreshed, reference updated in place |
+| **Cognitive load** | Grows linearly with project duration | Constant (150-line cap on always-loaded content) |
+| **Scale** | Degrades with project count and duration | Designed for 60+ projects over months |
+| **Self-documenting** | No — file could contain anything | Yes — file names declare purpose |
+
+The fundamental difference: a flat file is a **log** (append-only, no lifecycle). The tiered architecture is a **managed system** (budgets, garbage collection, lifecycle transitions). The same distinction that separates `console.log()` debugging from structured logging with rotation and retention policies.
+
+## When to close vs. archive sessions
+
+**Close and start a new project** when:
+- The project's **goal** has changed (not just the tasks)
+- The team or stakeholder set has fundamentally shifted
+- There's a natural "shipped it" milestone marking a real boundary
+- REFERENCE.md itself would need a complete rewrite
+
+**Archive sessions and continue** when:
+- The work is ongoing but CONTEXT.md is too long
+- You're in a new phase of the same project
+- Team, reference facts, and goals are substantially the same
+
+## Context as infrastructure
+
+In traditional engineering, code is managed as infrastructure — version control, CI/CD, testing, deployment. In synthesis engineering (human-AI collaborative development), there is a third infrastructure layer: **context infrastructure** — the structured information that enables an AI collaborator to be effective across sessions.
+
+The three infrastructure layers:
+
+1. **Code infrastructure** — git, CI/CD, deployment (solved by traditional engineering)
+2. **Knowledge infrastructure** — lessons, runbooks, compiled knowledge bases (the organizational learning layer)
+3. **Context infrastructure** — working memory, reference facts, session history (the novel contribution — no equivalent in traditional engineering because human engineers carry context in their heads)
+
+The quality of context has three dimensions:
+- **Relevance** — Is the information needed for today's work?
+- **Accuracy** — Is the information still true?
+- **Accessibility** — Can historical context be found when needed?
+
+The tiered architecture optimizes all three: CONTEXT.md is relevant (lean, current), REFERENCE.md is accurate (updated in place), and sessions/ is accessible (organized, searchable).
+
+## Evolution stages
+
+1. **Ad hoc** — Re-explain everything each session (most AI users today)
+2. **Monolithic** — Single context file that grows forever (common early approach)
+3. **Tiered** — Working memory + reference + archive with lifecycle management (this runbook)
+4. **Compiled** — Context automatically assembled from project state, code, and history (future vision)
+
+Stage 3 is the 80/20 solution that makes long-running AI-assisted projects sustainable. Stage 4 is the long-term vision where context at session start is compiled from live project state rather than manually maintained.
+
+
+---
+
 ## Runbooks: Synthesis Project Management
 
 # Synthesis Project Management System
@@ -3150,10 +3855,11 @@ ai-knowledge-{workspace}/
     ├── index.yaml               # Single index for ALL projects (status field, not folders)
     │
     ├── {project-id}/            # Project folders (flat structure)
-    │   ├── CONTEXT.md           # Living state for active projects
-    │   ├── README.md            # Static documentation (sufficient for completed)
-    │   ├── work-logs/           # Session logs for this project
-    │   │   └── YYYY-MM-DD-*.md
+    │   ├── CONTEXT.md           # Working memory — active state (budget: ≤150 lines)
+    │   ├── REFERENCE.md         # Semantic memory — stable facts (updated in place)
+    │   ├── sessions/            # Episodic memory — archived session logs
+    │   │   └── YYYY-MM.md       #   Monthly files
+    │   ├── README.md            # Static documentation (optional)
     │   └── resources/           # Project data and artifacts (optional)
     │       ├── in/              # Inputs
     │       ├── artifacts/       # Working data
@@ -3170,7 +3876,7 @@ ai-knowledge-{workspace}/
 |----------|-----------|
 | **Flat project folders** | Status is in `index.yaml`, not folder names. No moving folders when status changes. |
 | **`_lessons/` underscore prefix** | Distinguishes from project folders. Sorts to top. Visible, not hidden. |
-| **Work-logs inside projects** | Session logs belong with their project. No centralized work-logs folder. |
+| **Three-tier context** | CONTEXT.md (working memory), REFERENCE.md (stable facts), sessions/ (history). See `context-lifecycle.md`. |
 | **Date-prefixed lesson files** | Enables time-based discovery. `ls -t` shows recent. No index needed. |
 | **No templates folder** | Agents examine existing examples and adapt. Templates are a pre-AI pattern. |
 | **No patterns.md** | Patterns are lessons with `type: pattern` in front matter. One folder to search. |
@@ -3234,91 +3940,29 @@ projects:
 
 **Update when:** Session end (update `last_session`), project status changes, new project added.
 
-### 2. CONTEXT.md (Living Project State)
+### 2. Tiered Context Architecture
 
-**Required for:** Active, paused, and ongoing projects.
-**Optional for:** Completed and archived projects (README.md is sufficient).
+Projects use a three-tier context system that separates information by lifecycle. This prevents unbounded growth of context files and keeps AI collaborators effective across long-running projects.
 
-The most critical file. Contains everything needed to resume work.
+**Detailed documentation:** See `context-lifecycle.md` (companion runbook) for templates, migration guides, decision trees, and quality metrics.
 
-```markdown
-# Project: {Project Name}
+**The three tiers:**
 
-## Overview
+| Tier | File | Purpose | Budget | Update pattern |
+|------|------|---------|--------|---------------|
+| Working memory | CONTEXT.md | Current state, active tasks, recent sessions | ≤150 lines (hard) | Every session |
+| Semantic memory | REFERENCE.md | Stable facts (team, URLs, architecture) | ≤300 lines (soft) | Updated in place when facts change |
+| Episodic memory | sessions/YYYY-MM.md | Archived session logs | No budget | Append-only, monthly files |
 
-{1-2 sentence description of the project goal}
+**CONTEXT.md** is the most critical file — loaded every session, budgeted at 150 lines. Contains ONLY what's needed for today's work. Session logs older than 1 week and stable facts are archived to sessions/ and REFERENCE.md respectively.
 
-**Started:** YYYY-MM-DD
-**Status:** {In Progress | Blocked | Complete}
+**REFERENCE.md** stores facts that don't change session-to-session. Updated in place (not appended to). When a team member leaves, update the roster — don't add a dated note.
 
-## Current State
+**sessions/** stores chronological session history, organized by month. Rarely loaded, but searchable when historical context is needed.
 
-{What has been accomplished. Be specific about artifacts created.}
+**Archival protocol:** At session start, if CONTEXT.md exceeds 120 lines: move completed tasks (delete), old session logs (→ sessions/), and stable facts (→ REFERENCE.md). This is garbage collection for context.
 
-**Key artifacts:**
-- `path/to/file1` - Description
-- `path/to/file2` - Description
-
-## Next Steps
-
-1. [ ] First thing to do
-2. [ ] Second thing to do
-3. [ ] Third thing to do
-
-## Blockers
-
-{Any blockers preventing progress. Remove section if none.}
-
-- Blocker 1: Description and what's needed to unblock
-
-## Key Decisions
-
-| Decision | Rationale | Date |
-|----------|-----------|------|
-| Chose approach A over B | Reason for choice | YYYY-MM-DD |
-
-## Session History
-
-| Date | Summary |
-|------|---------|
-| YYYY-MM-DD | What was accomplished in this session |
-```
-
-**Update when:** After EVERY significant task or phase completion. This is the most important update.
-
-### 3. Work Logs (`{project-id}/work-logs/`)
-
-Detailed session records for significant work sessions. Live inside project folders.
-
-**File naming:** `YYYY-MM-DD-brief-summary.md`
-
-```markdown
-# Work Log: YYYY-MM-DD — {Brief Summary}
-
-**Project:** {Project Name}
-**Duration:** ~{X} hours
-**Outcome:** {success | partial | blocked}
-
-## Accomplished
-
-- Completed {task 1}
-- Fixed {issue}
-- Created {artifact}
-
-## Challenges
-
-- {Challenge faced and how it was resolved}
-
-## Next Session
-
-- Continue with {next task}
-
-## Artifacts Created
-
-- `path/to/new/file` - Description
-```
-
-**Update when:** End of significant sessions (not every small task).
+**Update when:** After EVERY significant task. This is the most important update.
 
 ### 4. Lessons (`_lessons/`)
 
@@ -3383,27 +4027,29 @@ Complete task → Complete task → Complete task → (context compaction) → L
 ### Session Start
 
 1. **Read CONTEXT.md** — Understand current state before touching code
-2. **Search _lessons/** — `grep` for relevant past experiences
-3. **Check related projects** — Look at `related:` tags in index.yaml
+2. **Check line count** — If CONTEXT.md >150 lines, archive before starting work
+3. **Read REFERENCE.md** — If it exists and the task needs reference details
+4. **Search _lessons/** — `grep` for relevant past experiences
+5. **Check related projects** — Look at `related:` tags in index.yaml
 
 ### Session End
 
-1. **Final CONTEXT.md update** — Ensure all sections current
-2. **Update index.yaml** — Set `last_session` date
-3. **Create work log** — If significant session, add to `{project-id}/work-logs/`
+1. **Final CONTEXT.md update** — Ensure all sections current (≤150 lines)
+2. **Archive if needed** — Move old sessions to sessions/, stable facts to REFERENCE.md
+3. **Update index.yaml** — Set `last_session` date
 4. **Commit all changes** — Don't leave uncommitted work
 
 ## File Requirements by Project Status
 
-| Status | CONTEXT.md | README.md | work-logs/ |
-|--------|------------|-----------|------------|
-| active | Required | Optional | As needed |
-| paused | Required | Optional | As needed |
-| ongoing | Required | Optional | As needed |
-| completed | Optional | Sufficient | Historical |
-| archived | Optional | Sufficient | Historical |
+| Status | CONTEXT.md | REFERENCE.md | sessions/ | CONTEXT.md budget |
+|--------|------------|-------------|-----------|------------------|
+| active | Required | When needed | When needed | ≤150 lines |
+| paused | Required | When needed | When needed | ≤150 lines |
+| ongoing | Required | When needed | When needed | ≤150 lines |
+| completed | Required (summary) | Optional | Optional | ≤80 lines |
+| archived | Frozen | Frozen | Frozen | N/A |
 
-**Rationale:** Active projects need living state tracking. Completed projects are static documentation.
+**Rationale:** Active projects need lean working memory. Completed projects need concise summaries. Reference files and session archives are created when a project accumulates enough content to warrant them.
 
 ## AI Assistant Integration
 
@@ -3412,15 +4058,16 @@ Complete task → Complete task → Complete task → (context compaction) → L
 Add to your `~/.claude/CLAUDE.md`:
 
 ```markdown
-## Synthesis Project Management
+## Context Lifecycle
 
 After completing ANY significant task:
 
-1. **Update CONTEXT.md immediately** — Don't wait until session end
-2. **Update index.yaml** — Set last_session date at session end
-3. **Add to _lessons/** — If you made a mistake or learned something
-4. **Create work-logs/ entry** — For significant sessions (in project folder)
-5. **Commit to git** — At logical checkpoints
+1. **Update CONTEXT.md immediately** — Don't wait until session end (budget: ≤150 lines)
+2. **Move stable facts to REFERENCE.md** — Don't put them in CONTEXT.md
+3. **Archive old sessions to sessions/** — When logs are >1 week old
+4. **Update index.yaml** — Set last_session date
+5. **Add to _lessons/** — If you learned something reusable
+6. **Commit to git** — At logical checkpoints
 
 **Location:** `ai-knowledge-{workspace}/projects/`
 
@@ -3429,7 +4076,9 @@ After completing ANY significant task:
 |------|----------|
 | All projects | `projects/{project-id}/` |
 | Project index | `projects/index.yaml` |
-| Work logs | `projects/{project-id}/work-logs/` |
+| Working memory | `projects/{project-id}/CONTEXT.md` |
+| Reference facts | `projects/{project-id}/REFERENCE.md` |
+| Session history | `projects/{project-id}/sessions/` |
 | Lessons | `projects/_lessons/` |
 
 The user should NEVER have to remind you to do this.
@@ -3449,10 +4098,11 @@ When a user mentions a project:
 
 1. **Filesystem is persistent** — Survives context compaction
 2. **Convention-based** — Same structure everywhere, easy to navigate
-3. **Single source of truth** — CONTEXT.md has everything needed
-4. **Self-describing** — Date prefixes, front matter, naming conventions
-5. **Searchable** — Agents grep, humans `ls -t`
-6. **No maintenance overhead** — No indexes to update (except index.yaml for status)
+3. **Tiered by lifecycle** — Hot data in CONTEXT.md, warm in REFERENCE.md, cold in sessions/
+4. **Budgeted** — 150-line cap prevents degradation over time
+5. **Self-maintaining** — Archival protocol is garbage collection for context
+6. **Searchable** — Agents grep, humans `ls -t`
+7. **Scales** — Tested across 60+ projects over months of continuous use
 
 ## Common Mistakes
 
@@ -3467,16 +4117,27 @@ When a user mentions a project:
 
 ## Evolution Notes
 
-This system evolved from a more complex structure:
-- **Removed:** `active/` and `completed/` folders → status is in index.yaml
-- **Removed:** `templates/` → agents examine existing and adapt
-- **Removed:** `meta/patterns.md` → patterns are lessons with `type: pattern`
-- **Removed:** `lessons-learned/index.md` → date prefixes enable discovery
-- **Moved:** `work-logs/` → inside each project folder
-- **Renamed:** `lessons-learned/` → `_lessons/` (underscore distinguishes from projects)
+This system has evolved through three stages:
+
+**Stage 1 — Flat structure (early):**
+- `active/` and `completed/` folders → replaced with status field in index.yaml
+- `templates/` → removed (agents examine existing and adapt)
+- `meta/patterns.md` → replaced with `type: pattern` in _lessons/
+
+**Stage 2 — Monolithic CONTEXT.md (mid):**
+- Single CONTEXT.md per project
+- Worked well for short projects (2-5 sessions)
+- Degraded for long-running projects (CONTEXT.md grew to 500-1000+ lines)
+
+**Stage 3 — Tiered context architecture (current, March 2026):**
+- CONTEXT.md split into three tiers: working memory / reference / archive
+- Budget enforcement prevents degradation
+- Archival protocol provides garbage collection
+- Designed for projects spanning weeks or months
 
 ## See Also
 
+- [Context lifecycle management](context-lifecycle.md) — companion runbook with templates, decision trees, and migration guide
 - [Synthesis Project Management](https://synthesisengineering.org/articles/ai-native-project-management/) — conceptual article explaining the rationale
 
 ## License

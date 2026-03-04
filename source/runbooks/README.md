@@ -6,7 +6,7 @@ Procedures and workflows for AI-assisted development.
 
 | Category | Purpose |
 |----------|---------|
-| [project-management/](project-management/) | Project tracking and context preservation |
+| [project-management/](project-management/) | Project tracking, context lifecycle, and synthesis PM |
 | [system-config/](system-config/) | AI behavior configuration |
 | [communication/](communication/) | Message writing frameworks |
 | [content-creation/](content-creation/) | Content promotion and creation |

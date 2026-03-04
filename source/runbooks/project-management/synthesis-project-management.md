@@ -36,10 +36,11 @@ ai-knowledge-{workspace}/
     ├── index.yaml               # Single index for ALL projects (status field, not folders)
     │
     ├── {project-id}/            # Project folders (flat structure)
-    │   ├── CONTEXT.md           # Living state for active projects
-    │   ├── README.md            # Static documentation (sufficient for completed)
-    │   ├── work-logs/           # Session logs for this project
-    │   │   └── YYYY-MM-DD-*.md
+    │   ├── CONTEXT.md           # Working memory — active state (budget: ≤150 lines)
+    │   ├── REFERENCE.md         # Semantic memory — stable facts (updated in place)
+    │   ├── sessions/            # Episodic memory — archived session logs
+    │   │   └── YYYY-MM.md       #   Monthly files
+    │   ├── README.md            # Static documentation (optional)
     │   └── resources/           # Project data and artifacts (optional)
     │       ├── in/              # Inputs
     │       ├── artifacts/       # Working data
@@ -56,7 +57,7 @@ ai-knowledge-{workspace}/
 |----------|-----------|
 | **Flat project folders** | Status is in `index.yaml`, not folder names. No moving folders when status changes. |
 | **`_lessons/` underscore prefix** | Distinguishes from project folders. Sorts to top. Visible, not hidden. |
-| **Work-logs inside projects** | Session logs belong with their project. No centralized work-logs folder. |
+| **Three-tier context** | CONTEXT.md (working memory), REFERENCE.md (stable facts), sessions/ (history). See `context-lifecycle.md`. |
 | **Date-prefixed lesson files** | Enables time-based discovery. `ls -t` shows recent. No index needed. |
 | **No templates folder** | Agents examine existing examples and adapt. Templates are a pre-AI pattern. |
 | **No patterns.md** | Patterns are lessons with `type: pattern` in front matter. One folder to search. |
@@ -120,91 +121,29 @@ projects:
 
 **Update when:** Session end (update `last_session`), project status changes, new project added.
 
-### 2. CONTEXT.md (Living Project State)
+### 2. Tiered Context Architecture
 
-**Required for:** Active, paused, and ongoing projects.
-**Optional for:** Completed and archived projects (README.md is sufficient).
+Projects use a three-tier context system that separates information by lifecycle. This prevents unbounded growth of context files and keeps AI collaborators effective across long-running projects.
 
-The most critical file. Contains everything needed to resume work.
+**Detailed documentation:** See `context-lifecycle.md` (companion runbook) for templates, migration guides, decision trees, and quality metrics.
 
-```markdown
-# Project: {Project Name}
+**The three tiers:**
 
-## Overview
+| Tier | File | Purpose | Budget | Update pattern |
+|------|------|---------|--------|---------------|
+| Working memory | CONTEXT.md | Current state, active tasks, recent sessions | ≤150 lines (hard) | Every session |
+| Semantic memory | REFERENCE.md | Stable facts (team, URLs, architecture) | ≤300 lines (soft) | Updated in place when facts change |
+| Episodic memory | sessions/YYYY-MM.md | Archived session logs | No budget | Append-only, monthly files |
 
-{1-2 sentence description of the project goal}
+**CONTEXT.md** is the most critical file — loaded every session, budgeted at 150 lines. Contains ONLY what's needed for today's work. Session logs older than 1 week and stable facts are archived to sessions/ and REFERENCE.md respectively.
 
-**Started:** YYYY-MM-DD
-**Status:** {In Progress | Blocked | Complete}
+**REFERENCE.md** stores facts that don't change session-to-session. Updated in place (not appended to). When a team member leaves, update the roster — don't add a dated note.
 
-## Current State
+**sessions/** stores chronological session history, organized by month. Rarely loaded, but searchable when historical context is needed.
 
-{What has been accomplished. Be specific about artifacts created.}
+**Archival protocol:** At session start, if CONTEXT.md exceeds 120 lines: move completed tasks (delete), old session logs (→ sessions/), and stable facts (→ REFERENCE.md). This is garbage collection for context.
 
-**Key artifacts:**
-- `path/to/file1` - Description
-- `path/to/file2` - Description
-
-## Next Steps
-
-1. [ ] First thing to do
-2. [ ] Second thing to do
-3. [ ] Third thing to do
-
-## Blockers
-
-{Any blockers preventing progress. Remove section if none.}
-
-- Blocker 1: Description and what's needed to unblock
-
-## Key Decisions
-
-| Decision | Rationale | Date |
-|----------|-----------|------|
-| Chose approach A over B | Reason for choice | YYYY-MM-DD |
-
-## Session History
-
-| Date | Summary |
-|------|---------|
-| YYYY-MM-DD | What was accomplished in this session |
-```
-
-**Update when:** After EVERY significant task or phase completion. This is the most important update.
-
-### 3. Work Logs (`{project-id}/work-logs/`)
-
-Detailed session records for significant work sessions. Live inside project folders.
-
-**File naming:** `YYYY-MM-DD-brief-summary.md`
-
-```markdown
-# Work Log: YYYY-MM-DD — {Brief Summary}
-
-**Project:** {Project Name}
-**Duration:** ~{X} hours
-**Outcome:** {success | partial | blocked}
-
-## Accomplished
-
-- Completed {task 1}
-- Fixed {issue}
-- Created {artifact}
-
-## Challenges
-
-- {Challenge faced and how it was resolved}
-
-## Next Session
-
-- Continue with {next task}
-
-## Artifacts Created
-
-- `path/to/new/file` - Description
-```
-
-**Update when:** End of significant sessions (not every small task).
+**Update when:** After EVERY significant task. This is the most important update.
 
 ### 4. Lessons (`_lessons/`)
 
@@ -269,27 +208,29 @@ Complete task → Complete task → Complete task → (context compaction) → L
 ### Session Start
 
 1. **Read CONTEXT.md** — Understand current state before touching code
-2. **Search _lessons/** — `grep` for relevant past experiences
-3. **Check related projects** — Look at `related:` tags in index.yaml
+2. **Check line count** — If CONTEXT.md >150 lines, archive before starting work
+3. **Read REFERENCE.md** — If it exists and the task needs reference details
+4. **Search _lessons/** — `grep` for relevant past experiences
+5. **Check related projects** — Look at `related:` tags in index.yaml
 
 ### Session End
 
-1. **Final CONTEXT.md update** — Ensure all sections current
-2. **Update index.yaml** — Set `last_session` date
-3. **Create work log** — If significant session, add to `{project-id}/work-logs/`
+1. **Final CONTEXT.md update** — Ensure all sections current (≤150 lines)
+2. **Archive if needed** — Move old sessions to sessions/, stable facts to REFERENCE.md
+3. **Update index.yaml** — Set `last_session` date
 4. **Commit all changes** — Don't leave uncommitted work
 
 ## File Requirements by Project Status
 
-| Status | CONTEXT.md | README.md | work-logs/ |
-|--------|------------|-----------|------------|
-| active | Required | Optional | As needed |
-| paused | Required | Optional | As needed |
-| ongoing | Required | Optional | As needed |
-| completed | Optional | Sufficient | Historical |
-| archived | Optional | Sufficient | Historical |
+| Status | CONTEXT.md | REFERENCE.md | sessions/ | CONTEXT.md budget |
+|--------|------------|-------------|-----------|------------------|
+| active | Required | When needed | When needed | ≤150 lines |
+| paused | Required | When needed | When needed | ≤150 lines |
+| ongoing | Required | When needed | When needed | ≤150 lines |
+| completed | Required (summary) | Optional | Optional | ≤80 lines |
+| archived | Frozen | Frozen | Frozen | N/A |
 
-**Rationale:** Active projects need living state tracking. Completed projects are static documentation.
+**Rationale:** Active projects need lean working memory. Completed projects need concise summaries. Reference files and session archives are created when a project accumulates enough content to warrant them.
 
 ## AI Assistant Integration
 
@@ -298,15 +239,16 @@ Complete task → Complete task → Complete task → (context compaction) → L
 Add to your `~/.claude/CLAUDE.md`:
 
 ```markdown
-## Synthesis Project Management
+## Context Lifecycle
 
 After completing ANY significant task:
 
-1. **Update CONTEXT.md immediately** — Don't wait until session end
-2. **Update index.yaml** — Set last_session date at session end
-3. **Add to _lessons/** — If you made a mistake or learned something
-4. **Create work-logs/ entry** — For significant sessions (in project folder)
-5. **Commit to git** — At logical checkpoints
+1. **Update CONTEXT.md immediately** — Don't wait until session end (budget: ≤150 lines)
+2. **Move stable facts to REFERENCE.md** — Don't put them in CONTEXT.md
+3. **Archive old sessions to sessions/** — When logs are >1 week old
+4. **Update index.yaml** — Set last_session date
+5. **Add to _lessons/** — If you learned something reusable
+6. **Commit to git** — At logical checkpoints
 
 **Location:** `ai-knowledge-{workspace}/projects/`
 
@@ -315,7 +257,9 @@ After completing ANY significant task:
 |------|----------|
 | All projects | `projects/{project-id}/` |
 | Project index | `projects/index.yaml` |
-| Work logs | `projects/{project-id}/work-logs/` |
+| Working memory | `projects/{project-id}/CONTEXT.md` |
+| Reference facts | `projects/{project-id}/REFERENCE.md` |
+| Session history | `projects/{project-id}/sessions/` |
 | Lessons | `projects/_lessons/` |
 
 The user should NEVER have to remind you to do this.
@@ -335,10 +279,11 @@ When a user mentions a project:
 
 1. **Filesystem is persistent** — Survives context compaction
 2. **Convention-based** — Same structure everywhere, easy to navigate
-3. **Single source of truth** — CONTEXT.md has everything needed
-4. **Self-describing** — Date prefixes, front matter, naming conventions
-5. **Searchable** — Agents grep, humans `ls -t`
-6. **No maintenance overhead** — No indexes to update (except index.yaml for status)
+3. **Tiered by lifecycle** — Hot data in CONTEXT.md, warm in REFERENCE.md, cold in sessions/
+4. **Budgeted** — 150-line cap prevents degradation over time
+5. **Self-maintaining** — Archival protocol is garbage collection for context
+6. **Searchable** — Agents grep, humans `ls -t`
+7. **Scales** — Tested across 60+ projects over months of continuous use
 
 ## Common Mistakes
 
@@ -353,16 +298,27 @@ When a user mentions a project:
 
 ## Evolution Notes
 
-This system evolved from a more complex structure:
-- **Removed:** `active/` and `completed/` folders → status is in index.yaml
-- **Removed:** `templates/` → agents examine existing and adapt
-- **Removed:** `meta/patterns.md` → patterns are lessons with `type: pattern`
-- **Removed:** `lessons-learned/index.md` → date prefixes enable discovery
-- **Moved:** `work-logs/` → inside each project folder
-- **Renamed:** `lessons-learned/` → `_lessons/` (underscore distinguishes from projects)
+This system has evolved through three stages:
+
+**Stage 1 — Flat structure (early):**
+- `active/` and `completed/` folders → replaced with status field in index.yaml
+- `templates/` → removed (agents examine existing and adapt)
+- `meta/patterns.md` → replaced with `type: pattern` in _lessons/
+
+**Stage 2 — Monolithic CONTEXT.md (mid):**
+- Single CONTEXT.md per project
+- Worked well for short projects (2-5 sessions)
+- Degraded for long-running projects (CONTEXT.md grew to 500-1000+ lines)
+
+**Stage 3 — Tiered context architecture (current, March 2026):**
+- CONTEXT.md split into three tiers: working memory / reference / archive
+- Budget enforcement prevents degradation
+- Archival protocol provides garbage collection
+- Designed for projects spanning weeks or months
 
 ## See Also
 
+- [Context lifecycle management](context-lifecycle.md) — companion runbook with templates, decision trees, and migration guide
 - [Synthesis Project Management](https://synthesisengineering.org/articles/ai-native-project-management/) — conceptual article explaining the rationale
 
 ## License

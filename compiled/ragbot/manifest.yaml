@@ -1,12 +1,12 @@
 version: 1
-generated_at: '2026-02-25T02:36:29.980783'
-compilation_time_seconds: 14.79
+generated_at: '2026-03-04T15:11:40.925600'
+compilation_time_seconds: 9.65
 project:
   name: ragbot
   description: Ragbot open source project knowledge base
 source:
-  total_files: 21
-  total_tokens: 35759
+  total_files: 23
+  total_tokens: 42156
   by_category:
     datasets:
       files:
@@ -32,12 +32,14 @@ source:
       - runbooks/content-enhancement/blog-revitalization-framework.md
       - runbooks/content-enhancement/blog-revitalization-prompt.md
       - runbooks/engineering/codebase-review.md
+      - runbooks/engineering/multi-contributor-synthesis-coding.md
+      - runbooks/project-management/context-lifecycle.md
       - runbooks/project-management/synthesis-project-management.md
       - runbooks/system-config/anti-watermarking.md
       - runbooks/system-config/code-generation.md
       - runbooks/system-config/llm-project-setup.md
       - runbooks/system-config/response-synthesis.md
-      tokens: 32719
+      tokens: 39116
 compiled:
   files:
   - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/instructions/claude.md
@@ -51,6 +53,8 @@ compiled:
   - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-blog-revitalization-framework.md
   - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-blog-revitalization-prompt.md
   - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-codebase-review.md
+  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-multi-contributor-synthesis-coding.md
+  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-context-lifecycle.md
   - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-synthesis-project-management.md
   - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-anti-watermarking.md
   - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-code-generation.md
@@ -68,13 +72,13 @@ compiled:
     platform: anthropic
     output_files:
     - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/instructions/claude.md
-    token_count: 35759
+    token_count: 42156
     llm_compiled: true
   - name: openai
     platform: openai
     output_files:
     - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/instructions/chatgpt.md
-    token_count: 35759
+    token_count: 42156
     llm_compiled: true
 configuration:
   token_budget: 100000

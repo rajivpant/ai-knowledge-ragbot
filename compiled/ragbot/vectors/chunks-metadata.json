@@ -440,6 +440,106 @@
     "end_char": 44394
   },
   {
+    "id": "f4ed1beac3dc",
+    "tokens": 1000,
+    "source_file": "runbooks/engineering/multi-contributor-synthesis-coding.md",
+    "category": "runbooks",
+    "chunk_index": 0,
+    "total_chunks": 5,
+    "start_char": 0,
+    "end_char": 4000
+  },
+  {
+    "id": "8325bc0db641",
+    "tokens": 1000,
+    "source_file": "runbooks/engineering/multi-contributor-synthesis-coding.md",
+    "category": "runbooks",
+    "chunk_index": 1,
+    "total_chunks": 5,
+    "start_char": 3200,
+    "end_char": 7200
+  },
+  {
+    "id": "15334c93b3ba",
+    "tokens": 1000,
+    "source_file": "runbooks/engineering/multi-contributor-synthesis-coding.md",
+    "category": "runbooks",
+    "chunk_index": 2,
+    "total_chunks": 5,
+    "start_char": 6400,
+    "end_char": 10400
+  },
+  {
+    "id": "c31e22776a99",
+    "tokens": 1000,
+    "source_file": "runbooks/engineering/multi-contributor-synthesis-coding.md",
+    "category": "runbooks",
+    "chunk_index": 3,
+    "total_chunks": 5,
+    "start_char": 9600,
+    "end_char": 13600
+  },
+  {
+    "id": "548a74ec60ae",
+    "tokens": 408,
+    "source_file": "runbooks/engineering/multi-contributor-synthesis-coding.md",
+    "category": "runbooks",
+    "chunk_index": 4,
+    "total_chunks": 5,
+    "start_char": 12800,
+    "end_char": 14433
+  },
+  {
+    "id": "b6bc2adfd673",
+    "tokens": 1000,
+    "source_file": "runbooks/project-management/context-lifecycle.md",
+    "category": "runbooks",
+    "chunk_index": 0,
+    "total_chunks": 5,
+    "start_char": 0,
+    "end_char": 4000
+  },
+  {
+    "id": "b8e1621e8114",
+    "tokens": 1000,
+    "source_file": "runbooks/project-management/context-lifecycle.md",
+    "category": "runbooks",
+    "chunk_index": 1,
+    "total_chunks": 5,
+    "start_char": 3200,
+    "end_char": 7200
+  },
+  {
+    "id": "fb63663e5cfd",
+    "tokens": 1000,
+    "source_file": "runbooks/project-management/context-lifecycle.md",
+    "category": "runbooks",
+    "chunk_index": 2,
+    "total_chunks": 5,
+    "start_char": 6400,
+    "end_char": 10400
+  },
+  {
+    "id": "53dfa03435ce",
+    "tokens": 1000,
+    "source_file": "runbooks/project-management/context-lifecycle.md",
+    "category": "runbooks",
+    "chunk_index": 3,
+    "total_chunks": 5,
+    "start_char": 9600,
+    "end_char": 13600
+  },
+  {
+    "id": "2c0d2c10a949",
+    "tokens": 468,
+    "source_file": "runbooks/project-management/context-lifecycle.md",
+    "category": "runbooks",
+    "chunk_index": 4,
+    "total_chunks": 5,
+    "start_char": 12800,
+    "end_char": 14674
+  },
+  {
     "id": "cf6bfb5a5285",
     "tokens": 1000,
     "source_file": "runbooks/project-management/synthesis-project-management.md",
@@ -471,13 +571,13 @@
   },
   {
     "id": "a9f862cd66b5",
-    "tokens": 487,
+    "tokens": 760,
     "source_file": "runbooks/project-management/synthesis-project-management.md",
     "category": "runbooks",
     "chunk_index": 3,
     "total_chunks": 4,
     "start_char": 9600,
-    "end_char": 11551
+    "end_char": 12640
   },
   {
     "id": "3b491400acb3",
