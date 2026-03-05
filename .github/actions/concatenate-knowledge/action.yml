@@ -1,0 +1,94 @@
+name: 'Concatenate Knowledge'
+description: 'Concatenate source/ markdown files into a single all-knowledge.md with identity header'
+
+inputs:
+  description:
+    description: 'Repository description for the header'
+    required: false
+    default: ''
+  source-dir:
+    description: 'Source directory to concatenate'
+    required: false
+    default: 'source'
+  output-file:
+    description: 'Output file path'
+    required: false
+    default: 'all-knowledge.md'
+  exclude-dirs:
+    description: 'Comma-separated directories under source/ to exclude'
+    required: false
+    default: 'instructions,contexts'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Concatenate source files
+      shell: bash
+      run: |
+        set -euo pipefail
+
+        REPO_NAME="${GITHUB_REPOSITORY#*/}"
+        SOURCE_DIR="${{ inputs.source-dir }}"
+        OUTPUT_FILE="${{ inputs.output-file }}"
+        DESCRIPTION="${{ inputs.description }}"
+
+        # Verify source directory exists
+        if [ ! -d "$SOURCE_DIR" ]; then
+          echo "::error::Source directory '$SOURCE_DIR' not found"
+          exit 1
+        fi
+
+        # Find all .md files (exclude README.md, hidden files)
+        FILES=$(find "./$SOURCE_DIR" -name '*.md' -not -name 'README.md' -not -path '*/.*' -type f | sed "s|^\.\/$SOURCE_DIR/||" | sort)
+
+        # Filter out excluded directories
+        IFS=',' read -ra DIRS <<< "${{ inputs.exclude-dirs }}"
+        for dir in "${DIRS[@]}"; do
+          dir=$(echo "$dir" | xargs)  # trim whitespace
+          [ -n "$dir" ] && FILES=$(echo "$FILES" | grep -v "^${dir}/")
+        done
+
+        FILE_COUNT=$(echo "$FILES" | grep -c '.' || echo 0)
+
+        if [ "$FILE_COUNT" -eq 0 ]; then
+          echo "::warning::No markdown files found in '$SOURCE_DIR' after exclusions"
+          exit 0
+        fi
+
+        # Generate header
+        {
+          echo "# Knowledge: $REPO_NAME"
+          echo ""
+          echo "> Repository: $REPO_NAME"
+          echo "> Description: $DESCRIPTION"
+          echo "> Generated: $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+          echo "> Files: $FILE_COUNT"
+        } > "$OUTPUT_FILE"
+
+        # Concatenate each file with path header
+        echo "$FILES" | while IFS= read -r rel_path; do
+          [ -z "$rel_path" ] && continue
+          printf '\n---\n\n## %s\n\n' "$rel_path" >> "$OUTPUT_FILE"
+          cat "$SOURCE_DIR/$rel_path" >> "$OUTPUT_FILE"
+        done
+
+        echo "Concatenated $FILE_COUNT files into $OUTPUT_FILE"
+
+    - name: Commit and push if changed
+      shell: bash
+      run: |
+        set -euo pipefail
+
+        OUTPUT_FILE="${{ inputs.output-file }}"
+
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add "$OUTPUT_FILE"
+
+        if git diff --cached --quiet; then
+          echo "No changes to $OUTPUT_FILE — skipping commit"
+        else
+          git commit -m "Update $OUTPUT_FILE [automated]"
+          git push
+          echo "Committed and pushed updated $OUTPUT_FILE"
+        fi

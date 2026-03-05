@@ -1,0 +1,17 @@
+name: Concatenate Knowledge
+on:
+  push:
+    branches: [main]
+    paths: ['source/**']
+
+permissions:
+  contents: write
+
+jobs:
+  concatenate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/concatenate-knowledge
+        with:
+          description: 'Open-source runbooks, templates, and best practices for AI-assisted knowledge work'
