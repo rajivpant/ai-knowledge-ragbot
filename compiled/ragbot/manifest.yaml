@@ -1,6 +1,6 @@
 version: 1
-generated_at: '2026-03-04T15:11:40.925600'
-compilation_time_seconds: 9.65
+generated_at: '2026-03-04T22:21:58.356599'
+compilation_time_seconds: 0.03
 project:
   name: ragbot
   description: Ragbot open source project knowledge base
@@ -44,27 +44,6 @@ compiled:
   files:
   - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/instructions/claude.md
   - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/instructions/chatgpt.md
-  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-message-condensation.md
-  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-blog-promotion.md
-  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-content-promotion-framework.md
-  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-hyperlink-research.md
-  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-social-media-post.md
-  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-ai-content-quality-guide.md
-  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-blog-revitalization-framework.md
-  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-blog-revitalization-prompt.md
-  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-codebase-review.md
-  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-multi-contributor-synthesis-coding.md
-  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-context-lifecycle.md
-  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-synthesis-project-management.md
-  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-anti-watermarking.md
-  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-code-generation.md
-  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-llm-project-setup.md
-  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/runbooks-response-synthesis.md
-  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/datasets-about-me.md
-  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/datasets-preferences.md
-  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/knowledge/datasets-professional.md
-  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/all-knowledge.md
-  - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/vectors/chunks.jsonl
   - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/instructions/claude.md
   - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/instructions/chatgpt.md
   targets:
@@ -73,13 +52,13 @@ compiled:
     output_files:
     - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/instructions/claude.md
     token_count: 42156
-    llm_compiled: true
+    llm_compiled: false
   - name: openai
     platform: openai
     output_files:
     - /Users/rajivpant/projects/my-projects/ai-knowledge/ai-knowledge-ragbot/./compiled/ragbot/instructions/chatgpt.md
     token_count: 42156
-    llm_compiled: true
+    llm_compiled: false
 configuration:
   token_budget: 100000
   targets:

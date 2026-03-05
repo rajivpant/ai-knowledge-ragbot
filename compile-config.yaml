@@ -36,9 +36,3 @@ compilation:
       platform: openai
       model_category: flagship
       output: compiled/chatgpt-projects/
-
-vector_store:
-  enabled: true
-  chunk_size: 1000
-  chunk_overlap: 200
-  output: compiled/vectors/
