@@ -10,15 +10,15 @@ This folder contains auto-generated content.
 |--------|-----|------|
 | `instructions/` | Local: `ragbot compile instructions` | When instructions change (rare) |
 | `all-knowledge.md` | CI/CD: GitHub Actions | Every push to source/ |
-| `vectors/` | Local: `ragbot index` | When RAG indexing needed |
 
 ## Current Status
 
 Knowledge concatenation runs via CI/CD (GitHub Actions). The `knowledge/` flat files
-have been removed (nothing consumed them).
+and `vectors/` have been removed (RAG indexes from source directly; nothing consumed these intermediate files).
 
 - **Instructions:** Compile locally with `ragbot compile instructions --project {name}`
 - **Knowledge:** Edit source/ files directly. all-knowledge.md is auto-generated at repo root by CI/CD.
+- **RAG indexing:** Run `ragbot index --workspace {name}` (reads source directly, no intermediate files)
 - **Do NOT run the full compiler** — it is being deprecated.
 
 ## Usage
