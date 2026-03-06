@@ -2,7 +2,7 @@
 
 > Repository: ai-knowledge-ragbot
 > Description: Open-source runbooks, templates, and best practices for AI-assisted knowledge work
-> Generated: 2026-03-05T03:50:47Z
+> Generated: 2026-03-06T14:36:28Z
 > Files: 19
 
 ---
@@ -3701,7 +3701,7 @@ These aren't metaphors — they're design principles. Each memory type has diffe
 - Budget footer (~2 lines)
 
 **Does NOT contain:**
-- Completed task checklists (already in session log — delete them)
+- Completed task checklists (archive to sessions/ first, verify, then remove)
 - Session logs older than 1 week (move to sessions/)
 - Stable reference facts (live in REFERENCE.md)
 - Detailed historical narrative (live in session archive)
@@ -3891,7 +3891,7 @@ Archive when ANY of these conditions are true:
 
 1. **Read** CONTEXT.md and count lines
 2. **Identify cold content:**
-   - Completed task items (already in session logs)
+   - Completed task items
    - Session summaries older than 1 week
    - Stable facts that belong in REFERENCE.md
    - Detailed narratives that belong in sessions/
@@ -3899,15 +3899,17 @@ Archive when ANY of these conditions are true:
    - REFERENCE.md (if stable facts exist and no REFERENCE.md yet)
    - sessions/ directory
    - sessions/YYYY-MM.md for the relevant month
-4. **Move content:**
+4. **Archive FIRST** (two-phase commit — write to destination before removing from source):
    - Session logs → sessions/YYYY-MM.md (append chronologically)
    - Stable facts → REFERENCE.md (organize by category)
-   - Completed tasks → delete (already archived)
-5. **Verify:**
+   - Completed tasks → sessions/YYYY-MM.md (summarize, then remove from CONTEXT.md)
+5. **Verify archives exist** — Confirm moved content is present in its destination file
+6. **Only then rewrite CONTEXT.md** with archived content removed
+7. **Verify:**
    - CONTEXT.md ≤150 lines
-   - No information lost (everything moved, not deleted)
+   - No information lost (everything archived before removal)
    - Cross-references updated (CONTEXT.md points to REFERENCE.md and sessions/)
-6. **Commit** with message: "Maintain context: archive sessions, extract reference facts"
+8. **Commit** with message: "Maintain context: archive sessions, extract reference facts"
 
 ### Decision tree: where does this content belong?
 
@@ -4200,7 +4202,7 @@ Projects use a three-tier context system that separates information by lifecycle
 
 **sessions/** stores chronological session history, organized by month. Rarely loaded, but searchable when historical context is needed.
 
-**Archival protocol:** At session start, if CONTEXT.md exceeds 120 lines: move completed tasks (delete), old session logs (→ sessions/), and stable facts (→ REFERENCE.md). This is garbage collection for context.
+**Archival protocol:** At session start, if CONTEXT.md exceeds 120 lines: archive completed tasks and old session logs to sessions/, move stable facts to REFERENCE.md, verify content exists in destination, then remove from CONTEXT.md. Archive FIRST, delete second — two-phase commit. This is garbage collection for context.
 
 **Update when:** After EVERY significant task. This is the most important update.
 
