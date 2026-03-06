@@ -66,7 +66,7 @@ These aren't metaphors — they're design principles. Each memory type has diffe
 - Budget footer (~2 lines)
 
 **Does NOT contain:**
-- Completed task checklists (already in session log — delete them)
+- Completed task checklists (archive to sessions/ first, verify, then remove)
 - Session logs older than 1 week (move to sessions/)
 - Stable reference facts (live in REFERENCE.md)
 - Detailed historical narrative (live in session archive)
@@ -256,7 +256,7 @@ Archive when ANY of these conditions are true:
 
 1. **Read** CONTEXT.md and count lines
 2. **Identify cold content:**
-   - Completed task items (already in session logs)
+   - Completed task items
    - Session summaries older than 1 week
    - Stable facts that belong in REFERENCE.md
    - Detailed narratives that belong in sessions/
@@ -264,15 +264,17 @@ Archive when ANY of these conditions are true:
    - REFERENCE.md (if stable facts exist and no REFERENCE.md yet)
    - sessions/ directory
    - sessions/YYYY-MM.md for the relevant month
-4. **Move content:**
+4. **Archive FIRST** (two-phase commit — write to destination before removing from source):
    - Session logs → sessions/YYYY-MM.md (append chronologically)
    - Stable facts → REFERENCE.md (organize by category)
-   - Completed tasks → delete (already archived)
-5. **Verify:**
+   - Completed tasks → sessions/YYYY-MM.md (summarize, then remove from CONTEXT.md)
+5. **Verify archives exist** — Confirm moved content is present in its destination file
+6. **Only then rewrite CONTEXT.md** with archived content removed
+7. **Verify:**
    - CONTEXT.md ≤150 lines
-   - No information lost (everything moved, not deleted)
+   - No information lost (everything archived before removal)
    - Cross-references updated (CONTEXT.md points to REFERENCE.md and sessions/)
-6. **Commit** with message: "Maintain context: archive sessions, extract reference facts"
+8. **Commit** with message: "Maintain context: archive sessions, extract reference facts"
 
 ### Decision tree: where does this content belong?
 

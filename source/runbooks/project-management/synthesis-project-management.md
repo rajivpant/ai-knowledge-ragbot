@@ -141,7 +141,7 @@ Projects use a three-tier context system that separates information by lifecycle
 
 **sessions/** stores chronological session history, organized by month. Rarely loaded, but searchable when historical context is needed.
 
-**Archival protocol:** At session start, if CONTEXT.md exceeds 120 lines: move completed tasks (delete), old session logs (→ sessions/), and stable facts (→ REFERENCE.md). This is garbage collection for context.
+**Archival protocol:** At session start, if CONTEXT.md exceeds 120 lines: archive completed tasks and old session logs to sessions/, move stable facts to REFERENCE.md, verify content exists in destination, then remove from CONTEXT.md. Archive FIRST, delete second — two-phase commit. This is garbage collection for context.
 
 **Update when:** After EVERY significant task. This is the most important update.
 
