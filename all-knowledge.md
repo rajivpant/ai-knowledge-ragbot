@@ -2,8 +2,8 @@
 
 > Repository: ai-knowledge-ragbot
 > Description: Open-source runbooks, templates, and best practices for AI-assisted knowledge work
-> Generated: 2026-03-06T14:36:28Z
-> Files: 19
+> Generated: 2026-03-10T20:48:45Z
+> Files: 21
 
 ---
 
@@ -1109,6 +1109,240 @@ Please write versions of the social media post for
 <!-- List the platforms for which to generate content. -->
 </social-platforms>
 
+
+---
+
+## runbooks/content-creation/thought-leadership-article-workflow.md
+
+# Thought Leadership Article Workflow
+
+A two-phase workflow for creating high-quality thought leadership articles: research/validation followed by strategic writing. Use this when exploring a book, concept, or trend and connecting it to your expertise.
+
+---
+
+## Phase 1: Research & Validation
+
+### Context and Mission
+
+Conduct thorough research and provide verified, cited information before writing begins. **Accuracy is paramount**—every claim, quote, and reference must be verifiable.
+
+### Critical Research Principles
+
+1. **Cite Everything**: Provide URLs, page numbers, or specific sources for all information
+2. **Flag Uncertainty**: If you cannot verify something, explicitly state "Cannot verify" or "Paraphrased concept - not direct quote"
+3. **Distinguish Direct Quotes from Summaries**: Make it clear what's verbatim vs. interpretation
+4. **Confidence Levels**: Rate each piece of information:
+   - ✓✓ Verified (found direct source)
+   - ✓ Likely accurate (found multiple corroborating sources)
+   - ? Uncertain (found reference but couldn't verify)
+   - ✗ Cannot verify
+
+### Research Deliverables
+
+#### A. Source Material Research
+
+If exploring a book, article, or specific source:
+
+- Direct quotes with page numbers or citations
+- Core concepts and how they're explained
+- Key examples or case studies used
+- Related frameworks or principles
+- Public discourse and reception
+- Notable critiques or limitations
+
+#### B. Your Blog/Writing Archive Analysis
+
+Search your existing content for:
+
+- Relevant past posts (title, URL, date, key themes)
+- Your established voice patterns and frameworks
+- Recurring terminology and characteristic examples
+- Career experiences you've already written about publicly
+- Topics where you have established expertise
+
+#### C. Integration Opportunities
+
+- Natural connections between source material and your expertise
+- Where your perspective adds unique value
+- Contrast opportunities (where you might add nuance or respectfully disagree)
+- 8-10 specific past posts to hyperlink with rationale for each
+
+#### D. Anecdote Development Guidelines
+
+**Safe territory for illustrative stories:**
+
+- Generic patterns true to your experience without naming specific employers
+- Engineering/product/leadership challenges
+- Implementation lessons
+- Cross-functional dynamics
+
+**Topics to handle carefully:**
+
+- Specific company cultures or politics
+- Individual colleagues or executives
+- Proprietary systems or strategies
+
+#### E. Competitive Landscape
+
+- Recent thought leadership on this topic
+- What angle seems underexplored?
+- Where can you add genuinely new thinking?
+
+### Output Format
+
+1. Executive Summary (2-3 paragraphs on findings)
+2. Each deliverable section above
+3. Red Flags section (anything you couldn't verify)
+4. Recommended Next Steps before proceeding to writing
+
+---
+
+## Phase 2: Writing the Article
+
+### Mission
+
+Craft an authentic, insightful article that:
+
+1. Explores the topic with depth and nuance
+2. Connects it to your expertise and experience
+3. Establishes you as a peer-level thinker, not just someone applying others' ideas
+4. Feels genuinely written by you
+5. Is accurate and verifiable in every factual claim
+
+### Critical Writing Principles
+
+**Accuracy First**
+
+- Use ONLY information from the research phase
+- Only use ✓✓ (Verified) and ✓ (Likely accurate) items
+- If you need additional information, ask rather than inventing it
+
+**Authentic Voice**
+
+- Study voice patterns from past posts
+- Write like explaining to a smart colleague over coffee
+- Use your characteristic terminology and examples
+- Reference your actual experiences and body of work
+
+**Strategic Positioning**
+
+- Position yourself as someone who independently thinks deeply about these topics
+- Show how your expertise creates unique insights
+- Make content valuable beyond any specific context (evergreen)
+
+### Content Architecture
+
+#### 1. Opening Hook (Personal Experience)
+
+- Start with a specific, visceral moment from your career
+- Make it real and human, with stakes
+- Link to one relevant past post naturally
+
+#### 2. Core Concept Exploration
+
+- Your unique interpretation of the topic
+- How your expertise (AI, engineering, leadership, etc.) informs your perspective
+- Why this matters now
+
+#### 3. Industry Application
+
+- Why specific industries struggle or succeed with this
+- Concrete but anonymized examples
+- Pattern recognition across your career
+
+#### 4. Your Unique Value-Add
+
+- Where you go beyond the source material
+- Where your technical/domain expertise creates insights
+- The bridge between theory and practice
+
+#### 5. The Nuance (Leadership Paradox)
+
+- Show you're not blindly accepting ideas
+- Add crucial nuance
+- Demonstrate wisdom, not just intelligence
+
+#### 6. Forward-Looking Implications
+
+- Where this leads
+- Practical call to action
+- Your ongoing commitment (subtle)
+
+### Voice and Tone
+
+**Characteristics:**
+
+- Conversational but substantive
+- Confident without arrogance
+- Specific over abstract
+- Intellectually generous (credit others, build on ideas)
+
+**Sentence structure:**
+
+- Vary length for rhythm
+- Use occasional fragments for emphasis
+- Ask rhetorical questions
+- Include "you" to make it conversational
+
+**Avoid:**
+
+- Corporate jargon or buzzwords
+- Excessive qualifiers (very, really, quite)
+- Passive voice
+- AI-typical phrases ("delve into," "it's important to note," "in conclusion")
+- Words like "honored," "humbled," "excited," "thrilled," "privileged"
+
+### Hyperlink Strategy
+
+**Target:** 6-8 hyperlinks to past posts
+
+**Integration principles:**
+
+- Weave links naturally into sentences
+- Each link should add depth, not distract
+- No "see also" sections—embed in narrative
+- Distribute throughout the post
+
+**Example:**
+✓ "As I wrote when introducing [project], the key to useful AI assistants is..."
+✗ "To learn more about AI assistants, see this post."
+
+### Ethical Storytelling
+
+**Permitted:**
+
+- Composite examples reflecting real patterns
+- "At a previous company..." without naming which
+- Lessons learned across multiple similar situations
+- Teaching stories that convey operational truths
+
+**Not Permitted:**
+
+- Naming specific employers in disputable anecdotes
+- Attributing quotes to real individuals without verification
+- Inventing technical achievements
+- Creating scenarios inconsistent with your public record
+
+### Output Deliverables
+
+1. **5-7 Title Options** with brief rationale
+2. **Full Article Draft** with all hyperlinks embedded
+3. **Meta Description** (150-160 characters)
+4. **LinkedIn Sharing Post**
+5. **Pull Quotes** (3-4 tweetable excerpts)
+6. **Verification Notes** (choices to double-check)
+
+### Success Criteria
+
+The article succeeds if:
+
+- ✓ It sounds unmistakably like you
+- ✓ Every factual claim is verified and sourced
+- ✓ It advances thinking beyond summarizing sources
+- ✓ It positions you as a thought leader
+- ✓ Multiple hyperlinks prove authenticity
+- ✓ It's useful to any leader thinking about this topic
+- ✓ You'd be proud to have your name on it
 
 ---
 
@@ -3628,6 +3862,213 @@ Any synthesis-coded project that expects external contributions should:
 ---
 
 *This runbook is part of the synthesis engineering practice. It was developed from real integration experience on a production multi-contributor project.*
+
+---
+
+## runbooks/engineering/pr-review.md
+
+---
+title: Synthesis PR review
+description: Runbook for reviewing pull requests in synthesis-coded projects. Covers delta review methodology, regression risk assessment, and integration with the adopt-and-adapt workflow.
+author: Rajiv Pant
+date: 2026-03-10
+categories:
+  - Synthesis Engineering
+  - Synthesis Coding
+  - Code Review
+related:
+  - codebase-review.md
+  - multi-contributor-synthesis-coding.md
+---
+
+# Synthesis PR review
+
+A pull request in a synthesis-coded project is not just "does the code work?" It's "does this change make the system better without making it worse?" This runbook defines how to evaluate that.
+
+---
+
+## Where this fits
+
+Three related runbooks cover different scopes:
+
+| Runbook | Scope | When to use |
+|---------|-------|-------------|
+| **Codebase review** | Full codebase audit (16 categories, tiered) | New engagement, periodic health check, or major milestone |
+| **Multi-contributor synthesis coding** | Integration workflow (adopt-and-adapt pattern, quality gates) | When merging contributor work into main |
+| **PR review** (this one) | Delta review of a single change | Every PR, before peer approval or lead integration |
+
+PR review is the **most frequent** of the three. It happens on every change. The quality gates from the multi-contributor runbook apply here, but this runbook operationalizes them as specific review steps.
+
+---
+
+## The delta review mindset
+
+A PR review is a delta review — you're evaluating a change against the current state of the codebase, not evaluating the codebase itself.
+
+**Key questions:**
+
+1. **Does this change do what it claims?** — Read the PR description. Read the code. Do they match?
+2. **Does it introduce regressions?** — What worked before that might break now?
+3. **Is it the right fix?** — Does it address root cause, or a symptom?
+4. **Is it complete?** — Or does it need companion changes to actually solve the problem?
+5. **Is it consistent?** — Does it follow existing patterns, or does it diverge without justification?
+
+---
+
+## Review checklist
+
+### 1. Scope and separation of concerns
+
+- [ ] PR does one thing (not multiple unrelated fixes bundled together)
+- [ ] PR description accurately describes the change and its motivation
+- [ ] If the PR bundles fixes, each fix is clearly identified and could stand alone
+
+**Red flag:** A PR titled "fix X" that also quietly changes Y. Bundled changes are harder to review, harder to revert, and harder to attribute when something breaks later.
+
+### 2. Root cause analysis
+
+- [ ] The fix addresses the actual root cause, not a downstream symptom
+- [ ] If the root cause is complex, the PR explains why this specific approach was chosen
+- [ ] The PR doesn't mask a deeper architectural issue
+
+**How to evaluate:** Ask yourself — if the underlying condition that caused the bug occurs again in a slightly different way, does this fix still work? If not, it's a symptom fix.
+
+**Example:** A UI polling loop appears stuck after retry. The fix restarts the polling timer (symptom fix). But the real cause is the backend task silently failing without updating status. The UI fix makes retries look responsive, but the backend still leaves records in a permanent "pending" state.
+
+### 3. Regression risk
+
+- [ ] No existing behavior is broken by the change
+- [ ] Error handling paths are preserved (not accidentally removed)
+- [ ] Edge cases still work (empty states, error states, concurrent access)
+- [ ] If the PR modifies shared code, all callers are accounted for
+
+**Technique:** Read the diff backward — look at what was REMOVED or CHANGED, not just what was added. Removed lines are where regressions hide.
+
+### 4. Architectural consistency
+
+- [ ] The pattern used matches how similar things are done elsewhere in the codebase
+- [ ] If the pattern diverges from existing code, the divergence is justified
+- [ ] No architectural debt is introduced without acknowledgment
+
+**Technique:** Find the closest analog in the codebase. If component A handles retries one way and this PR makes component B handle retries a different way, ask why. Sometimes the divergence is intentional and better. Often it's accidental.
+
+### 5. Completeness
+
+- [ ] The fix is sufficient to actually solve the stated problem
+- [ ] If companion changes are needed (backend + frontend, migration + code), they're either included or explicitly tracked
+- [ ] Tests cover the new behavior (or a clear reason why they don't)
+
+**Red flag:** A frontend fix for a problem whose root cause is in the backend. The frontend fix may reduce user-visible symptoms, but the underlying data corruption or stuck state persists.
+
+### 6. Security (from quality gates)
+
+- [ ] No credentials or secrets in the diff
+- [ ] Input validation at system boundaries
+- [ ] Auth checks preserved for protected endpoints
+- [ ] No new SQL injection, XSS, or command injection vectors
+
+### 7. Data integrity
+
+- [ ] Database schema changes are idempotent (safe to run multiple times)
+- [ ] New fields have sensible defaults or are nullable
+- [ ] No data loss scenarios (e.g., overwriting fields without preserving previous values)
+- [ ] API contracts are backward-compatible (or breaking changes are intentional and documented)
+
+---
+
+## The review process
+
+### For peer reviewers
+
+Peer review catches issues early and spreads codebase knowledge. Focus on:
+
+1. **Does the code make sense?** — Can you follow the logic without the author explaining it?
+2. **Does it match the PR description?** — If not, which is wrong — the code or the description?
+3. **Would you be comfortable debugging this at 2 AM?** — If the answer is no, the code needs to be clearer.
+4. **Check the analog.** — Find the closest similar code in the codebase. Does this PR follow the same pattern?
+
+Peer reviewers should feel empowered to request changes, not just approve. A rubber-stamp approval is worse than no review — it creates false confidence.
+
+### For the lead synthesist
+
+Lead review gates the merge to main. In addition to everything above, evaluate:
+
+1. **Project-specific standards** — white-labeling compliance, UI terminology, deployment safety, whatever the project requires
+2. **Architectural fit** — does this change move the codebase in the right direction?
+3. **Integration complexity** — what will the adopt-and-adapt process look like? Is the change clean enough to merge directly, or does it need adaptation?
+4. **Completeness of the solution** — does this fully solve the problem, or is it a partial fix that needs follow-up work tracked?
+
+### Writing review feedback
+
+- **Be specific.** "This has issues" is useless. "Line 47 removes the error recovery path — if the API call fails, polling never resumes" is actionable.
+- **Explain the why.** Don't just say what's wrong; explain the consequence. "This could cause the UI to appear frozen if the retry fails" tells the author what to look for.
+- **Distinguish severity.** Use clear labels:
+  - **Must fix** — blocks merge, causes regression or data loss
+  - **Should fix** — doesn't block merge, but should be addressed soon
+  - **Consider** — suggestion for improvement, not blocking
+  - **Nit** — style or preference, take it or leave it
+- **Acknowledge what's good.** Name specific things done well. This is not politeness — it reinforces patterns you want to see again.
+
+---
+
+## Common anti-patterns
+
+### The rubber stamp
+
+Approving without actually reading the code. Usually happens when the team is busy and reviews feel like overhead. Worse than no review — it creates a false record of review.
+
+**Fix:** If you don't have time to review properly, say so. "I can't review this today — can someone else take it?" is honest and professional.
+
+### The bundled PR
+
+Multiple unrelated changes in one PR. Makes review harder, makes git bisect useless, and makes reverts dangerous.
+
+**Fix:** Request the author split the PR. "The source_url fix and the polling fix are separate concerns — could you split them so we can review and merge independently?"
+
+### The symptom fix
+
+A fix that makes the visible problem go away without addressing the underlying cause. The problem will resurface in a different form.
+
+**Fix:** Ask "what happens if the underlying condition occurs again in a slightly different way?" If the fix doesn't help, it's a symptom fix.
+
+### The untested assumption
+
+"This should work" without verification. Especially dangerous for fixes to bugs that are hard to reproduce.
+
+**Fix:** Ask for reproduction steps and verification. "Can you show me the before/after behavior?" If the bug can't be reproduced locally, that's important information — it may mean the fix is addressing the wrong thing.
+
+### The divergent pattern
+
+Implementing something one way in component A while the rest of the codebase does it another way. Creates maintenance burden and confusion for future developers.
+
+**Fix:** Point to the existing pattern. "PlatformMatrixView handles this by calling pollStatus() immediately — should we align?"
+
+---
+
+## Integration with the adopt-and-adapt workflow
+
+When a PR passes review and is ready for integration:
+
+1. **If the PR is clean** — merge directly (rare for synthesis-coded projects, but possible as contributor quality improves)
+2. **If the PR needs adaptation** — the lead synthesist creates an integration branch, applies the adopt-and-adapt pattern, and merges the adapted version
+3. **If the PR needs follow-up work** — merge what's ready, create tickets for the remaining work, and document the dependency
+
+The review findings feed directly into the integration plan. A review that says "the polling fix works but the backend error handler is still needed" tells the lead exactly what to do during integration.
+
+---
+
+## Using the codebase review runbook for PR review
+
+The enterprise codebase review runbook (see `codebase-review.md`) has 16 categories with tiered checks. Not all are relevant to a single PR. For delta reviews, apply selectively:
+
+| Always check (every PR) | Check if relevant |
+|-------------------------|-------------------|
+| Security (Gate 2) | Performance (if the change touches hot paths) |
+| Architecture (Gate 3) | Database (if schema changes are involved) |
+| Completeness (Gate 1) | API design (if endpoints are added/modified) |
+| Error handling | Observability (if logging/monitoring is affected) |
+
+The codebase review runbook is the reference catalog. This PR review runbook tells you which items to pull from it for a given change.
 
 ---
 
