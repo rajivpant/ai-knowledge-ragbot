@@ -2,7 +2,7 @@
 
 > Repository: ai-knowledge-ragbot
 > Description: Open-source runbooks, templates, and best practices for AI-assisted knowledge work
-> Generated: 2026-03-10T20:48:45Z
+> Generated: 2026-03-14T16:22:30Z
 > Files: 21
 
 ---
@@ -3727,9 +3727,39 @@ Evaluate against the project's quality gates (see next section). Produce written
 1. **Create a fresh branch off current `main`.** Never merge the contributor's branch directly.
 2. **Selectively bring in changes.** File by file, function by function. Cherry-pick the implementation, not the entire branch.
 3. **Fix identified issues during integration.** Don't merge first and fix later. The adapted code should be production-ready when it hits `main`.
-4. **Test the integrated result.** Run the full test suite. Test the feature manually. Verify nothing regressed.
-5. **Merge to canonical `main`.** This is the source of truth.
+4. **Test the integrated result.** Run the full test suite — not just the tests for the PRs being merged. Cross-PR conflicts hide in tests that none of the individual PRs touched. Test the feature manually. Verify nothing regressed.
+5. **Squash merge to canonical `main`.** This is the source of truth. Use contributor attribution (see below).
 6. **Sync mirrors/forks.** Push the updated `main` to any mirrors so contributors have the latest code for their next contribution.
+
+#### Contributor attribution in squash merge commits
+
+GitHub's contributor graph counts commits where you are the **author**. Custom text like `Contributor: Name (PR #5)` in the commit body is human-readable but GitHub does not parse it — the contributor will not appear on the repository's contributor graph or their own profile contribution history.
+
+Use `Co-authored-by` trailers, which GitHub officially recognizes:
+
+```
+feat: add product description field to content pipeline
+
+Integrates product description generation with writer guidance support.
+
+Co-authored-by: Contributor Name <contributor@example.com>
+```
+
+The attribution model should match the integration intensity:
+
+- **Full adopt-and-adapt** (substantial rework): Lead as commit author, contributor as `Co-authored-by`. Both did meaningful work; the lead did more of the final implementation.
+- **Lighter-touch integration** (minor adjustments): Contributor as commit `--author`, lead as `Co-authored-by`. The code is predominantly the contributor's; the lead refined it.
+- **Direct merge** (zero-adjustment): Standard PR merge flow. The contributor is automatically the commit author. The lead's review is recorded in the PR, not the commit.
+
+To set the contributor as primary author on a squash merge:
+
+```bash
+git commit --author="Contributor Name <contributor@example.com>" -m "feat: description
+
+Co-authored-by: Lead Name <lead@example.com>"
+```
+
+Attribution is not decoration. Developers use contribution graphs for career advancement. A workflow that funnels all commits through the lead's name effectively erases contributors from the project's visible history, which undermines the trust that the integration process depends on.
 
 ### Step 4: Communicate
 
@@ -3804,6 +3834,30 @@ This document serves double duty: it's feedback for the contributor AND it's doc
 
 ---
 
+## Integrating multiple PRs
+
+When integrating more than two or three PRs in a session, ordering becomes a design decision.
+
+### Dependency-aware ordering
+
+Before starting integration, map the file overlaps across all pending PRs. Group PRs by subsystem. Then:
+
+1. **Independent PRs first.** Zero-overlap PRs (bug fixes, isolated features) validate that the integration pipeline is working before you tackle complex merges. Start with the simplest.
+2. **Within a subsystem, simpler PR first.** When multiple PRs modify the same files, integrate the smaller/simpler one first. This makes subsequent conflicts predictable and additive rather than interleaving.
+3. **Read the merged result fresh.** After auto-merge resolves conflicts, read the merged code as if reviewing it for the first time. Git handles textual conflicts; you handle semantic conflicts. Auto-merged regions (no conflict markers) can still produce semantic errors — duplicate function calls, redundant parameters, broken assumptions — that no tool will flag.
+
+### Cross-PR test failures
+
+Each PR may pass its own CI independently. The synthesis merge still catches failures caused by cross-PR interactions:
+
+- A PR adds a size threshold; existing tests use mock data below that threshold
+- A PR constrains a mock with `spec=`; another PR's tests rely on unconstrained attribute access
+- A PR adds a new code path; an "all paths fail" test only mocks the original paths
+
+Run the **full** test suite on the integration branch — not just the tests for the PRs being merged. Cross-PR conflicts hide in tests that none of the individual PRs touched.
+
+---
+
 ## Lessons and anti-patterns
 
 ### Anti-pattern: the blind merge
@@ -3847,6 +3901,89 @@ It should grow with every integration. New standards discovered during review ge
 ### Lesson: review the branches, not just the PRs
 
 Contributors may have branches beyond what's in the PRs. Fetch all remote branches and understand the full scope of work before starting the review. Surprises during integration are costly.
+
+---
+
+## Evolution of integration intensity
+
+Adopt-and-adapt at full intensity is a starting point, not a permanent state. As contributors learn the codebase and the quality bar rises, the integration process should get lighter. The goal is graduated evolution:
+
+### Phase 1: Full adopt-and-adapt
+
+The lead creates a fresh integration branch, selectively brings in changes, and fixes every issue during integration. The contributor's code is the input; the integrated code may look substantially different.
+
+**When appropriate:** First contributions from a new contributor. Contributions that touch sensitive areas. Contributions built against a significantly stale `main`. Contributions that violate multiple project standards.
+
+**Signals ready to advance:** Fewer issues in successive reviews. Issues are minor (style, naming) rather than structural (security, architecture). Contributor references the contributor guide unprompted. Branch hygiene improves.
+
+### Phase 2: Lighter-touch integration
+
+The lead merges the contribution with minor adjustments rather than selective file-by-file rework. The contributor's code structure is preserved; the lead cleans up edges.
+
+**When appropriate:** Contributor has had at least one round of detailed review feedback. Current contribution follows established patterns. Issues are minor and localized. No security or architectural concerns.
+
+### Phase 3: Direct merge with review
+
+Standard pull request workflow. The contributor submits a PR, it gets peer review and lead review, and it merges directly (squash merge) to `main`.
+
+**When appropriate:** Contributor consistently meets the quality bar across multiple contributions. Peer reviews consistently catch remaining issues. The lead's review adds no changes — just approval.
+
+### Adjusting in both directions
+
+The phases are not permanent promotions. If a contribution introduces a security gap or architectural regression, the intensity goes back up. Track the adjustment count per PR as the objective measure. When it consistently approaches zero, the team is ready for more autonomy.
+
+**Upgrade signal:** Fewer than half the issues of the previous round, and those issues are cosmetic rather than structural.
+
+**Downgrade signal:** A contribution introduces a security gap, architectural regression, or the contributor starts bundling unrelated changes again.
+
+---
+
+## Convention review checklist
+
+Contributors using AI coding tools produce code that is functionally correct but drifts from project-specific conventions. AI tools follow general best practices but lose project-specific conventions (brand terminology, messaging rules, CSS framework patterns, role-based access conventions) when the context window gets long.
+
+The fix is systematic, not behavioral. Make convention verification a formal step in the review process:
+
+### Standard items (every project)
+
+1. **Correctness** — edge cases, race conditions, error paths
+2. **Existing pattern adherence** — matches codebase conventions for component structure, API usage, error handling
+3. **Test coverage** — new backend logic has tests; existing tests still pass
+4. **Security** — audit logging, auth handling, input validation
+
+### Project-specific items (define per project)
+
+These are the conventions that AI tools miss because they don't exist in training data. Examples:
+
+- Brand terminology compliance (if the project has a terminology system)
+- AI messaging rules (if the project governs how AI capabilities are described to users)
+- CSS/UI framework conventions (if the project has a style guide or design system)
+- Role-based access patterns (if the project has visibility/permission rules)
+
+Add this checklist to the project's CLAUDE.md or contributor guide. Make it a formal gate in integration review, not an optional pass. The standard items are universal. The project-specific items are where convention drift actually happens.
+
+---
+
+## Staging branch management
+
+When the project uses a staging branch (`develop`) that auto-deploys to a staging environment, the staging branch is a **convergence point**, not a downstream mirror of `main`.
+
+Two independent streams converge on the staging branch:
+1. The lead synthesist's curated work from `main` (squash-merged from integration branches)
+2. Contributors' in-progress work (pushed to `develop` for staging validation)
+
+**Never force-push `main` to the staging branch.** This destroys contributors' unintegrated work. Instead, merge `main` into the staging branch:
+
+```bash
+git fetch origin
+git checkout -b temp-staging origin/develop
+git merge main
+git push origin temp-staging:develop
+git checkout main
+git branch -d temp-staging
+```
+
+Check for divergence before every push to the staging branch. If it has commits that aren't on `main`, merge rather than overwrite.
 
 ---
 
