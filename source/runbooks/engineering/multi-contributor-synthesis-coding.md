@@ -171,6 +171,36 @@ Co-authored-by: Lead Name <lead@example.com>"
 
 Attribution is not decoration. Developers use contribution graphs for career advancement. A workflow that funnels all commits through the lead's name effectively erases contributors from the project's visible history, which undermines the trust that the integration process depends on.
 
+#### Fallback: selective file checkout for divergent branch histories
+
+When a contributor's branch has a complex commit history (multiple renames, moves, reorganizations across intermediate commits), cherry-picking the tip commit may fail with rename/delete conflicts — even if the final result is simple (e.g., two new files).
+
+Standard approaches and why they fail:
+- `git cherry-pick` — carries forward conflict artifacts from intermediate commits
+- `git merge --squash` — same problem, full history conflicts surface
+- `git cherry-pick --no-commit` each commit individually — tedious for branches with many intermediate commits
+
+When the desired change is a known set of **new** files, skip the merge machinery entirely:
+
+```bash
+# 1. Identify what files actually changed (final state vs main)
+git diff --name-only main...contributor/branch
+
+# 2. Checkout only those specific files from the contributor's branch
+git checkout contributor/branch -- path/to/new/file1 path/to/new/file2
+
+# 3. Commit with attribution
+git commit -m "integrate PR #N: description
+
+Co-authored-by: Contributor Name <contributor@example.com>"
+```
+
+**When to use:** Docs-only PRs with messy branch history, configuration file additions (new YAML, new config), any PR where `git diff --name-only` shows a small obvious set of new files.
+
+**When NOT to use:** Changes that modify existing files (you'd overwrite main's version), changes where semantic conflicts with other integrated PRs are possible, changes that need validation against the current integration state.
+
+**Team communication:** Contributor branch hygiene affects integration efficiency. Branches with many intermediate reorganization commits create integration friction even when the final diff is trivial. This is worth raising in team retrospectives — not as blame, but as a shared understanding that squash-ready branches are easier to integrate.
+
 ### Step 4: Communicate
 
 - Share the integration review with the contributor
@@ -393,7 +423,30 @@ git checkout main
 git branch -d temp-staging
 ```
 
-Check for divergence before every push to the staging branch. If it has commits that aren't on `main`, merge rather than overwrite.
+### Pre-deploy divergence check
+
+Before every push to the staging branch, check whether it has diverged:
+
+```bash
+# Check if develop has commits that main doesn't
+git fetch origin
+git log main..origin/develop --oneline
+```
+
+If the log shows commits, the staging branch has diverged — it contains work that hasn't been integrated into main yet (e.g., a contributor pushed a feature branch directly to develop for staging validation).
+
+In this case, **merge main into develop** rather than overwriting:
+
+```bash
+git checkout -b staging-deploy origin/develop
+git merge main --no-edit
+git push origin staging-deploy:develop
+git checkout main && git branch -d staging-deploy
+```
+
+A direct push (`git push origin main:develop`) will be rejected with a non-fast-forward error. Force pushing would destroy the unintegrated work on staging. The merge preserves both streams.
+
+If the log shows no commits, the branches haven't diverged and a direct push is safe.
 
 ---
 
