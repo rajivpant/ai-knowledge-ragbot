@@ -50,3 +50,7 @@ ai-knowledge-ragbot/
 ├── compiled/             # Auto-generated output
 └── projects/             # Project documentation
 ```
+
+## Skills
+
+Runbooks in this repo are being migrated to Agent Skills format. Public skills are at github.com/rajivpant/synthesis-skills. The runbooks remain as source material.
