@@ -7,6 +7,6 @@
 npx skills add rajivpant/synthesis-skills --global --all --copy
 ```
 
-**This skill's new home:** https://github.com/rajivpant/synthesis-skills/tree/main/message-condensation
+**This skill's new home:** https://github.com/rajivpant/synthesis-skills/tree/main/synthesis-concise-messaging
 
 **The Agent Skills open standard:** https://agentskills.io

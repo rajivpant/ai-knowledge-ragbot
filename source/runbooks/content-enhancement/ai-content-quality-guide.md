@@ -7,6 +7,6 @@
 npx skills add rajivpant/synthesis-skills --global --all --copy
 ```
 
-**This skill's new home:** https://github.com/rajivpant/synthesis-skills/tree/main/ai-content-quality
+**This skill's new home:** https://github.com/rajivpant/synthesis-skills/tree/main/synthesis-content-quality
 
 **The Agent Skills open standard:** https://agentskills.io

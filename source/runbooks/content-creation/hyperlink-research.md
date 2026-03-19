@@ -7,6 +7,6 @@
 npx skills add rajivpant/synthesis-skills --global --all --copy
 ```
 
-**This skill's new home:** https://github.com/rajivpant/synthesis-skills/tree/main/hyperlink-research
+**This skill's new home:** https://github.com/rajivpant/synthesis-skills/tree/main/synthesis-link-research
 
 **The Agent Skills open standard:** https://agentskills.io
