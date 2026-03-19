@@ -1,13 +1,10 @@
 # Communication Runbooks
 
-Frameworks and templates for professional communication.
+**These runbooks have been converted to Agent Skills.**
 
-## Available Runbooks
+Browse all available skills: https://github.com/rajivpant/synthesis-skills
 
-| Runbook | Purpose |
-|---------|---------|
-| [message-condensation.md](message-condensation.md) | 5-sentence framework for concise messages |
-
-## Customization
-
-These runbooks provide structure. For ready-to-use output without placeholders, add a voice profile in your personal ai-knowledge repo that includes your specific communication preferences.
+**Install all Synthesis Skills:**
+```
+npx skills add rajivpant/synthesis-skills --global --all --copy
+```

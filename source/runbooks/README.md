@@ -1,14 +1,10 @@
-# Runbooks (HOW)
+# Runbooks
 
-Procedures and workflows for AI-assisted development.
+**These runbooks have been converted to Agent Skills.**
 
-## Categories
+Browse all available skills: https://github.com/rajivpant/synthesis-skills
 
-| Category | Purpose |
-|----------|---------|
-| [project-management/](project-management/) | Project tracking, context lifecycle, and synthesis PM |
-| [system-config/](system-config/) | AI behavior configuration |
-| [communication/](communication/) | Message writing frameworks |
-| [content-creation/](content-creation/) | Content promotion and creation |
-| [content-enhancement/](content-enhancement/) | Improving existing content |
-| [engineering/](engineering/) | Software engineering practices |
+**Install all Synthesis Skills:**
+```
+npx skills add rajivpant/synthesis-skills --global --all --copy
+```
