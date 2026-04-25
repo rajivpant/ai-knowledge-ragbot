@@ -37,7 +37,7 @@ Content here is inherited by ALL downstream repos, so it must be:
 - Content included depends solely on the output repo's position in the inheritance tree
 - Same output regardless of who runs the compiler
 
-See [ragbot/docs/compilation-guide.md](https://github.com/rajivpant/ragbot/blob/main/docs/compilation-guide.md) for full documentation.
+See [ragbot/docs/compilation-guide.md](https://github.com/synthesisengineering/ragbot/blob/main/docs/compilation-guide.md) for full documentation.
 
 ## Structure
 
@@ -53,4 +53,4 @@ ai-knowledge-ragbot/
 
 ## Skills
 
-Runbooks in this repo are being migrated to Agent Skills format. Public skills are at github.com/rajivpant/synthesis-skills. The runbooks remain as source material.
+Runbooks in this repo are being migrated to Agent Skills format. Public skills are at github.com/synthesisengineering/synthesis-skills. The runbooks remain as source material.

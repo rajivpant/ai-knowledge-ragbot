@@ -1,6 +1,6 @@
 # ai-knowledge-ragbot
 
-Open-source AI knowledge base for the [Ragbot](https://github.com/rajivpant/ragbot) project.
+Open-source AI knowledge base for the [Ragbot](https://github.com/synthesisengineering/ragbot) project.
 
 This repository contains reusable runbooks, templates, and guides that ship with Ragbot. It follows the AI Knowledge framework structure, making it compatible with the AI Knowledge Compiler and inheritable by personal ai-knowledge repos.
 
@@ -101,7 +101,7 @@ This gives you access to all public runbooks and templates, which you can extend
 
 Anyone with write access to a repo can compile into it. The content included depends solely on the output repo's position in the inheritance tree.
 
-See [ragbot/docs/compilation-guide.md](https://github.com/rajivpant/ragbot/blob/main/docs/compilation-guide.md) for full documentation.
+See [ragbot/docs/compilation-guide.md](https://github.com/synthesisengineering/ragbot/blob/main/docs/compilation-guide.md) for full documentation.
 
 ### Customization
 
@@ -119,8 +119,8 @@ This repository uses the AI Knowledge framework, part of [synthesis coding](http
 
 | Repository | Purpose |
 |------------|---------|
-| [ragbot](https://github.com/rajivpant/ragbot) | Ragbot application code |
-| [ragbot-site](https://github.com/rajivpant/ragbot-site) | Ragbot website (ragbot.ai) |
+| [ragbot](https://github.com/synthesisengineering/ragbot) | Ragbot application code |
+| [ragbot-site](https://github.com/synthesisengineering/ragbot-site) | Ragbot website (ragbot.ai) |
 
 ## Contributing
 
@@ -132,4 +132,4 @@ Contributions welcome! When adding content:
 
 ## License
 
-MIT License - See [ragbot LICENSE](https://github.com/rajivpant/ragbot/blob/main/LICENSE.md)
+MIT License - See [ragbot LICENSE](https://github.com/synthesisengineering/ragbot/blob/main/LICENSE.md)
