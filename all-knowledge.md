@@ -2,7 +2,7 @@
 
 > Repository: ai-knowledge-ragbot
 > Description: Open-source runbooks, templates, and best practices for AI-assisted knowledge work
-> Generated: 2026-03-19T03:03:33Z
+> Generated: 2026-04-25T17:21:54Z
 > Files: 22
 
 ---
@@ -259,10 +259,10 @@ This file contains your professional background, skills, and experience. It help
 
 **Install all Synthesis Skills:**
 ```
-npx skills add rajivpant/synthesis-skills --global --all --copy
+npx skills add synthesisengineering/synthesis-skills --global --all --copy
 ```
 
-**This skill's new home:** https://github.com/rajivpant/synthesis-skills/tree/main/synthesis-concise-messaging
+**This skill's new home:** https://github.com/synthesisengineering/synthesis-skills/tree/main/synthesis-concise-messaging
 
 **The Agent Skills open standard:** https://agentskills.io
 
@@ -276,10 +276,10 @@ npx skills add rajivpant/synthesis-skills --global --all --copy
 
 **Install all Synthesis Skills:**
 ```
-npx skills add rajivpant/synthesis-skills --global --all --copy
+npx skills add synthesisengineering/synthesis-skills --global --all --copy
 ```
 
-**This skill's new home:** https://github.com/rajivpant/synthesis-skills/tree/main/synthesis-content-distribution
+**This skill's new home:** https://github.com/synthesisengineering/synthesis-skills/tree/main/synthesis-content-distribution
 
 **The Agent Skills open standard:** https://agentskills.io
 
@@ -293,10 +293,10 @@ npx skills add rajivpant/synthesis-skills --global --all --copy
 
 **Install all Synthesis Skills:**
 ```
-npx skills add rajivpant/synthesis-skills --global --all --copy
+npx skills add synthesisengineering/synthesis-skills --global --all --copy
 ```
 
-**This skill's new home:** https://github.com/rajivpant/synthesis-skills/tree/main/synthesis-content-distribution
+**This skill's new home:** https://github.com/synthesisengineering/synthesis-skills/tree/main/synthesis-content-distribution
 
 **The Agent Skills open standard:** https://agentskills.io
 
@@ -310,10 +310,10 @@ npx skills add rajivpant/synthesis-skills --global --all --copy
 
 **Install all Synthesis Skills:**
 ```
-npx skills add rajivpant/synthesis-skills --global --all --copy
+npx skills add synthesisengineering/synthesis-skills --global --all --copy
 ```
 
-**This skill's new home:** https://github.com/rajivpant/synthesis-skills/tree/main/synthesis-link-research
+**This skill's new home:** https://github.com/synthesisengineering/synthesis-skills/tree/main/synthesis-link-research
 
 **The Agent Skills open standard:** https://agentskills.io
 
@@ -327,10 +327,10 @@ npx skills add rajivpant/synthesis-skills --global --all --copy
 
 **Install all Synthesis Skills:**
 ```
-npx skills add rajivpant/synthesis-skills --global --all --copy
+npx skills add synthesisengineering/synthesis-skills --global --all --copy
 ```
 
-**This skill's new home:** https://github.com/rajivpant/synthesis-skills/tree/main/synthesis-content-distribution
+**This skill's new home:** https://github.com/synthesisengineering/synthesis-skills/tree/main/synthesis-content-distribution
 
 **The Agent Skills open standard:** https://agentskills.io
 
@@ -344,10 +344,10 @@ npx skills add rajivpant/synthesis-skills --global --all --copy
 
 **Install all Synthesis Skills:**
 ```
-npx skills add rajivpant/synthesis-skills --global --all --copy
+npx skills add synthesisengineering/synthesis-skills --global --all --copy
 ```
 
-**This skill's new home:** https://github.com/rajivpant/synthesis-skills/tree/main/synthesis-article-writing
+**This skill's new home:** https://github.com/synthesisengineering/synthesis-skills/tree/main/synthesis-article-writing
 
 **The Agent Skills open standard:** https://agentskills.io
 
@@ -361,10 +361,10 @@ npx skills add rajivpant/synthesis-skills --global --all --copy
 
 **Install all Synthesis Skills:**
 ```
-npx skills add rajivpant/synthesis-skills --global --all --copy
+npx skills add synthesisengineering/synthesis-skills --global --all --copy
 ```
 
-**This skill's new home:** https://github.com/rajivpant/synthesis-skills/tree/main/synthesis-content-quality
+**This skill's new home:** https://github.com/synthesisengineering/synthesis-skills/tree/main/synthesis-content-quality
 
 **The Agent Skills open standard:** https://agentskills.io
 
@@ -378,10 +378,10 @@ npx skills add rajivpant/synthesis-skills --global --all --copy
 
 **Install all Synthesis Skills:**
 ```
-npx skills add rajivpant/synthesis-skills --global --all --copy
+npx skills add synthesisengineering/synthesis-skills --global --all --copy
 ```
 
-**This skill's new home:** https://github.com/rajivpant/synthesis-skills/tree/main/synthesis-blog-refresh
+**This skill's new home:** https://github.com/synthesisengineering/synthesis-skills/tree/main/synthesis-blog-refresh
 
 **The Agent Skills open standard:** https://agentskills.io
 
@@ -395,10 +395,10 @@ npx skills add rajivpant/synthesis-skills --global --all --copy
 
 **Install all Synthesis Skills:**
 ```
-npx skills add rajivpant/synthesis-skills --global --all --copy
+npx skills add synthesisengineering/synthesis-skills --global --all --copy
 ```
 
-**This skill's new home:** https://github.com/rajivpant/synthesis-skills/tree/main/synthesis-blog-refresh
+**This skill's new home:** https://github.com/synthesisengineering/synthesis-skills/tree/main/synthesis-blog-refresh
 
 **The Agent Skills open standard:** https://agentskills.io
 
@@ -412,10 +412,10 @@ npx skills add rajivpant/synthesis-skills --global --all --copy
 
 **Install all Synthesis Skills:**
 ```
-npx skills add rajivpant/synthesis-skills --global --all --copy
+npx skills add synthesisengineering/synthesis-skills --global --all --copy
 ```
 
-**This skill's new home:** https://github.com/rajivpant/synthesis-skills/tree/main/synthesis-fact-checking
+**This skill's new home:** https://github.com/synthesisengineering/synthesis-skills/tree/main/synthesis-fact-checking
 
 **The Agent Skills open standard:** https://agentskills.io
 
@@ -429,10 +429,10 @@ npx skills add rajivpant/synthesis-skills --global --all --copy
 
 **Install all Synthesis Skills:**
 ```
-npx skills add rajivpant/synthesis-skills --global --all --copy
+npx skills add synthesisengineering/synthesis-skills --global --all --copy
 ```
 
-**This skill's new home:** https://github.com/rajivpant/synthesis-skills/tree/main/synthesis-codebase-review
+**This skill's new home:** https://github.com/synthesisengineering/synthesis-skills/tree/main/synthesis-codebase-review
 
 **The Agent Skills open standard:** https://agentskills.io
 
@@ -446,10 +446,10 @@ npx skills add rajivpant/synthesis-skills --global --all --copy
 
 **Install all Synthesis Skills:**
 ```
-npx skills add rajivpant/synthesis-skills --global --all --copy
+npx skills add synthesisengineering/synthesis-skills --global --all --copy
 ```
 
-**This skill's new home:** https://github.com/rajivpant/synthesis-skills/tree/main/synthesis-code-integration
+**This skill's new home:** https://github.com/synthesisengineering/synthesis-skills/tree/main/synthesis-code-integration
 
 **The Agent Skills open standard:** https://agentskills.io
 
@@ -463,10 +463,10 @@ npx skills add rajivpant/synthesis-skills --global --all --copy
 
 **Install all Synthesis Skills:**
 ```
-npx skills add rajivpant/synthesis-skills --global --all --copy
+npx skills add synthesisengineering/synthesis-skills --global --all --copy
 ```
 
-**This skill's new home:** https://github.com/rajivpant/synthesis-skills/tree/main/synthesis-pr-review
+**This skill's new home:** https://github.com/synthesisengineering/synthesis-skills/tree/main/synthesis-pr-review
 
 **The Agent Skills open standard:** https://agentskills.io
 
@@ -480,10 +480,10 @@ npx skills add rajivpant/synthesis-skills --global --all --copy
 
 **Install all Synthesis Skills:**
 ```
-npx skills add rajivpant/synthesis-skills --global --all --copy
+npx skills add synthesisengineering/synthesis-skills --global --all --copy
 ```
 
-**This skill's new home:** https://github.com/rajivpant/synthesis-skills/tree/main/synthesis-context-lifecycle
+**This skill's new home:** https://github.com/synthesisengineering/synthesis-skills/tree/main/synthesis-context-lifecycle
 
 **The Agent Skills open standard:** https://agentskills.io
 
@@ -497,10 +497,10 @@ npx skills add rajivpant/synthesis-skills --global --all --copy
 
 **Install all Synthesis Skills:**
 ```
-npx skills add rajivpant/synthesis-skills --global --all --copy
+npx skills add synthesisengineering/synthesis-skills --global --all --copy
 ```
 
-**This skill's new home:** https://github.com/rajivpant/synthesis-skills/tree/main/synthesis-project-management
+**This skill's new home:** https://github.com/synthesisengineering/synthesis-skills/tree/main/synthesis-project-management
 
 **The Agent Skills open standard:** https://agentskills.io
 
@@ -514,10 +514,10 @@ npx skills add rajivpant/synthesis-skills --global --all --copy
 
 **Install all Synthesis Skills:**
 ```
-npx skills add rajivpant/synthesis-skills --global --all --copy
+npx skills add synthesisengineering/synthesis-skills --global --all --copy
 ```
 
-**This skill's new home:** https://github.com/rajivpant/synthesis-skills/tree/main/synthesis-clean-text
+**This skill's new home:** https://github.com/synthesisengineering/synthesis-skills/tree/main/synthesis-clean-text
 
 **The Agent Skills open standard:** https://agentskills.io
 
@@ -531,10 +531,10 @@ npx skills add rajivpant/synthesis-skills --global --all --copy
 
 **Install all Synthesis Skills:**
 ```
-npx skills add rajivpant/synthesis-skills --global --all --copy
+npx skills add synthesisengineering/synthesis-skills --global --all --copy
 ```
 
-**This skill's new home:** https://github.com/rajivpant/synthesis-skills/tree/main/synthesis-code-planning
+**This skill's new home:** https://github.com/synthesisengineering/synthesis-skills/tree/main/synthesis-code-planning
 
 **The Agent Skills open standard:** https://agentskills.io
 
@@ -548,10 +548,10 @@ npx skills add rajivpant/synthesis-skills --global --all --copy
 
 **Install all Synthesis Skills:**
 ```
-npx skills add rajivpant/synthesis-skills --global --all --copy
+npx skills add synthesisengineering/synthesis-skills --global --all --copy
 ```
 
-**This skill's new home:** https://github.com/rajivpant/synthesis-skills/tree/main/synthesis-llm-setup
+**This skill's new home:** https://github.com/synthesisengineering/synthesis-skills/tree/main/synthesis-llm-setup
 
 **The Agent Skills open standard:** https://agentskills.io
 
@@ -565,9 +565,9 @@ npx skills add rajivpant/synthesis-skills --global --all --copy
 
 **Install all Synthesis Skills:**
 ```
-npx skills add rajivpant/synthesis-skills --global --all --copy
+npx skills add synthesisengineering/synthesis-skills --global --all --copy
 ```
 
-**This skill's new home:** https://github.com/rajivpant/synthesis-skills/tree/main/synthesis-response-merger
+**This skill's new home:** https://github.com/synthesisengineering/synthesis-skills/tree/main/synthesis-response-merger
 
 **The Agent Skills open standard:** https://agentskills.io
