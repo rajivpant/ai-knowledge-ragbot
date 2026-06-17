@@ -2,12 +2,34 @@
 
 > Repository: ai-knowledge-ragbot
 > Description: Open-source runbooks, templates, and best practices for AI-assisted knowledge work
-> Generated: 2026-04-25T17:21:54Z
-> Files: 22
+> Generated: 2026-06-17T19:40:49Z
+> Files: 32
+
+---
+
+## datasets/index.md
+
+Knowledge and facts about Ragbot - architecture, features, roadmap.
+
+# Subdirectories
+
+* [templates](templates/index.md) - Starter templates for personal datasets. Copy and fill in with your own information.
 
 ---
 
 ## datasets/templates/about-me.md
+
+---
+type: Dataset
+title: About Me
+description: Starter template for capturing who you are, so Ragbot can personalize
+  its responses.
+tags:
+- dataset
+- template
+- personalization
+timestamp: '2025-12-14T20:33:21-05:00'
+---
 
 # About Me
 
@@ -68,7 +90,30 @@ Replace this content with your own information. This file helps Ragbot understan
 
 ---
 
+## datasets/templates/index.md
+
+Starter templates for personal datasets. Copy and fill in with your own information.
+
+# Dataset
+
+* [About Me](about-me.md) - Starter template for capturing who you are, so Ragbot can personalize its responses.
+* [My Preferences and Communication Style](preferences.md) - Starter template for recording your communication style and working preferences.
+* [Professional Profile](professional.md) - Starter template for your professional background, skills, and experience.
+
+---
+
 ## datasets/templates/preferences.md
+
+---
+type: Dataset
+title: My Preferences and Communication Style
+description: Starter template for recording your communication style and working preferences.
+tags:
+- dataset
+- template
+- preferences
+timestamp: '2025-12-14T20:33:21-05:00'
+---
 
 # My Preferences and Communication Style
 
@@ -161,6 +206,17 @@ This file helps Ragbot understand how you like to communicate and what you prefe
 
 ## datasets/templates/professional.md
 
+---
+type: Dataset
+title: Professional Profile
+description: Starter template for your professional background, skills, and experience.
+tags:
+- dataset
+- template
+- professional
+timestamp: '2025-12-14T20:33:21-05:00'
+---
+
 # Professional Profile
 
 This file contains your professional background, skills, and experience. It helps Ragbot provide more relevant career and work-related assistance.
@@ -251,7 +307,44 @@ This file contains your professional background, skills, and experience. It help
 
 ---
 
+## index.md
+
+---
+okf_version: "0.1"
+---
+
+# Subdirectories
+
+* [contexts](contexts/index.md) - Context definitions for Ragbot compilation.
+* [datasets](datasets/index.md) - Knowledge and facts about Ragbot - architecture, features, roadmap.
+* [instructions](instructions/index.md) - Identity and persona definitions for Ragbot project context.
+* [runbooks](runbooks/index.md) - Browse all available skills: https://github.com/synthesisengineering/synthesis-skills
+
+---
+
+## runbooks/communication/index.md
+
+Browse all available skills: https://github.com/synthesisengineering/synthesis-skills
+
+# Runbook
+
+* [High-Five Habit Framework for Message Condensation](message-condensation.md) - Condense any message to five sentences or fewer using the High-Five Habit framework.
+
+---
+
 ## runbooks/communication/message-condensation.md
+
+---
+type: Runbook
+title: High-Five Habit Framework for Message Condensation
+description: Condense any message to five sentences or fewer using the High-Five Habit
+  framework.
+tags:
+- communication
+- messaging
+- concision
+timestamp: '2026-04-25T13:20:31-04:00'
+---
 
 # High-Five Habit Framework for Message Condensation
 
@@ -270,6 +363,18 @@ npx skills add synthesisengineering/synthesis-skills --global --all --copy
 
 ## runbooks/content-creation/blog-promotion.md
 
+---
+type: Runbook
+title: Blog Promotion
+description: Promote a published blog post across social platforms to build readership
+  and discussion.
+tags:
+- content
+- social-media
+- promotion
+timestamp: '2026-04-25T13:20:31-04:00'
+---
+
 # Blog Promotion
 
 **This runbook has been merged into the synthesis-content-distribution Agent Skill.**
@@ -286,6 +391,18 @@ npx skills add synthesisengineering/synthesis-skills --global --all --copy
 ---
 
 ## runbooks/content-creation/content-promotion-framework.md
+
+---
+type: Runbook
+title: Content Promotion on Social Media Framework
+description: Framework for promoting content on social media to build thought leadership
+  and connection.
+tags:
+- content
+- social-media
+- thought-leadership
+timestamp: '2026-04-25T13:20:31-04:00'
+---
 
 # Content Promotion on Social Media Framework
 
@@ -304,6 +421,18 @@ npx skills add synthesisengineering/synthesis-skills --global --all --copy
 
 ## runbooks/content-creation/hyperlink-research.md
 
+---
+type: Runbook
+title: Universal Hyperlink Research Template
+description: Find authoritative hyperlinks for the people, organizations, and entities
+  named in a piece.
+tags:
+- content
+- research
+- links
+timestamp: '2026-04-25T13:20:31-04:00'
+---
+
 # Universal Hyperlink Research Template
 
 **This runbook has been converted to an Agent Skill.**
@@ -319,7 +448,31 @@ npx skills add synthesisengineering/synthesis-skills --global --all --copy
 
 ---
 
+## runbooks/content-creation/index.md
+
+Browse all available skills: https://github.com/synthesisengineering/synthesis-skills
+
+# Runbook
+
+* [Blog Promotion](blog-promotion.md) - Promote a published blog post across social platforms to build readership and discussion.
+* [Content Promotion on Social Media Framework](content-promotion-framework.md) - Framework for promoting content on social media to build thought leadership and connection.
+* [Social Media Post](social-media-post.md) - Draft an effective standalone social media post.
+* [Thought Leadership Article Workflow](thought-leadership-article-workflow.md) - Three-phase workflow for researching, writing, and reviewing a thought-leadership article.
+* [Universal Hyperlink Research Template](hyperlink-research.md) - Find authoritative hyperlinks for the people, organizations, and entities named in a piece.
+
+---
+
 ## runbooks/content-creation/social-media-post.md
+
+---
+type: Runbook
+title: Social Media Post
+description: Draft an effective standalone social media post.
+tags:
+- content
+- social-media
+timestamp: '2026-04-25T13:20:31-04:00'
+---
 
 # Social Media Post
 
@@ -338,6 +491,18 @@ npx skills add synthesisengineering/synthesis-skills --global --all --copy
 
 ## runbooks/content-creation/thought-leadership-article-workflow.md
 
+---
+type: Runbook
+title: Thought Leadership Article Workflow
+description: Three-phase workflow for researching, writing, and reviewing a thought-leadership
+  article.
+tags:
+- content
+- writing
+- thought-leadership
+timestamp: '2026-04-25T13:20:31-04:00'
+---
+
 # Thought Leadership Article Workflow
 
 **This runbook has been converted to an Agent Skill.**
@@ -354,6 +519,18 @@ npx skills add synthesisengineering/synthesis-skills --global --all --copy
 ---
 
 ## runbooks/content-enhancement/ai-content-quality-guide.md
+
+---
+type: Runbook
+title: Guide to Identifying and Improving AI-Assisted Content
+description: Identify and improve AI-assisted content by detecting generation patterns
+  and thin substance.
+tags:
+- content
+- quality
+- ai-detection
+timestamp: '2026-04-25T13:20:31-04:00'
+---
 
 # Guide to Identifying and Improving AI-Assisted Content
 
@@ -372,6 +549,18 @@ npx skills add synthesisengineering/synthesis-skills --global --all --copy
 
 ## runbooks/content-enhancement/blog-revitalization-framework.md
 
+---
+type: Runbook
+title: Advanced Blog Post Revitalization Framework
+description: Framework for revitalizing older blog posts while preserving the author's
+  voice and argument.
+tags:
+- content
+- editing
+- archive
+timestamp: '2026-04-25T13:20:31-04:00'
+---
+
 # Advanced Blog Post Revitalization Framework
 
 **This runbook has been converted to an Agent Skill.**
@@ -388,6 +577,17 @@ npx skills add synthesisengineering/synthesis-skills --global --all --copy
 ---
 
 ## runbooks/content-enhancement/blog-revitalization-prompt.md
+
+---
+type: Runbook
+title: Historical Blog Post Revitalization Prompt
+description: Ready-to-use prompt for revitalizing a historical blog post.
+tags:
+- content
+- editing
+- prompt
+timestamp: '2026-04-25T13:20:31-04:00'
+---
 
 # Historical Blog Post Revitalization Prompt
 
@@ -406,6 +606,17 @@ npx skills add synthesisengineering/synthesis-skills --global --all --copy
 
 ## runbooks/content-enhancement/fact-check-runbook.md
 
+---
+type: Runbook
+title: Fact-Check Runbook for Blog Post Writing
+description: Systematic fact-checking workflow for articles and blog posts.
+tags:
+- content
+- fact-checking
+- accuracy
+timestamp: '2026-04-25T13:20:31-04:00'
+---
+
 # Fact-Check Runbook for Blog Post Writing
 
 **This runbook has been converted to an Agent Skill.**
@@ -421,7 +632,32 @@ npx skills add synthesisengineering/synthesis-skills --global --all --copy
 
 ---
 
+## runbooks/content-enhancement/index.md
+
+Browse all available skills: https://github.com/synthesisengineering/synthesis-skills
+
+# Runbook
+
+* [Advanced Blog Post Revitalization Framework](blog-revitalization-framework.md) - Framework for revitalizing older blog posts while preserving the author's voice and argument.
+* [Fact-Check Runbook for Blog Post Writing](fact-check-runbook.md) - Systematic fact-checking workflow for articles and blog posts.
+* [Guide to Identifying and Improving AI-Assisted Content](ai-content-quality-guide.md) - Identify and improve AI-assisted content by detecting generation patterns and thin substance.
+* [Historical Blog Post Revitalization Prompt](blog-revitalization-prompt.md) - Ready-to-use prompt for revitalizing a historical blog post.
+
+---
+
 ## runbooks/engineering/codebase-review.md
+
+---
+type: Runbook
+title: Enterprise-Grade Codebase Review Runbook
+description: Enterprise-grade methodology for auditing a codebase across quality and
+  security dimensions.
+tags:
+- engineering
+- code-review
+- audit
+timestamp: '2026-04-25T13:20:31-04:00'
+---
 
 # Enterprise-Grade Codebase Review Runbook
 
@@ -438,7 +674,31 @@ npx skills add synthesisengineering/synthesis-skills --global --all --copy
 
 ---
 
+## runbooks/engineering/index.md
+
+Browse all available skills: https://github.com/synthesisengineering/synthesis-skills
+
+# Runbook
+
+* [Enterprise-Grade Codebase Review Runbook](codebase-review.md) - Enterprise-grade methodology for auditing a codebase across quality and security dimensions.
+* [Multi-Contributor Synthesis Coding](multi-contributor-synthesis-coding.md) - The adopt-and-adapt pattern for integrating multiple contributors' work in synthesis coding.
+* [Synthesis PR Review](pr-review.md) - Delta-review methodology for pull requests in synthesis-coded projects.
+
+---
+
 ## runbooks/engineering/multi-contributor-synthesis-coding.md
+
+---
+type: Runbook
+title: Multi-Contributor Synthesis Coding
+description: The adopt-and-adapt pattern for integrating multiple contributors' work
+  in synthesis coding.
+tags:
+- engineering
+- synthesis-coding
+- integration
+timestamp: '2026-04-25T13:20:31-04:00'
+---
 
 # Multi-Contributor Synthesis Coding
 
@@ -457,6 +717,17 @@ npx skills add synthesisengineering/synthesis-skills --global --all --copy
 
 ## runbooks/engineering/pr-review.md
 
+---
+type: Runbook
+title: Synthesis PR Review
+description: Delta-review methodology for pull requests in synthesis-coded projects.
+tags:
+- engineering
+- pr-review
+- code-review
+timestamp: '2026-04-25T13:20:31-04:00'
+---
+
 # Synthesis PR Review
 
 **This runbook has been converted to an Agent Skill.**
@@ -472,7 +743,34 @@ npx skills add synthesisengineering/synthesis-skills --global --all --copy
 
 ---
 
+## runbooks/index.md
+
+Browse all available skills: https://github.com/synthesisengineering/synthesis-skills
+
+# Subdirectories
+
+* [communication](communication/index.md) - Browse all available skills: https://github.com/synthesisengineering/synthesis-skills
+* [content-creation](content-creation/index.md) - Browse all available skills: https://github.com/synthesisengineering/synthesis-skills
+* [content-enhancement](content-enhancement/index.md) - Browse all available skills: https://github.com/synthesisengineering/synthesis-skills
+* [engineering](engineering/index.md) - Browse all available skills: https://github.com/synthesisengineering/synthesis-skills
+* [project-management](project-management/index.md)
+* [system-config](system-config/index.md) - Browse all available skills: https://github.com/synthesisengineering/synthesis-skills
+
+---
+
 ## runbooks/project-management/context-lifecycle.md
+
+---
+type: Runbook
+title: Context Lifecycle Management
+description: Three-tier context architecture for managing AI working memory across
+  long-running projects.
+tags:
+- project-management
+- context
+- memory
+timestamp: '2026-04-25T13:20:31-04:00'
+---
 
 # Context Lifecycle Management
 
@@ -489,7 +787,28 @@ npx skills add synthesisengineering/synthesis-skills --global --all --copy
 
 ---
 
+## runbooks/project-management/index.md
+
+# Runbook
+
+* [Context Lifecycle Management](context-lifecycle.md) - Three-tier context architecture for managing AI working memory across long-running projects.
+* [Synthesis Project Management System](synthesis-project-management.md) - Lightweight project-management system optimized for human-agent collaboration and context preservation.
+
+---
+
 ## runbooks/project-management/synthesis-project-management.md
+
+---
+type: Runbook
+title: Synthesis Project Management System
+description: Lightweight project-management system optimized for human-agent collaboration
+  and context preservation.
+tags:
+- project-management
+- synthesis
+- collaboration
+timestamp: '2026-04-25T13:20:31-04:00'
+---
 
 # Synthesis Project Management System
 
@@ -508,6 +827,17 @@ npx skills add synthesisengineering/synthesis-skills --global --all --copy
 
 ## runbooks/system-config/anti-watermarking.md
 
+---
+type: Runbook
+title: Anti-Watermarking Instructions for AI Text Generation
+description: Produce text free of AI watermarking patterns and statistical fingerprints.
+tags:
+- system-config
+- text-generation
+- anti-watermarking
+timestamp: '2026-04-25T13:20:31-04:00'
+---
+
 # Anti-Watermarking Instructions for AI Text Generation
 
 **This runbook has been converted to an Agent Skill.**
@@ -525,6 +855,18 @@ npx skills add synthesisengineering/synthesis-skills --global --all --copy
 
 ## runbooks/system-config/code-generation.md
 
+---
+type: Runbook
+title: Code Generation
+description: 'Structured approach to code-generation tasks: analyze, weigh approaches,
+  implement the best one.'
+tags:
+- system-config
+- code-generation
+- engineering
+timestamp: '2026-04-25T13:20:31-04:00'
+---
+
 # Code Generation
 
 **This runbook has been converted to an Agent Skill.**
@@ -540,7 +882,32 @@ npx skills add synthesisengineering/synthesis-skills --global --all --copy
 
 ---
 
+## runbooks/system-config/index.md
+
+Browse all available skills: https://github.com/synthesisengineering/synthesis-skills
+
+# Runbook
+
+* [Anti-Watermarking Instructions for AI Text Generation](anti-watermarking.md) - Produce text free of AI watermarking patterns and statistical fingerprints.
+* [Code Generation](code-generation.md) - Structured approach to code-generation tasks: analyze, weigh approaches, implement the best one.
+* [LLM Project Setup Guide](llm-project-setup.md) - Configure an LLM project (Claude Project, ChatGPT GPT, Gemini Gem) with AI Knowledge content.
+* [Prompt to Combine Ragbot Responses](response-synthesis.md) - Prompt for combining multiple LLM responses into one unified answer.
+
+---
+
 ## runbooks/system-config/llm-project-setup.md
+
+---
+type: Runbook
+title: LLM Project Setup Guide
+description: Configure an LLM project (Claude Project, ChatGPT GPT, Gemini Gem) with
+  AI Knowledge content.
+tags:
+- system-config
+- llm-setup
+- configuration
+timestamp: '2026-04-25T13:20:31-04:00'
+---
 
 # LLM Project Setup Guide
 
@@ -558,6 +925,17 @@ npx skills add synthesisengineering/synthesis-skills --global --all --copy
 ---
 
 ## runbooks/system-config/response-synthesis.md
+
+---
+type: Runbook
+title: Prompt to Combine Ragbot Responses
+description: Prompt for combining multiple LLM responses into one unified answer.
+tags:
+- system-config
+- synthesis
+- prompt
+timestamp: '2026-04-25T13:20:31-04:00'
+---
 
 # Prompt to Combine Ragbot Responses
 
