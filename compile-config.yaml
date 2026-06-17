@@ -17,6 +17,9 @@ sources:
     exclude:
       - "**/.DS_Store"
       - "**/README.md"
+      # OKF navigation scaffolding (reserved filenames) — not knowledge content to compile
+      - "**/index.md"
+      - "**/log.md"
 
 compilation:
   default_token_budget: 100000

@@ -1,3 +1,15 @@
+---
+type: Runbook
+title: Content Promotion on Social Media Framework
+description: Framework for promoting content on social media to build thought leadership
+  and connection.
+tags:
+- content
+- social-media
+- thought-leadership
+timestamp: '2026-04-25T13:20:31-04:00'
+---
+
 # Content Promotion on Social Media Framework
 
 **This runbook has been converted to an Agent Skill.**

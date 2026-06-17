@@ -1,3 +1,15 @@
+---
+type: Runbook
+title: Blog Promotion
+description: Promote a published blog post across social platforms to build readership
+  and discussion.
+tags:
+- content
+- social-media
+- promotion
+timestamp: '2026-04-25T13:20:31-04:00'
+---
+
 # Blog Promotion
 
 **This runbook has been merged into the synthesis-content-distribution Agent Skill.**

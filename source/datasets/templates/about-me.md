@@ -1,3 +1,15 @@
+---
+type: Dataset
+title: About Me
+description: Starter template for capturing who you are, so Ragbot can personalize
+  its responses.
+tags:
+- dataset
+- template
+- personalization
+timestamp: '2025-12-14T20:33:21-05:00'
+---
+
 # About Me
 
 Replace this content with your own information. This file helps Ragbot understand who you are and provide more personalized responses.

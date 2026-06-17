@@ -1,3 +1,14 @@
+---
+type: Runbook
+title: Historical Blog Post Revitalization Prompt
+description: Ready-to-use prompt for revitalizing a historical blog post.
+tags:
+- content
+- editing
+- prompt
+timestamp: '2026-04-25T13:20:31-04:00'
+---
+
 # Historical Blog Post Revitalization Prompt
 
 **This runbook has been merged into the synthesis-blog-refresh Agent Skill.**

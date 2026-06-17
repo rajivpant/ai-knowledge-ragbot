@@ -1,3 +1,15 @@
+---
+type: Instruction
+title: Technical Advisor - Custom Instructions
+description: Configure Ragbot as a senior technical advisor for software development
+  and engineering.
+tags:
+- instructions
+- template
+- engineering
+timestamp: '2025-12-14T20:33:21-05:00'
+---
+
 # Technical Advisor - Custom Instructions
 
 Configure Ragbot to act as a technical advisor for software development and engineering tasks.

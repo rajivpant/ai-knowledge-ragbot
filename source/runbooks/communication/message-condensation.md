@@ -1,3 +1,15 @@
+---
+type: Runbook
+title: High-Five Habit Framework for Message Condensation
+description: Condense any message to five sentences or fewer using the High-Five Habit
+  framework.
+tags:
+- communication
+- messaging
+- concision
+timestamp: '2026-04-25T13:20:31-04:00'
+---
+
 # High-Five Habit Framework for Message Condensation
 
 **This runbook has been converted to an Agent Skill.**

@@ -1,3 +1,15 @@
+---
+type: Instruction
+title: Creative Writer - Custom Instructions
+description: Configure Ragbot as a creative-writing coach for content creation and
+  storytelling.
+tags:
+- instructions
+- template
+- creative-writing
+timestamp: '2025-12-14T20:33:21-05:00'
+---
+
 # Creative Writer - Custom Instructions
 
 Configure Ragbot to help with creative writing, content creation, and storytelling.

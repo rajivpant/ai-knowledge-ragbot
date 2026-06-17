@@ -1,3 +1,15 @@
+---
+type: Runbook
+title: Context Lifecycle Management
+description: Three-tier context architecture for managing AI working memory across
+  long-running projects.
+tags:
+- project-management
+- context
+- memory
+timestamp: '2026-04-25T13:20:31-04:00'
+---
+
 # Context Lifecycle Management
 
 **This runbook has been converted to an Agent Skill.**

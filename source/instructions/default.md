@@ -1,3 +1,15 @@
+---
+type: Instruction
+title: Ragbot - Shared Instructions
+description: Shared behavioral instructions for everyone collaborating on the Ragbot
+  open-source project.
+tags:
+- instructions
+- ragbot
+- collaboration
+timestamp: '2025-12-13T14:30:01-05:00'
+---
+
 # Ragbot - Shared Instructions
 
 These instructions apply to all collaborators working on the Ragbot open source project.

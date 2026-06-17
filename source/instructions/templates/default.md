@@ -1,3 +1,15 @@
+---
+type: Instruction
+title: Default Custom Instructions for Ragbot
+description: General-purpose custom instructions defining Ragbot's default behavior,
+  tone, and approach.
+tags:
+- instructions
+- template
+- general
+timestamp: '2025-12-14T20:33:21-05:00'
+---
+
 # Default Custom Instructions for Ragbot
 
 These are instructions that tell the AI how to behave when responding to you. Think of this as configuring the AI's personality and approach.

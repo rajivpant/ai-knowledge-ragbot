@@ -1,3 +1,15 @@
+---
+type: Runbook
+title: Synthesis Project Management System
+description: Lightweight project-management system optimized for human-agent collaboration
+  and context preservation.
+tags:
+- project-management
+- synthesis
+- collaboration
+timestamp: '2026-04-25T13:20:31-04:00'
+---
+
 # Synthesis Project Management System
 
 **This runbook has been converted to an Agent Skill.**

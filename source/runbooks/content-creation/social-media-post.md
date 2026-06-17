@@ -1,3 +1,13 @@
+---
+type: Runbook
+title: Social Media Post
+description: Draft an effective standalone social media post.
+tags:
+- content
+- social-media
+timestamp: '2026-04-25T13:20:31-04:00'
+---
+
 # Social Media Post
 
 **This runbook has been merged into the synthesis-content-distribution Agent Skill.**

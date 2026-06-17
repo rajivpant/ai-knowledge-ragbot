@@ -1,3 +1,14 @@
+---
+type: Dataset
+title: My Preferences and Communication Style
+description: Starter template for recording your communication style and working preferences.
+tags:
+- dataset
+- template
+- preferences
+timestamp: '2025-12-14T20:33:21-05:00'
+---
+
 # My Preferences and Communication Style
 
 This file helps Ragbot understand how you like to communicate and what you prefer. It's like teaching Ragbot your personal style guide.

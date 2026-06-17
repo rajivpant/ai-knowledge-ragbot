@@ -1,3 +1,14 @@
+---
+type: Dataset
+title: Professional Profile
+description: Starter template for your professional background, skills, and experience.
+tags:
+- dataset
+- template
+- professional
+timestamp: '2025-12-14T20:33:21-05:00'
+---
+
 # Professional Profile
 
 This file contains your professional background, skills, and experience. It helps Ragbot provide more relevant career and work-related assistance.
