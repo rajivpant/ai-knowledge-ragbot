@@ -1,4 +1,4 @@
-# Claude Code Context: ai-knowledge-ragbot
+# Repository Context: ai-knowledge-ragbot
 
 ## Repository: ai-knowledge-ragbot (PUBLIC)
 
@@ -10,7 +10,8 @@ This repository contains open-source templates and runbooks that can be inherite
 
 - **NEVER** include client, company, or personal workspace names
 - **ONLY** use generic placeholders: `personal`, `company`, `example-company`, `example-client`, `client-a`
-- The list of confidential names is in `~/.claude/CLAUDE.md` (private, not in any repo)
+- The list of confidential names is in the user-level `AGENTS.md` (private,
+  not in any repo)
 - When in doubt, ask the user before committing
 
 ## Repository Purpose
